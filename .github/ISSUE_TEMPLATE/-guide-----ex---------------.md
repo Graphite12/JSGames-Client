@@ -1,6 +1,6 @@
 ---
 name: "[Guide] 제목 ex) 커밋 메세지 작성 가이드"
-about: 커밋 메세지, 브랜치 가이드 작성
+about: 프로젝트의 기본 규칙과 레퍼런스 가이드작성
 title: ''
 labels: ''
 assignees: ''

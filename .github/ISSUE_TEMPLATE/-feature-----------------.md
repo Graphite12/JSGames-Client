@@ -1,6 +1,6 @@
 ---
 name: "[Feature/#이슈 번호] 기능 구현 제목"
-about: 프로젝트 중 구현 한 기능 작성
+about: 프로젝트 중 구현 한 기능 및 제안 작성
 title: ''
 labels: ''
 assignees: ''
