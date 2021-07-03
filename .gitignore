@@ -6,6 +6,7 @@
 
 # misc
 cert/
+/cert
 .env
 .DS_Store
 .env.local
