@@ -7,6 +7,8 @@
 # misc
 cert/
 /cert
+cert.pem
+key.pem
 .env
 .DS_Store
 .env.local

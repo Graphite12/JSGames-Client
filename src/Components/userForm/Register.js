@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { isValidEmail, isValidPassword } from "../../util/Validation";
 import { register } from "../../_actions/auth_action";
 import {
   RegisterWrapper,
@@ -17,6 +19,8 @@ export default function Register(props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [submited, setSubmited] = useState("false");
+  const [alert, setAlert] = useState("");
+  const history = useHistory();
 
   const formInputValue = (key) => (e) => {
     if (key === "USERNAME") setUsername(e.target.value);
@@ -25,17 +29,32 @@ export default function Register(props) {
     if (key === "CONPWD") setConfirmPassword(e.target.value);
     console.log(e.target.value);
   };
-  const onSubmit = (e) => {
+
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(register(username, email, password))
-      .then(() => {
-        setSubmited("true");
-        props.history.push("/auth/login");
-      })
-      .catch(() => {
-        setSubmited("false");
-      });
+    let data = {
+      username: username,
+      email: email,
+      password: password,
+    };
+
+    if (password !== confirmPassword) {
+      return setAlert("비밀번호가 일치하지 않습니다.");
+    }
+
+    if (!isValidEmail(email)) {
+      return setAlert("유효하지 않은 이메일 주소입니다.");
+    }
+
+    if (!isValidPassword(password)) {
+      setAlert(
+        "비밀번호는 영문, 숫자, 특수문자 조합으로 8~20자로 작성해야합니다."
+      );
+    }
+
+    dispatch(register(data));
+    history.push("/auth/login");
   };
 
   return (

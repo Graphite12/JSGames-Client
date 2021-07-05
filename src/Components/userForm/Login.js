@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { withRouter, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-import { login } from "../../_actions/auth_action";
+import { loggedIn } from "../../_actions/auth_action";
 import {
   LoginWrapper,
   Form,
@@ -14,34 +13,28 @@ require("dotenv").config();
 
 function Login(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPwd, setShowPwd] = useState(false);
-
-  const { isLogin } = useSelector((state) => state.UserStatusReducer);
 
   const formInputValue = (key) => (e) => {
     if (key === "EMAIL") setEmail(e.target.value);
     if (key === "PASSWORD") setPassword(e.target.value);
     console.log(e.target.value);
   };
-  const onLogin = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
 
-    dispatch(login(email, password)).then((res) => {
-      console.log(res);
-      // if (res.payload.login) props.history.push("/");
-      // else alert("Error");
-    });
+    let data = {
+      email: email,
+      password: password,
+    };
+
+    dispatch(loggedIn(data));
+    history.push("/");
   };
 
-  const showPassword = () => {
-    setShowPwd(true);
-  };
-
-  if (isLogin) {
-    return <Redirect to="/profile" />;
-  }
   return (
     <LoginWrapper>
       <Form onSubmit={onLogin}>

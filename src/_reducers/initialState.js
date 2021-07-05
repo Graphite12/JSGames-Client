@@ -1,9 +1,7 @@
-const initialState = {
-  userForm: {
-    username: "",
-    email: "",
-  },
-  isLogin: false,
-};
+export const initialState = {
+  userInfo: {},
 
-export default initialState;
+  isLoggedIn: false,
+  modal: false,
+  modalType: "",
+};

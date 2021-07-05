@@ -1,5 +1,5 @@
 import { TYPES } from "../_actions/types";
-import initialState from "./initialState";
+import { initialState } from "./initialState";
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
@@ -8,29 +8,15 @@ export default function (state = initialState, action) {
     case TYPES.LOGIN_SUCCESS:
       return {
         ...state,
-        isLogin: !state.isLogin,
-        userForm: {
-          email: payload.email,
-          password: payload.password,
-        },
+        isLoggedIn: !state.isLoggedIn,
+        userInfo: payload.data,
       };
-    // case LOGIN_FAILURE:
-    //   return {
-    //     ...state,
-    //     isLogin: state.isLogin,
-    //     userForm: null,
-    //   };
-    case TYPES.REGISTER_SUCCESS:
-      return {
-        ...state,
-        isLogin: state.isLogin,
-      };
+
+    case TYPES.REGISTE_SUCCESS:
+      return { ...state, isLoggedIn: false };
+
     case TYPES.LOGOUT:
-      return {
-        ...state,
-        isLogin: false,
-        userForm: null,
-      };
+      return { ...state, isLoggedIn: false };
 
     default:
       return state;
