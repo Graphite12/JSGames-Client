@@ -1,11 +1,12 @@
 import styled, { keyframes } from "styled-components";
 
-export const LoginWrapper = styled.section`
+export const RegisterWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-itmes: center;
-  heigth: 100%;
+  heigth: 100vh;
   width: 100%;
+  background: ;
 `;
 
 export const Form = styled.form`

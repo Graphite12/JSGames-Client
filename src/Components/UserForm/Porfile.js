@@ -15,6 +15,7 @@ export default function Profile(props) {
 
   const key = process.env.JWT_SECRET;
   const [username, setUsername] = useState("");
+
   const dispatch = useDispatch();
   const history = useHistory();
 

@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import "./index.css";
 import rootReducer from "./_reducers/index";
-import Routing from "./Pages/Routing";
-import axios from "axios";
-
-axios.defaults.baseURL = "https://localhost:5000/"; //쿠키 전송을 위해선 같은도메인
-axios.defaults.withCredentials = true; // 쿠키 데이터를 전송하기위해
-
+import Home from "./Pages/Home";
+import Profile from "./Components/UserForm/Porfile";
+import NotFound from "./Pages/NotFound";
+import Login from "./Components/UserForm/Login";
+import Register from "./Components/UserForm/Register";
 const middleware = [thunk];
 const store = createStore(
   rootReducer,
@@ -21,7 +21,15 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Routing />
+      <Router>
+        <Switch>
+          <Route component={Home} exact path="/" />
+          <Route component={Profile} path="/auth/profile" />
+          <Route component={NotFound} path="/NotFound" />
+          <Route component={Login} exact path="/auth/login" />
+          <Route component={Register} exact path="/auth/register" />
+        </Switch>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

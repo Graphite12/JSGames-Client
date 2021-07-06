@@ -1,15 +1,18 @@
-import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { isValidEmail, isValidPassword } from "../../util/Validation";
+import {
+  isValidID,
+  isValidEmail,
+  isValidPassword,
+} from "../../util/Validation";
 import { register } from "../../_actions/auth_action";
 import {
   RegisterWrapper,
   Form,
   Input,
   SigninButton,
-} from "../styles/StyledRegister";
+} from "./styles/StyledRegister";
 require("dotenv").config();
 
 export default function Register(props) {
@@ -41,6 +44,10 @@ export default function Register(props) {
 
     if (password !== confirmPassword) {
       return setAlert("비밀번호가 일치하지 않습니다.");
+    }
+
+    if (!isValidID(username)) {
+      setAlert("아이디는 영문과 숫자로 5~15자로 작성해야 합니다.");
     }
 
     if (!isValidEmail(email)) {

@@ -3,12 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { loggedIn } from "../../_actions/auth_action";
-import {
-  LoginWrapper,
-  Form,
-  Input,
-  SigninButton,
-} from "../styles/StyledSignin";
+import { LoginWrapper, Form, Input, SigninButton } from "./styles/StyledSignin";
 require("dotenv").config();
 
 function Login(props) {
