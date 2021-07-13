@@ -7,11 +7,7 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import "./index.css";
 import rootReducer from "./_reducers/index";
-import Home from "./Pages/Home";
-import Profile from "./Components/UserForm/Porfile";
-import NotFound from "./Pages/NotFound";
-import Login from "./Components/UserForm/Login";
-import Register from "./Components/UserForm/Register";
+import Routing from "./Pages/Routing";
 const middleware = [thunk];
 const store = createStore(
   rootReducer,
@@ -21,15 +17,7 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route component={Home} exact path="/" />
-          <Route component={Profile} path="/auth/profile" />
-          <Route component={NotFound} path="/NotFound" />
-          <Route component={Login} exact path="/auth/login" />
-          <Route component={Register} exact path="/auth/register" />
-        </Switch>
-      </Router>
+      <Routing />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

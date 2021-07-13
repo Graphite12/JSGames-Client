@@ -1,36 +1,61 @@
+import axios from "axios";
 import { TYPES } from "./types";
 
-import AuthService from "../_services/AuthService";
+export const loggedIn =
+  ({ email, password }) =>
+  (dispatch) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-export const loggedIn = (info) => (dispatch) => {
-  return AuthService("post", "/auth/login", info)
-    .then((res) => {
-      dispatch({
-        type: TYPES.LOGIN_SUCCESS,
-        payload: res.data,
+    const body = JSON.stringify({ email, password });
+    axios
+      .post("https://localhost:5000/auth/login", body, config)
+      .then((res) => {
+        dispatch({
+          type: TYPES.LOGIN_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: TYPES.LOGIN_FAIL,
+        });
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+  };
 
-export const register = (info) => (dispatch) => {
-  return AuthService("post", "/auth/register", info)
-    .then((res) => {
-      dispatch({
-        type: TYPES.REGISTE_SUCCESS,
+export const register =
+  ({ username, email, password }) =>
+  (dispatch) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const body = JSON.stringify({ username, email, password });
+    axios
+      .post("https://localhost:5000/auth/register", body, config)
+      .then((res) => {
+        dispatch({
+          type: TYPES.REGISTE_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+
+        dispatch({
+          type: TYPES.REGISTE_FAIL,
+        });
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+  };
 
-export const logout = () => (dispatch) => {
-  return AuthService("post", "/auth/logout").then(() => {
-    dispatch({
-      type: TYPES.LOGOUT,
-    });
-  });
+export const logout = () => {
+  return {
+    type: TYPES.LOGOUT,
+  };
 };

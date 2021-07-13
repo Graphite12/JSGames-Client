@@ -11,7 +11,9 @@ function Login(props) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submited, setSubmited] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
+  const [alert, setAlert] = useState("");
 
   const formInputValue = (key) => (e) => {
     if (key === "EMAIL") setEmail(e.target.value);
@@ -21,25 +23,30 @@ function Login(props) {
   const onLogin = async (e) => {
     e.preventDefault();
 
+    if (!email || !password) {
+      setAlert("이메일 주소와 비밀번호를 입력 하세요!");
+    }
+
     let data = {
       email: email,
       password: password,
     };
-
     dispatch(loggedIn(data));
-    history.push("/");
   };
 
   return (
     <LoginWrapper>
       <Form onSubmit={onLogin}>
-        <label htmlFor="email">E-Mail</label>
-        <Input
-          type="text"
-          name="email"
-          value={email}
-          onChange={formInputValue("EMAIL")}
-        />
+        <div>
+          <label htmlFor="email">E-Mail</label>
+          <Input
+            type="text"
+            name="email"
+            value={email}
+            onChange={formInputValue("EMAIL")}
+          />
+          {submited && !email && <div> 이메일을 입력하세요</div>}
+        </div>
         <label htmlFo="password">Password</label>
         <Input
           type={showPwd ? "text" : "password"}

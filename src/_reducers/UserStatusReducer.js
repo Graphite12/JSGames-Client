@@ -1,22 +1,24 @@
 import { TYPES } from "../_actions/types";
-import { initialState } from "./initialState";
+
+const initialState = {
+  userInfo: null,
+  token: localStorage.getItem("user_token"),
+  isLoggedIn: null,
+  modal: false,
+  modalType: "",
+};
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
     case TYPES.LOGIN_SUCCESS:
-      return {
-        ...state,
-        isLoggedIn: !state.isLoggedIn,
-        userInfo: payload.data,
-      };
-
     case TYPES.REGISTE_SUCCESS:
-      return { ...state, isLoggedIn: false };
+      localStorage.setItem("user_token", payload.token);
+      return { ...state, ...action.payload, isLoggedIn: true };
 
     case TYPES.LOGOUT:
-      return { ...state, isLoggedIn: false };
+      return { ...state, token: null, userinfo: null, isLoggedIn: false };
 
     default:
       return state;

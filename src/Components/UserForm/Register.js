@@ -60,8 +60,7 @@ export default function Register(props) {
       );
     }
 
-    dispatch(register(data));
-    history.push("/auth/login");
+    register(data);
   };
 
   return (

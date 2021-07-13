@@ -4,7 +4,7 @@ export const StyledSectonA = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   background-color: blue;
 `;
 
