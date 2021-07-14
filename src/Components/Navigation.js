@@ -33,7 +33,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const [click, setClick] = useState(false);
   const [navbarColor, setNavbarColor] = useState(false);
-  const [showBtn, setShowBtn] = useState(false);
+  const [showBtn, setShowBtn] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.UserStatusReducer);
@@ -77,32 +77,29 @@ export default function Navigation() {
   }, []);
 
   return (
-    <>
-      <StyledNavbar className={navbarColor ? "navbar colorChange" : "navbar"}>
-        <NavbarContainer>
-          <LogoBox>GAME Storage</LogoBox>
-          <MobileIcon onClick={openMenu}>
-            {click ? (
-              <FontAwesomeIcon icon={faTimes} />
-            ) : (
-              <FontAwesomeIcon icon={faBars} />
-            )}
-          </MobileIcon>
-          <RouteUL onClick={openMenu} click={click}>
-            {navlink.map((item, idx) => {
-              return (
-                <RouteLi key={idx}>
-                  <RouteLink
-                    to={item === "HOME" ? "/" : item}
-                    onClick={closeMenu}
-                  >
-                    {item}
-                  </RouteLink>
-                </RouteLi>
-              );
-            })}
-          </RouteUL>
-
+    <StyledNavbar className={navbarColor ? "navbar colorChange" : "navbar"}>
+      <NavbarContainer>
+        <LogoBox>GAME Storage</LogoBox>
+        <MobileIcon onClick={openMenu}>
+          {click ? (
+            <FontAwesomeIcon icon={faTimes} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} />
+          )}
+        </MobileIcon>
+        <RouteUL onClick={openMenu} click={click}>
+          {navlink.map((item, idx) => {
+            return (
+              <RouteLi key={idx}>
+                <RouteLink
+                  to={item === "HOME" ? "/" : item}
+                  onClick={closeMenu}
+                >
+                  {item}
+                </RouteLink>
+              </RouteLi>
+            );
+          })}
           {isLoggedIn ? (
             <ButtonContainer>
               <button>프로필</button>
@@ -119,8 +116,8 @@ export default function Navigation() {
               {modalOpen && <Modal isOpen={setModalOpen} />}
             </ButtonContainer>
           )}
-        </NavbarContainer>
-      </StyledNavbar>
-    </>
+        </RouteUL>
+      </NavbarContainer>
+    </StyledNavbar>
   );
 }

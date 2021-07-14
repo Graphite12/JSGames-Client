@@ -38,16 +38,18 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 1080px) {
     display: block;
     position: absolute;
+    color: white;
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
   }
 `;
 
 export const RouteUL = styled.ul`
   display: flex;
+  margin-right: 10%;
   align-items: center;
   list-style: none;
   text-align: center;
@@ -56,10 +58,12 @@ export const RouteUL = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    padding: 0;
+    margin: 0;
+    height: 80vh;
     position: absolute;
     top: 80px;
-    left: ${({ click }) => (click ? "0" : "-100%")};
+    left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
     background: #101522;
@@ -67,14 +71,22 @@ export const RouteUL = styled.ul`
 `;
 
 export const RouteLi = styled.li`
+  display: flex;
   height: 100%;
+  width: 100%;
   border-bottom: 2px solid transparent;
+  align-items: center;
+  margin: 0 2%;
 
   &:hover {
     border-bottom: 2px solid #4b59f7;
   }
+
   @media screen and (max-width: 1080px) {
+    border-bottom: none;
+
     width: 100%;
+
     &:hover {
       border: none;
     }
@@ -83,22 +95,23 @@ export const RouteLi = styled.li`
 
 export const RouteLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: #fff;
   display: flex;
   align-items: center;
-  text-decoration: none;
-  padding: 0 2rem;
+  justify-content: center;
+  width: 100%;
   height: 100%;
   font-size: 2rem;
   font-weight: bold;
 
-  @media screen and (max-width:1080px) {
-   text-align: center;
-   padding: 1rem;
-   width: 100%
-   display: table;
-   height: 100%;
-   
+  @media screen and (max-width: 1080px) {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    font-size: 3.2rem;
+    font-weight: bold;
+    height: 100%;
+
     &:hover {
       color: white;
       background-color: black;
@@ -108,7 +121,6 @@ export const RouteLink = styled(Link)`
 export const SignForm = styled.article`
   display: flex;
   align-item: center;
-  text-decoration: none;
   height: 100%;
   cursor: pointer;
 `;
@@ -125,10 +137,11 @@ export const ButtonContainer = styled.article`
 
 export const Button = styled.button`
   padding: 8px 20px;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 2.2rem;
+  font-weight: bold;
   color: #fff;
   cursor: pointer;
 
@@ -142,6 +155,20 @@ export const Button = styled.button`
     border-radius: 4px;
     border: 2px solid v#1888ff;
     transition: all 0.3s ease-out;
+  }
+
+  @media screen and (max-width: 1080px) {
+    width: 80%;
+    margin: 6%;
+    &:hover {
+      padding: 6px 18px;
+      transition: all 0.3s ease-out;
+      background-color: transparent;
+      color: #fff;
+      border-radius: 4px;
+      border: 2px solid v#1888ff;
+      transition: all 0.3s ease-out;
+    }
   }
 `;
 
