@@ -9,10 +9,12 @@ import NotFound from "./NotFound";
 import Login from "../Components/UserForm/Login";
 import Register from "../Components/UserForm/Register";
 import Navigation from "../Components/Navigation";
+import ScrollToTop from "../Components/ScrollToTop";
 
 export default function Routing() {
   return (
     <Router>
+      <ScrollToTop />
       <Navigation />
       <Switch>
         <Route component={Home} exact path="/" />

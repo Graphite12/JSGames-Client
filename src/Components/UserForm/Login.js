@@ -37,6 +37,7 @@ function Login(props) {
   return (
     <LoginWrapper>
       <Form onSubmit={onLogin}>
+        <h1>로그인</h1>
         <div>
           <label htmlFor="email">E-Mail</label>
           <Input

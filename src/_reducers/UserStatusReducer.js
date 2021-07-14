@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
     case TYPES.LOGIN_SUCCESS:
     case TYPES.REGISTE_SUCCESS:
       localStorage.setItem("user_token", payload.token);
-      return { ...state, ...action.payload, isLoggedIn: true };
+      return { ...state, ...payload, isLoggedIn: true };
 
     case TYPES.LOGOUT:
       return { ...state, token: null, userinfo: null, isLoggedIn: false };
