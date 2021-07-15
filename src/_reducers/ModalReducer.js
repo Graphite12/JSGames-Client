@@ -1,15 +1,17 @@
 import { TYPES } from "../_actions/types";
-import { initialState } from "./initialState";
 
+const initialState = {
+  isModal: false,
+};
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case TYPES.TOGGLE_MODAL:
-      return { ...state, modal: !state.modal };
+    case TYPES.SHOW_MODAL:
+      return { ...state, isModal: true };
 
-    case TYPES.SET_MODALTYPE:
-      return { ...state, modalType: payload.type };
+    case TYPES.HIDE_MODAL:
+      return { ...state, isModal: false };
 
     default:
       return state;

@@ -19,28 +19,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../_actions/auth_action";
 
-//component
+//redux Action
+import { showModal } from "../_actions/modal_action";
 
-import Home from "../Pages/Home";
-import Register from "./UserForm/Register";
-import Login from "./UserForm/Login";
+//component
 import Modal from "./Modal";
 
 export default function Navigation() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [open, setOpen] = useState(false);
   const [click, setClick] = useState(false);
   const [navbarColor, setNavbarColor] = useState(false);
   const [showBtn, setShowBtn] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.UserStatusReducer);
+  const { isModal } = useSelector((state) => state.ModalReducer);
   const navlink = ["HOME", "GAME", "RANKING", "CONTACTUS"];
 
   const onLogout = () => {
     dispatch(logout());
+  };
+
+  const onOpenModal = () => {
+    dispatch(showModal());
   };
 
   const openMenu = () => setClick(!click);
@@ -103,17 +106,18 @@ export default function Navigation() {
           {isLoggedIn ? (
             <ButtonContainer>
               <button>프로필</button>
+              <button onClick={onLogout}>로그아웃</button>
             </ButtonContainer>
           ) : (
             <ButtonContainer>
               <Button
                 onClick={() => {
-                  setModalOpen(true);
+                  onOpenModal();
                 }}
               >
                 Join Us
               </Button>
-              {modalOpen && <Modal isOpen={setModalOpen} />}
+              <Modal />
             </ButtonContainer>
           )}
         </RouteUL>

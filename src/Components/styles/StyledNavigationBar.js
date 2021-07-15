@@ -7,17 +7,17 @@ export const StyledNavbar = styled.nav`
   align-items: center;
   justify-content: center;
   height: 80px;
-  z-index: 100;
+  z-index: 1;
   position: sticky;
   top: 0;
-  background: #101522;
+  background: #f4f9f9;
 `;
 
 export const NavbarContainer = styled.section`
   display: flex;
 
   justify-content: space-between;
-  width: 98%;
+  width: 100%;
   height: 80px;
 `;
 
@@ -38,7 +38,7 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 1080px) {
     display: block;
     position: absolute;
-    color: white;
+    color: #022e57;
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
@@ -49,7 +49,7 @@ export const MobileIcon = styled.div`
 
 export const RouteUL = styled.ul`
   display: flex;
-  margin-right: 10%;
+  margin-right: 15%;
   align-items: center;
   list-style: none;
   text-align: center;
@@ -66,7 +66,7 @@ export const RouteUL = styled.ul`
     left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
-    background: #101522;
+    background: #f4f9f9;
   }
 `;
 
@@ -95,7 +95,7 @@ export const RouteLi = styled.li`
 
 export const RouteLink = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: #022e57;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,6 +126,7 @@ export const SignForm = styled.article`
 `;
 
 export const ButtonContainer = styled.article`
+  width: 100%;
   @media screen and (max-width: 1080px) {
     display: flex;
     justify-content: center;
@@ -136,11 +137,12 @@ export const ButtonContainer = styled.article`
 `;
 
 export const Button = styled.button`
-  padding: 8px 20px;
+  padding: 5% 15%;
+  width: 150px;
   border-radius: 8px;
   outline: none;
   border: none;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #fff;
   cursor: pointer;

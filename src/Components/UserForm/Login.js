@@ -3,7 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { loggedIn } from "../../_actions/auth_action";
-import { LoginWrapper, Form, Input, SigninButton } from "./styles/StyledSignin";
+import {
+  AuthWrapper,
+  Form,
+  InputField,
+  Input,
+  SubmitBtn,
+} from "./styles/StyledAuthForm";
+import "./styles/StyledAuthForm.css";
+
 require("dotenv").config();
 
 function Login(props) {
@@ -35,30 +43,30 @@ function Login(props) {
   };
 
   return (
-    <LoginWrapper>
-      <Form onSubmit={onLogin}>
-        <h1>로그인</h1>
-        <div>
-          <label htmlFor="email">E-Mail</label>
-          <Input
-            type="text"
-            name="email"
-            value={email}
-            onChange={formInputValue("EMAIL")}
-          />
-          {submited && !email && <div> 이메일을 입력하세요</div>}
-        </div>
-        <label htmlFo="password">Password</label>
+    <Form onSubmit={onLogin} className="sign_in_form">
+      <h1>로그인</h1>
+      <InputField>
+        <label htmlFor="email">E-Mail</label>
         <Input
-          type={showPwd ? "text" : "password"}
-          name="password"
-          value={password}
-          onChange={formInputValue("PASSWORD")}
+          type="text"
+          name="email"
+          value={email}
+          onChange={formInputValue("EMAIL")}
+          placeholder="E-mail"
         />
+        {submited && !email && <div> 이메일을 입력하세요</div>}
+      </InputField>
+      <label htmlFo="password">Password</label>
+      <Input
+        type={showPwd ? "text" : "password"}
+        name="password"
+        value={password}
+        onChange={formInputValue("PASSWORD")}
+        placeholder="Password"
+      />
 
-        <SigninButton> 로그인 </SigninButton>
-      </Form>
-    </LoginWrapper>
+      <SubmitBtn> 로그인 </SubmitBtn>
+    </Form>
   );
 }
 

@@ -1,0 +1,10 @@
+.sign_up_form {
+  opacity: 0;
+  z-index: 3;
+}
+
+.sign_in_form {
+  z-index: 4;
+}
+
+/* Animation */

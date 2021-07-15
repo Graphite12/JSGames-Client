@@ -8,11 +8,13 @@ import {
 } from "../../util/Validation";
 import { register } from "../../_actions/auth_action";
 import {
-  RegisterWrapper,
+  AuthWrapper,
   Form,
+  InputField,
   Input,
-  SigninButton,
-} from "./styles/StyledRegister";
+  SubmitBtn,
+} from "./styles/StyledAuthForm";
+import "./styles/StyledAuthForm.css";
 require("dotenv").config();
 
 export default function Register(props) {
@@ -55,51 +57,53 @@ export default function Register(props) {
     }
 
     if (!isValidPassword(password)) {
-      setAlert(
+      return setAlert(
         "비밀번호는 영문, 숫자, 특수문자 조합으로 8~20자로 작성해야합니다."
       );
     }
 
-    register(data);
+    dispatch(register(data));
   };
 
   return (
-    <RegisterWrapper>
-      <Form onSubmit={onSubmit}>
-        {submited && (
-          <>
-            <label htmlFor="username">Username</label>
-            <Input
-              type="text"
-              name="username"
-              value={username}
-              onChange={formInputValue("USERNAME")}
-            />
-            <label htmlFor="email">E-Mail</label>
-            <Input
-              type="text"
-              name="email"
-              value={email}
-              onChange={formInputValue("EMAIL")}
-            />
-            <label htmlFo="password">Password</label>
-            <Input
-              type="password"
-              name="password"
-              value={password}
-              onChange={formInputValue("PASSWORD")}
-            />
-            <label htmlFo="confirmPassword">confirmPassword</label>
-            <Input
-              type="password"
-              name="confirmPassword"
-              value={confirmPassword}
-              onChange={formInputValue("CONPWD")}
-            />
-            <SigninButton> 회원가입 </SigninButton>
-          </>
-        )}
-      </Form>
-    </RegisterWrapper>
+    <Form onSubmit={onSubmit} className="sign_up_form">
+      {submited && (
+        <InputField>
+          <label htmlFor="username">Username</label>
+          <Input
+            type="text"
+            name="username"
+            value={username}
+            onChange={formInputValue("USERNAME")}
+            placeholder="Username"
+          />
+          <label htmlFor="email">E-Mail</label>
+          <Input
+            type="text"
+            name="email"
+            value={email}
+            onChange={formInputValue("EMAIL")}
+            placeholder="E-Mail"
+          />
+          <label htmlFo="password">Password</label>
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            onChange={formInputValue("PASSWORD")}
+            placeholder="Password"
+          />
+          <label htmlFo="confirmPassword">confirmPassword</label>
+          <Input
+            type="password"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={formInputValue("CONPWD")}
+            placeholder="Confirm Password"
+          />
+          <SubmitBtn> 회원가입 </SubmitBtn>
+        </InputField>
+      )}
+    </Form>
   );
 }
