@@ -34,8 +34,8 @@ export default function Navigation() {
   const [showBtn, setShowBtn] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { isLoggedIn } = useSelector((state) => state.UserStatusReducer);
-  const { isModal } = useSelector((state) => state.ModalReducer);
+  const { isLoggedIn } = useSelector((state) => state.auth_Reducer);
+  const { isModal } = useSelector((state) => state.modal_Reducer);
   const navlink = ["HOME", "GAME", "RANKING", "CONTACTUS"];
 
   const onLogout = () => {
@@ -117,10 +117,10 @@ export default function Navigation() {
               >
                 Join Us
               </Button>
-              <Modal />
             </ButtonContainer>
           )}
         </RouteUL>
+        <Modal />
       </NavbarContainer>
     </StyledNavbar>
   );

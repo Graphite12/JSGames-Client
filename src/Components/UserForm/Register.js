@@ -66,9 +66,11 @@ export default function Register(props) {
   };
 
   return (
-    <Form onSubmit={onSubmit} className="sign_up_form">
-      {submited && (
-        <InputField>
+    <Form onSubmit={onSubmit}>
+      {!submited ? (
+        ""
+      ) : (
+        <>
           <label htmlFor="username">Username</label>
           <Input
             type="text"
@@ -77,6 +79,7 @@ export default function Register(props) {
             onChange={formInputValue("USERNAME")}
             placeholder="Username"
           />
+
           <label htmlFor="email">E-Mail</label>
           <Input
             type="text"
@@ -85,6 +88,7 @@ export default function Register(props) {
             onChange={formInputValue("EMAIL")}
             placeholder="E-Mail"
           />
+
           <label htmlFo="password">Password</label>
           <Input
             type="password"
@@ -93,6 +97,7 @@ export default function Register(props) {
             onChange={formInputValue("PASSWORD")}
             placeholder="Password"
           />
+
           <label htmlFo="confirmPassword">confirmPassword</label>
           <Input
             type="password"
@@ -101,8 +106,9 @@ export default function Register(props) {
             onChange={formInputValue("CONPWD")}
             placeholder="Confirm Password"
           />
+
           <SubmitBtn> 회원가입 </SubmitBtn>
-        </InputField>
+        </>
       )}
     </Form>
   );

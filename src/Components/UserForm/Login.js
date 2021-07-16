@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import { loggedIn } from "../../_actions/auth_action";
 import {
   AuthWrapper,
@@ -43,19 +42,18 @@ function Login(props) {
   };
 
   return (
-    <Form onSubmit={onLogin} className="sign_in_form">
+    <Form onSubmit={onLogin}>
       <h1>로그인</h1>
-      <InputField>
-        <label htmlFor="email">E-Mail</label>
-        <Input
-          type="text"
-          name="email"
-          value={email}
-          onChange={formInputValue("EMAIL")}
-          placeholder="E-mail"
-        />
-        {submited && !email && <div> 이메일을 입력하세요</div>}
-      </InputField>
+
+      <label htmlFor="email">E-Mail</label>
+      <Input
+        type="text"
+        name="email"
+        value={email}
+        onChange={formInputValue("EMAIL")}
+        placeholder="E-mail"
+      />
+
       <label htmlFo="password">Password</label>
       <Input
         type={showPwd ? "text" : "password"}

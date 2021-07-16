@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import errorReducer from "./errorReducer";
-import UserStatusReducer from "./UserStatusReducer";
-import ModalReducer from "./ModalReducer";
+import auth_Reducer from "./auth_Reducer";
+import modal_Reducer from "./modal_Reducer";
 const rootReducer = combineReducers({
-  UserStatusReducer,
+  auth_Reducer,
   errorReducer,
-  ModalReducer,
+  modal_Reducer,
 });
 
 export default rootReducer;

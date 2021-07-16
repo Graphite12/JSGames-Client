@@ -8,6 +8,9 @@ import { Provider } from "react-redux";
 import "./index.css";
 import rootReducer from "./_reducers/index";
 import Routing from "./Pages/Routing";
+import axios from "axios";
+
+axios.defaults.withCredentials = true;
 const middleware = [thunk];
 const store = createStore(
   rootReducer,
