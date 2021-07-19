@@ -59,10 +59,10 @@ export default function Modal() {
 
   return (
     <ModalBackground>
-      <Main_Container ref={mainRef}>
+      <Main_Container>
         <Auth_box>
-          {!isActive && <Login authRef={authRef} />}
-          {isActive && <Register authRef={authRef} />}
+          {!isActive && <Login />}
+          {isActive && <Register />}
         </Auth_box>
       </Main_Container>
       <RightSide

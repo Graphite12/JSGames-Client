@@ -10,7 +10,6 @@ import rootReducer from "./_reducers/index";
 import Routing from "./Pages/Routing";
 import axios from "axios";
 
-axios.defaults.withCredentials = true;
 const middleware = [thunk];
 const store = createStore(
   rootReducer,
@@ -20,7 +19,7 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Routing />
+      <Routing className="general_Screen" />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
