@@ -13,71 +13,76 @@ export const ModalBackground = styled.div`
   background: rgba(255, 255, 255, 0.8);
   z-index: 2;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-export const Auth_Container = styled.section`
-  border-radius: 20px;
-  overflow: hidden;
+export const Main_Container = styled.section`
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
-  width: 900px;
-  height: 550px;
-  margin: 0 auto 100px;
-  background: #fff;
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3),
-    10px 10px 15px rgba(70, 70, 70, 0.15),
-    inset -10px -10px 15px rgba(255, 255, 255, 0.3),
-    inset 10px 10px 15px rgba(70, 70, 70, 0.15);
-`;
-
-export const Sub_AuthContaiiner = styled.div`
   overflow: hidden;
-  position: absolute;
-  left: 640px;
-  top: 0;
-  width: 900px;
-  height: 100%;
-  padding-left: 260px;
-  background: #fff;
-  -webkit-transition: -webkit-transform 1.2s ease-in-out;
-  transition: -webkit-transform 1.2s ease-in-out;
-  transition: transform 1.2s ease-in-out;
-  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
-`;
-
-export const Sub_ImgContainer = styled.div`
-  overflow: hidden;
+  width: 500px;
+  max-width: 100%;
   z-index: 2;
+  min-height: 700px;
+`;
+
+export const Right_Side = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
+  background-color: #3498db;
+  width: 30%;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 260px;
+  right: 22%;
+  border-radius: 6px;
+  z-index: 1;
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.281);
+
+  &.right {
+    right: 22%;
+    align-items: flex-end;
+    &:hover {
+      right: 21%;
+    }
+  }
+  &.left {
+    right: -22%;
+    align-items: flex-start;
+    &:hover {
+      right: -25%;
+    }
+  }
+
+  .text {
+    font-size: 21px;
+    font-weight: 500;
+    color: #fff;
+    margin-right: 3em;
+    margin-left: 3em;
+  }
+`;
+
+export const Auth_box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+  border-radius: 4px;
+  position: relative;
+  z-index: 99;
+  width: 100%;
   height: 100%;
-  padding-top: 360px;
-
-  &:before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 900px;
-    height: 100%;
-    background-image: url("ext.jpg");
-    opacity: 0.8;
-    background-size: cover;
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-  }
+  z-index: 99;
+  padding: 17px 10px;
 `;
 
 export const Image_Text = styled.div`

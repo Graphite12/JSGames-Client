@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TYPES } from "./types";
 const API_AUTH = "https://localhost:5000/auth";
-const API_USRE = "https://localhost:5000/";
+const API_USER = "https://localhost:5000";
 //필수!!
 axios.defaults.withCredentials = true;
 
@@ -12,7 +12,15 @@ export function loggedIn(data) {
 
       dispatch({
         type: TYPES.LOGIN_SUCCESS,
+        // payload: res.data.userData,
+      });
+      dispatch({
+        type: TYPES.SET_USERINFO,
         payload: res.data.userData,
+      });
+
+      dispatch({
+        type: TYPES.HIDE_MODAL,
       });
     });
   };
@@ -32,7 +40,7 @@ export function register(data) {
 
 export function profile() {
   return (dispatch) => {
-    axios.get(`:id/profile`).then((res) => {
+    axios.get(`${API_USER}/profile`).then((res) => {
       console.log(res);
 
       dispatch({

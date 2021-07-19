@@ -6,14 +6,17 @@ import {
   NavLink,
   useHistory,
 } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 //style
 import {
-  Auth_Container,
+  Main_Container,
   ModalBackground,
+  Auth_box,
   Sub_AuthContaiiner,
   Sub_ImgContainer,
   Image_Text,
+  Image_Btn,
+  Right_Side,
 } from "./styles/StyledModal";
 
 //redux Action
@@ -23,13 +26,24 @@ import { logout } from "../_actions/auth_action";
 import Login from "./UserForm/Login";
 import Register from "./UserForm/Register";
 
-function ModalContainer({}) {}
-
 export default function Modal() {
   const dispatch = useDispatch();
   const { isModal } = useSelector((state) => state.modal_Reducer);
+  const mainRef = useRef();
+  const authRef = useRef();
 
-  const [isActive, setIsActive] = useState("signin");
+  const [isActive, setIsActive] = useState(true);
+  const [arrow, setArrow] = useState("right");
+  useEffect(() => {}, []);
+
+  const changeAuth = () => {
+    if (isActive) {
+      setArrow("right");
+    } else {
+      setArrow("left");
+    }
+    setIsActive(!isActive);
+  };
 
   const onHideModal = () => {
     dispatch(hideModal());
@@ -39,42 +53,38 @@ export default function Modal() {
     return null;
   }
 
-  const switchToSignup = () => {};
+  const switchToSignup = isActive ? "Register" : "Login";
 
-  const switchToSignin = () => {};
+  const switchToSignin = isActive ? "Login" : "Register";
 
   return (
     <ModalBackground>
-      <Auth_Container>
-        <Login />
-        <Sub_AuthContaiiner>
-          <Sub_ImgContainer>
-            <Image_Text className="m--up">
-              <h2>New here?</h2>
-              <p>Sign up and discover great amount of new opportunities!</p>
-            </Image_Text>
-            <Image_Text className="m--in">
-              <h2>One of us?</h2>
-              <p>
-                If you already has an account, just sign in. We've missed you!
-              </p>
-            </Image_Text>
-            <div class="img__btn">
-              <span class="m--up">Sign Up</span>
-              <span class="m--in">Sign In</span>
-            </div>
-          </Sub_ImgContainer>
-          <Register />
-        </Sub_AuthContaiiner>
-      </Auth_Container>
-
-      {/* <button
-          onClick={() => {
-            onHideModal();
-          }}
-        >
-          x
-        </button> */}
+      <Main_Container ref={mainRef}>
+        <Auth_box>
+          {!isActive && <Login authRef={authRef} />}
+          {isActive && <Register authRef={authRef} />}
+        </Auth_box>
+      </Main_Container>
+      <RightSide
+        onSwitch={isActive ? setArrow("right") : setArrow("left")}
+        switchSignIn={switchToSignin}
+        switchRegister={switchToSignup}
+        onClick={changeAuth}
+      />
     </ModalBackground>
+  );
+}
+
+function RightSide(props) {
+  return (
+    <Right_Side
+      className={`right-side ${props.onSwitch}`}
+      ref={props.mainRef}
+      onClick={props.changeAuth}
+    >
+      <div className="inner-container">
+        <div className="text">{props.switchRegister}</div>
+      </div>
+    </Right_Side>
   );
 }

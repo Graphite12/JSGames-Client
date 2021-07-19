@@ -2,9 +2,9 @@ import { TYPES } from "../_actions/types";
 
 const initialState = {
   userInfo: null,
-  token: null,
+
   isLoggedIn: null,
-  modal: false,
+
   modalType: "",
 };
 
@@ -13,11 +13,11 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case TYPES.SET_USERINFO:
-      return { ...state };
+      return { ...state, isLoggedIn: true, userInfo: payload };
 
     case TYPES.LOGIN_SUCCESS:
     case TYPES.REGISTE_SUCCESS:
-      return { ...state, userInfo: payload, isLoggedIn: true };
+      return { ...state, isLoggedIn: true };
 
     case TYPES.LOGOUT:
       return { ...state, token: null, userinfo: null, isLoggedIn: false };

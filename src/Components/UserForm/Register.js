@@ -7,12 +7,15 @@ import {
   isValidPassword,
 } from "../../util/Validation";
 import { register } from "../../_actions/auth_action";
+import Footer from "../Footer";
 import {
   AuthWrapper,
   Form,
-  InputField,
+  InputGroup,
   Input,
   SubmitBtn,
+  PanelContent,
+  PanelContainer,
 } from "./styles/StyledAuthForm";
 import "./styles/StyledAuthForm.css";
 require("dotenv").config();
@@ -66,50 +69,61 @@ export default function Register(props) {
   };
 
   return (
-    <Form onSubmit={onSubmit}>
-      {!submited ? (
-        ""
-      ) : (
-        <>
-          <label htmlFor="username">Username</label>
-          <Input
-            type="text"
-            name="username"
-            value={username}
-            onChange={formInputValue("USERNAME")}
-            placeholder="Username"
-          />
-
-          <label htmlFor="email">E-Mail</label>
-          <Input
-            type="text"
-            name="email"
-            value={email}
-            onChange={formInputValue("EMAIL")}
-            placeholder="E-Mail"
-          />
-
-          <label htmlFo="password">Password</label>
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={formInputValue("PASSWORD")}
-            placeholder="Password"
-          />
-
-          <label htmlFo="confirmPassword">confirmPassword</label>
-          <Input
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={formInputValue("CONPWD")}
-            placeholder="Confirm Password"
-          />
-
-          <SubmitBtn> 회원가입 </SubmitBtn>
-        </>
-      )}
-    </Form>
+    <PanelContainer ref={props.authRef}>
+      <h1>회원가입</h1>
+      <PanelContent>
+        <Form onSubmit={onSubmit}>
+          {!submited ? (
+            ""
+          ) : (
+            <>
+              <InputGroup>
+                <label htmlFor="username">Username</label>
+                <Input
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={formInputValue("USERNAME")}
+                  placeholder="Username"
+                />
+              </InputGroup>
+              <InputGroup>
+                <label htmlFor="email">E-Mail</label>
+                <Input
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={formInputValue("EMAIL")}
+                  placeholder="E-Mail"
+                />
+              </InputGroup>
+              <InputGroup>
+                <label htmlFo="password">Password</label>
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={formInputValue("PASSWORD")}
+                  placeholder="Password"
+                />
+              </InputGroup>
+              <InputGroup>
+                <label htmlFo="confirmPassword">confirmPassword</label>
+                <Input
+                  type="password"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={formInputValue("CONPWD")}
+                  placeholder="Confirm Password"
+                />
+              </InputGroup>
+            </>
+          )}
+        </Form>
+      </PanelContent>
+      <Footer>
+        <SubmitBtn> 회원가입 </SubmitBtn>
+      </Footer>
+    </PanelContainer>
   );
 }

@@ -5,9 +5,11 @@ import { loggedIn } from "../../_actions/auth_action";
 import {
   AuthWrapper,
   Form,
-  InputField,
+  InputGroup,
   Input,
   SubmitBtn,
+  PanelContainer,
+  PanelContent,
 } from "./styles/StyledAuthForm";
 import "./styles/StyledAuthForm.css";
 
@@ -39,32 +41,38 @@ function Login(props) {
       password: password,
     };
     dispatch(loggedIn(data));
+    history.push("/");
   };
 
   return (
-    <Form onSubmit={onLogin}>
+    <PanelContainer ref={props.authRef}>
       <h1>로그인</h1>
-
-      <label htmlFor="email">E-Mail</label>
-      <Input
-        type="text"
-        name="email"
-        value={email}
-        onChange={formInputValue("EMAIL")}
-        placeholder="E-mail"
-      />
-
-      <label htmlFo="password">Password</label>
-      <Input
-        type={showPwd ? "text" : "password"}
-        name="password"
-        value={password}
-        onChange={formInputValue("PASSWORD")}
-        placeholder="Password"
-      />
-
-      <SubmitBtn> 로그인 </SubmitBtn>
-    </Form>
+      <PanelContent>
+        <Form onSubmit={onLogin}>
+          <InputGroup>
+            <label htmlFor="email">E-Mail</label>
+            <Input
+              type="text"
+              name="email"
+              value={email}
+              onChange={formInputValue("EMAIL")}
+              placeholder="E-mail"
+            />
+          </InputGroup>
+          <InputGroup>
+            <label htmlFor="password">Password</label>
+            <Input
+              type={showPwd ? "text" : "password"}
+              name="password"
+              value={password}
+              onChange={formInputValue("PASSWORD")}
+              placeholder="Password"
+            />
+          </InputGroup>
+          <SubmitBtn> 로그인 </SubmitBtn>
+        </Form>
+      </PanelContent>
+    </PanelContainer>
   );
 }
 
