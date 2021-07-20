@@ -45,7 +45,7 @@ function Login(props) {
   };
 
   return (
-    <PanelContainer ref={props.authRef}>
+    <PanelContainer>
       <h1>로그인</h1>
       <PanelContent>
         <Form onSubmit={onLogin}>

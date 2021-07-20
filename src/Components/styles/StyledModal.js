@@ -35,7 +35,7 @@ export const Right_Side = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70%;
+  height: 50%;
   background-color: #3498db;
   width: 30%;
   position: absolute;
@@ -54,10 +54,10 @@ export const Right_Side = styled.div`
     }
   }
   &.left {
-    right: -22%;
+    right: 45%;
     align-items: flex-start;
     &:hover {
-      right: -25%;
+      right: 47%;
     }
   }
 

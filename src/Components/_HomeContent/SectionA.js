@@ -4,8 +4,15 @@ import {
   TabsBox,
   SectionAContainer,
   SideBox,
+  CardBox,
+  Card,
+  CardInner,
+  CardFront,
+  CardBack,
+  Img,
 } from "./styles/StyledSection";
-
+import pad1 from "../../image/gamepad.png";
+import pad2 from "../../image/gamepad2.png";
 //fontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBook, faSitemap } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +33,16 @@ export default function SectionA() {
 
   return (
     <SectionAContainer>
-      <TabsBox></TabsBox>
+      <CardBox>
+        <CardInner>
+          <CardFront>
+            <Img src={pad1} />
+          </CardFront>
+          <CardBack>
+            <Img src={pad2} />
+          </CardBack>
+        </CardInner>
+      </CardBox>
     </SectionAContainer>
   );
 }

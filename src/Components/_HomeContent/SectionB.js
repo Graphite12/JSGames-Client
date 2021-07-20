@@ -1,13 +1,19 @@
 import {
+  Banners,
   StyledSectonA,
   StyledSectonB,
   StyledSectonC,
+  Tutorials,
 } from "./styles/StyledSection";
 
 export default function SectionB() {
   return (
     <StyledSectonB>
-      <h2>섹션 B</h2>
+      <Banners>dd</Banners>
+      <Tutorials>
+        {" "}
+        <h2>섹션 B</h2>
+      </Tutorials>
     </StyledSectonB>
   );
 }

@@ -61,12 +61,12 @@ export default function Modal() {
     <ModalBackground>
       <Main_Container>
         <Auth_box>
-          {!isActive && <Login />}
-          {isActive && <Register />}
+          {isActive && <Login />}
+          {!isActive && <Register />}
         </Auth_box>
       </Main_Container>
       <RightSide
-        onSwitch={isActive ? setArrow("right") : setArrow("left")}
+        onSwitch={isActive ? "right" : "left"}
         switchSignIn={switchToSignin}
         switchRegister={switchToSignup}
         onClick={changeAuth}

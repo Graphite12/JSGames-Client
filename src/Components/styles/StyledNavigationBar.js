@@ -6,11 +6,12 @@ export const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  width: 95%;
+  height: 50px;
   z-index: 1;
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: #f4f9f9;
+  background: rgba(222, 222, 222, 0);
 `;
 
 export const NavbarContainer = styled.section`
@@ -29,10 +30,10 @@ export const LogoBox = styled.div`
   text-decoration: none;
   color: rgb(226, 226, 226);
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
-export const MobileIcon = styled.div`
+export const MobileIcon = styled.button`
   display: none;
 
   @media screen and (max-width: 1080px) {
@@ -49,25 +50,6 @@ export const MobileIcon = styled.div`
 
 export const RouteUL = styled.ul`
   display: flex;
-  margin-right: 15%;
-  align-items: center;
-  list-style: none;
-  text-align: center;
-
-  @media screen and (max-width: 1080px) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    height: 80vh;
-    position: absolute;
-    top: 80px;
-    left: ${({ click }) => (click ? 0 : "-100%")};
-    opacity: 1;
-    transition: all 0.5s ease;
-    background: #f4f9f9;
-  }
 `;
 
 export const RouteLi = styled.li`
@@ -101,8 +83,8 @@ export const RouteLink = styled(Link)`
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 300;
 
   @media screen and (max-width: 1080px) {
     display: flex;

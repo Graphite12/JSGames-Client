@@ -69,7 +69,7 @@ export default function Register(props) {
   };
 
   return (
-    <PanelContainer ref={props.authRef}>
+    <PanelContainer>
       <h1>회원가입</h1>
       <PanelContent>
         <Form onSubmit={onSubmit}>

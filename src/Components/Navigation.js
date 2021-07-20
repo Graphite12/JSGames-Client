@@ -31,8 +31,8 @@ export default function Navigation() {
 
   const [click, setClick] = useState(false);
   const [navbarColor, setNavbarColor] = useState(false);
-  const [showBtn, setShowBtn] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const { isLoggedIn } = useSelector((state) => state.auth_Reducer);
   const { isModal } = useSelector((state) => state.modal_Reducer);
@@ -60,12 +60,7 @@ export default function Navigation() {
   };
 
   const showBurger = () => {
-    const innerWidth = window.innerWidth;
-    if (innerWidth <= 1080) {
-      setShowBtn(false);
-    } else {
-      setShowBtn(true);
-    }
+    setToggleMenu(!toggleMenu);
   };
 
   useEffect(() => {
@@ -74,52 +69,64 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
-    showBurger();
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-    window.addEventListener("resize", showBurger);
+    window.addEventListener("resize", changeWidth);
+
+    return () => {
+      window.removeEventListener("resize", changeWidth);
+    };
   }, []);
 
   return (
     <StyledNavbar className={navbarColor ? "navbar colorChange" : "navbar"}>
       <NavbarContainer>
         <LogoBox>GAME Storage</LogoBox>
-        <MobileIcon onClick={openMenu}>
+        {/* <MobileIcon onClick={openMenu}>
+          {click ? (
+            <FontAwesomeIcon icon={faTimes} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} />
+          )}
+        </MobileIcon> */}
+        {(toggleMenu || screenWidth >= 1080) && (
+          <RouteUL>
+            {navlink.map((item, idx) => {
+              return (
+                <RouteLi key={idx}>
+                  <RouteLink to={item === "HOME" ? "/" : item}>
+                    {item}
+                  </RouteLink>
+                </RouteLi>
+              );
+            })}
+            {isLoggedIn ? (
+              <ButtonContainer>
+                <button>프로필</button>
+                <button onClick={onLogout}>로그아웃</button>
+              </ButtonContainer>
+            ) : (
+              <ButtonContainer>
+                <Button
+                  onClick={() => {
+                    onOpenModal();
+                  }}
+                >
+                  Join Us
+                </Button>
+              </ButtonContainer>
+            )}
+          </RouteUL>
+        )}
+        <MobileIcon onClick={showBurger}>
           {click ? (
             <FontAwesomeIcon icon={faTimes} />
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}
         </MobileIcon>
-        <RouteUL onClick={openMenu} click={click}>
-          {navlink.map((item, idx) => {
-            return (
-              <RouteLi key={idx}>
-                <RouteLink
-                  to={item === "HOME" ? "/" : item}
-                  onClick={closeMenu}
-                >
-                  {item}
-                </RouteLink>
-              </RouteLi>
-            );
-          })}
-          {isLoggedIn ? (
-            <ButtonContainer>
-              <button>프로필</button>
-              <button onClick={onLogout}>로그아웃</button>
-            </ButtonContainer>
-          ) : (
-            <ButtonContainer>
-              <Button
-                onClick={() => {
-                  onOpenModal();
-                }}
-              >
-                Join Us
-              </Button>
-            </ButtonContainer>
-          )}
-        </RouteUL>
         <Modal />
       </NavbarContainer>
     </StyledNavbar>
