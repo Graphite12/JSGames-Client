@@ -6,12 +6,12 @@ export const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95%;
+  width: 100%;
   height: 50px;
-  z-index: 1;
+  z-index: 5;
   position: fixed;
   top: 0;
-  background: rgba(222, 222, 222, 0);
+  background: rgba(0, 0, 0, 1);
 `;
 
 export const NavbarContainer = styled.section`

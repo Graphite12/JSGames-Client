@@ -84,13 +84,6 @@ export default function Navigation() {
     <StyledNavbar className={navbarColor ? "navbar colorChange" : "navbar"}>
       <NavbarContainer>
         <LogoBox>GAME Storage</LogoBox>
-        {/* <MobileIcon onClick={openMenu}>
-          {click ? (
-            <FontAwesomeIcon icon={faTimes} />
-          ) : (
-            <FontAwesomeIcon icon={faBars} />
-          )}
-        </MobileIcon> */}
         {(toggleMenu || screenWidth >= 1080) && (
           <RouteUL>
             {navlink.map((item, idx) => {

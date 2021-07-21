@@ -1,31 +1,38 @@
 import styled, { keyframes, css } from "styled-components";
+import steamImg from "../../../image/background.png";
 // import { HashLink as Link } from "react-router-dom";
 //Section A
-export const StyledSectonA = styled.section`
-  display: flex;
-  flex-direction: column;
+
+export const SectionAContainer = styled.section`
   width: 100%;
+  height: 105vh;
+  margin: 0;
+  background: url(${steamImg});
 `;
 
-export const SectionAContainer = styled.div`
+export const Angle = styled.div`
+  top: -25%;
+  height: 170%;
+  width: 40%;
+  background: white;
+
+  right: 3%;
+  position: absolute;
+  transform: rotate(15deg);
+  z-index: 2;
+`;
+
+export const AContent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 
   flex-wrap: wrap;
-
-
+  background: rgba(231, 231, 231, 0.5);
   width: 100%;
-  height: 75vh;
-  margin: 0;
-  padding: 1% 0;
-  background: #f4f9f9;
-
- 
-
-  overflow: hidden
-  color: black;
+  height: 100%;
+  z-index: 1;
 `;
 
 export const TabsBox = styled.aside`
@@ -51,12 +58,19 @@ export const Bounce = keyframes`
 }
 `;
 
+/**
+ *
+ * Flip 스타일 컴포넌트
+ *
+ */
+
 export const CardBox = styled.div`
   display: flex;
   width: 30%;
-  height: 50%;
-  top: 15%;
-  left: 10%;
+  height: 70%;
+  top: 27%;
+  right: 7%;
+  z-index: 2;
 
   position: absolute;
   cursor: pointer;
@@ -67,14 +81,11 @@ export const CardBox = styled.div`
 export const CardInner = styled.div`
   width: 100%;
   height: 100%;
+  top: -18%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-
-  &:hover {
-    transform: rotateY(180deg);
-  }
 `;
 
 export const CardSide = css`
@@ -89,22 +100,30 @@ export const CardSide = css`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.55s ease-in-out;
+  transform: ${(props) => `rotateY(${props.cardFliped})`};
 `;
 
 export const CardFront = styled.div`
   ${CardSide};
+  transform: ${(props) => `rotateY(${props.cardFliped})`};
 `;
 
 export const CardBack = styled.div`
   ${CardSide};
 
-  transform: rotateY(-180deg);
+  transform: ${(props) => `rotateY(${props.cardFliped})`};
 `;
 
 export const Img = styled.img`
   width: 100%;
 `;
+
+/**
+ *
+ * 컨텐츠 컴포넌트
+ *
+ */
 
 /**
  * B컴포넌트
@@ -117,7 +136,7 @@ export const StyledSectonB = styled.section`
   justify-content: center;
   width: 100%;
   height: 70vh;
-
+  z-index: 2;
   background: #f4f9f9;
 `;
 
