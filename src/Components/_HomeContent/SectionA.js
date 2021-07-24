@@ -21,9 +21,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBook, faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 //React Feature
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AsideTabs from "./TabComponent/AsideTab";
 import IntroPage from "./TabComponent/IntroPage";
+
 //   <AsideTabs activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
 //<IntroPage activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
 export default function SectionA() {
@@ -32,15 +33,10 @@ export default function SectionA() {
   //cardFliping
   const [fliped, setFliped] = useState(false);
 
-  const handleClick = (e) => {
-    const index = parseInt(e.target.id, 0);
-  };
-
   const flipCard = () => {
     setFliped(!fliped);
   };
 
-  console.log(fliped);
   return (
     <SectionAContainer>
       <AContent>

@@ -5,16 +5,16 @@ import {
   StyledSectonA,
   StyledSectonB,
   StyledSectonC,
-  Tutorials,
+  Sub_Navigation,
   SubNavContainer,
   LinkedUl,
   LinkedLi,
   Links,
 } from "./styles/SubNav";
 
-export default function SubNav() {
+export default function SubNav({ Sticky }) {
   return (
-    <Tutorials>
+    <Sub_Navigation Sticky={Sticky}>
       <SubNavContainer>
         <LinkedUl>
           <LinkedLi>
@@ -28,6 +28,6 @@ export default function SubNav() {
           </LinkedLi>
         </LinkedUl>
       </SubNavContainer>
-    </Tutorials>
+    </Sub_Navigation>
   );
 }

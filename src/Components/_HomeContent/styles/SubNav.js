@@ -11,13 +11,26 @@ import { Container } from "../../../globalStyles";
 //   z-index: 3;
 // `;
 
-export const Tutorials = styled.nav`
+// const slideDown = styled.keyframes`
+//   from {
+//     transform: translateY(-100%);
+//   }
+
+//   to {
+//     transform: translateY(0);
+//   }
+// `;
+
+export const Sub_Navigation = styled.nav`
   display: flex;
   z-index: 5;
   align-items: center;
   justify-content: center;
   height: 50px;
   width: 100%;
+
+  position: ${({ Sticky }) => (Sticky ? "fixed" : "sticky")};
+  top: 0;
 
   background-image: linear-gradient(
     to right bottom,

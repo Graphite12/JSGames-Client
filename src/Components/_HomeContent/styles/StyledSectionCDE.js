@@ -3,8 +3,9 @@ import styled, { keyframes, css } from "styled-components";
 export const StyledSectonC = styled.section`
   display: flex;
   flex-direction: column;
+  position: relative
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background: white;
   z-index: 2;
 `;
