@@ -6,10 +6,11 @@ import axios from "axios";
 //component
 import Navigation from "../Components/Navigation";
 import SectionA from "../Components/_HomeContent/SectionA";
-import SectionB from "../Components/_HomeContent/SectionB";
 import SectionC from "../Components/_HomeContent/SectionC";
+import SectionD from "../Components/_HomeContent/SectionD";
+import SectionE from "../Components/_HomeContent/SectionE";
 import Footer from "../Components/Footer";
-
+import SubNav from "../Components/_HomeContent/SubNav";
 import NotFound from "./NotFound";
 //styled
 import { StyledHome } from "./styles/styeldHome";
@@ -20,8 +21,9 @@ export default function Home() {
   return (
     <StyledHome>
       <SectionA />
-      <SectionB />
       <SectionC />
+      <SectionD />
+      <SectionE />
       <Footer />
     </StyledHome>
   );

@@ -1,39 +1,38 @@
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
+import { Container } from "../../globalStyles";
 
 //Desktop
-export const StyledNavbar = styled.nav`
+export const Navbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
-  z-index: 5;
-  position: fixed;
+  height: 65px;
+  z-index: 10;
+  position: absolute;
   top: 0;
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.2);
 `;
 
-export const NavbarContainer = styled.section`
+export const NavbarContainer = styled(Container)`
   display: flex;
 
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 80px;
+  height: 40px;
+  ${Container};
 `;
 
 export const LogoBox = styled.div`
-  display: flex;
-  justify-self: flex-start;
-  cursor: pointer;
-  align-items: center;
-  text-decoration: none;
-  color: rgb(226, 226, 226);
-  font-size: 1.5rem;
-  font-weight: 500;
+  margin-left: 1%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 `;
 
-export const MobileIcon = styled.button`
+export const MenuIcon = styled.button`
   display: none;
 
   @media screen and (max-width: 1080px) {
@@ -50,15 +49,24 @@ export const MobileIcon = styled.button`
 
 export const RouteUL = styled.ul`
   display: flex;
+  align-items: center;
+  text-align: center;
+
+  @media only screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 40px;
+    right: ${({ click }) => (click ? "0" : "-100%")};
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+  }
 `;
 
 export const RouteLi = styled.li`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  border-bottom: 2px solid transparent;
-  align-items: center;
-  margin: 0 2%;
+  height: 40px;
 
   &:hover {
     border-bottom: 2px solid #4b59f7;
@@ -77,27 +85,29 @@ export const RouteLi = styled.li`
 
 export const RouteLink = styled(Link)`
   text-decoration: none;
-  color: #022e57;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  padding: 1rem 2rem;
   height: 100%;
-  font-size: 1.8rem;
-  font-weight: 300;
+  transition: all 0.2s ease;
 
-  @media screen and (max-width: 1080px) {
-    display: flex;
+  &:hover {
+    color: #e38b06;
+    transform: traslateY(-3rem);
+  }
+  &:active {
+    transform: traslateY(3rem);
+    color: #e38b06;
+  }
+  @media only screen and (max-width: 1000px) {
+    display: block;
+    padding: 3rem;
     text-align: center;
-    width: 100%;
-    font-size: 3.2rem;
-    font-weight: bold;
-    height: 100%;
-
-    &:hover {
-      color: white;
-      background-color: black;
-    }
+    transition: all 0.2s ease;
   }
 `;
 export const SignForm = styled.article`

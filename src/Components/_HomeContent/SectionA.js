@@ -11,6 +11,7 @@ import {
   CardBack,
   Img,
   AContent,
+  TextScreen,
 } from "./styles/StyledSection";
 import pad1 from "../../image/gamepad.png";
 import pad2 from "../../image/gamepad2.png";
@@ -43,10 +44,12 @@ export default function SectionA() {
   return (
     <SectionAContainer>
       <AContent>
-        <div className="text_screen">
+        <TextScreen>
           {!fliped ? (
             <>
-              <h1>즐거움을 추구하는 게임홈페이지</h1>
+              <header>
+                <h1>즐거움을 추구하는 게임홈페이지</h1>
+              </header>
               <div className="grid">ㅇㅇ</div>
               <button>시작하기</button>
             </>
@@ -57,8 +60,8 @@ export default function SectionA() {
               </div>
             </>
           )}
-        </div>
-        <Angle></Angle>
+        </TextScreen>
+        {/* <Angle></Angle> */}
         <CardBox onClick={flipCard}>
           <CardInner>
             <CardFront cardFliped={fliped ? "180deg" : "0deg"}>

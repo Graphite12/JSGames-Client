@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
-import steamImg from "../../../image/background.png";
+import steamImg from "../../../image/background2.png";
 // import { HashLink as Link } from "react-router-dom";
 //Section A
 
@@ -8,19 +8,54 @@ export const SectionAContainer = styled.section`
   height: 105vh;
   margin: 0;
   background: url(${steamImg});
+  background-size: contain;
 `;
 
-export const Angle = styled.div`
-  top: -25%;
-  height: 170%;
-  width: 40%;
-  background: white;
+// export const Angle = styled.div`
+//   top: -30%;
+//   height: 140%;
+//   width: 70%;
+//   background-image: linear-gradient(
+//     to right bottom,
+//     #35d314,
+//     #31cc1e,
+//     #2dc525,
+//     #2abe2a,
+//     #28b72e,
+//     #26b42d,
+//     #23b02b,
+//     #21ad2a,
+//     #1dac24,
+//     #19ab1c,
+//     #14a914,
+//     #0ea807
+//   );
+//   -webkit-box-shadow: -11px 4px 16px 1px #000000;
+//   box-shadow: -11px 4px 16px 1px #000000;
+//   right: -30%;
+//   position: absolute;
+//   transform: rotate(-20deg);
+//   z-index: 2;
+//   transition: linear 0.2s;
 
-  right: 3%;
-  position: absolute;
-  transform: rotate(15deg);
-  z-index: 2;
-`;
+//   @media screen and (max-width: 1080px) {
+//     ovflow-x: none;
+//     transform: rotate(0deg);
+//     transition: linear 0.2s;
+//     width: 40%;
+//     right: 0%;
+//   }
+
+//   @media screen and (max-width: 700px) {
+//     ovflow-x: none;
+
+//     transition: linear 0.2s;
+//     top: 65%;
+//     width: 100%;
+//     height: 50%;
+//     right: 0%;
+//   } ;
+// `;
 
 export const AContent = styled.div`
   display: flex;
@@ -29,7 +64,7 @@ export const AContent = styled.div`
   justify-content: center;
 
   flex-wrap: wrap;
-  background: rgba(231, 231, 231, 0.5);
+  background: rgba(0, 0, 0, 0.54);
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -40,7 +75,7 @@ export const TabsBox = styled.aside`
   flex-direction: row;
   width: 60%;
   background: white;
-  height: 90%;
+  height: 100%;
 `;
 export const PageContent = styled.div`
   display: flex;
@@ -66,8 +101,10 @@ export const Bounce = keyframes`
 
 export const CardBox = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30%;
-  height: 70%;
+  height: 50%;
   top: 27%;
   right: 7%;
   z-index: 2;
@@ -119,6 +156,24 @@ export const Img = styled.img`
   width: 100%;
 `;
 
+//왼쪽 컨텐츠
+export const TextScreen = styled.article`
+  position: absolute;
+  left: 3%;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    width: 57%;
+  }
+  h1 {
+    color: white;
+    font-size: 7em;
+    font-weight: 1000;
+  }
+`;
+
 /**
  *
  * 컨텐츠 컴포넌트
@@ -128,57 +183,3 @@ export const Img = styled.img`
 /**
  * B컴포넌트
  */
-
-export const StyledSectonB = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 70vh;
-  z-index: 2;
-  background: #f4f9f9;
-`;
-
-export const Tutorials = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(
-    to right bottom,
-    #ffc800,
-    #fac100,
-    #f5ba00,
-    #f0b400,
-    #ebad00
-  );
-
-  -webkit-box-shadow: rgb(0, 0, 0) 0px 10px 13px -7px,
-    inset 0px -9px 11px 0px rgba(66, 52, 0, 0);
-  box-shadow: rgb(0, 0, 0) 0px 10px 13px -7px,
-    inset 0px -9px 11px 0px rgba(66, 52, 0, 0);
-`;
-
-export const Banners = styled.div`
-  display: flex;
-  left: 70px;
-  width: 15%;
-  height: 72%;
-  background-image: linear-gradient(
-    to bottom,
-    #ff9b00,
-    #fc9400,
-    #fa8d00,
-    #f78600,
-    #f47f00
-  );
-
-  -webkit-box-shadow: -3px 4px 8px 0px #423400;
-  box-shadow: -3px 4px 8px 0px #423400;
-  position: absolute;
-`;
-
-export const StyledSectonC = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;

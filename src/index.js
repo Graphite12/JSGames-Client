@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
-import "./index.css";
+import GlobalStyles from "./globalStyles";
 import rootReducer from "./_reducers/index";
 import Routing from "./Pages/Routing";
 import axios from "axios";
@@ -19,6 +19,7 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <GlobalStyles />
       <Routing className="general_Screen" />
     </Provider>
   </React.StrictMode>,

@@ -1,9 +1,0 @@
-.navbar {
-  background-color: transparent;
-  transition: ease-in-out 0.2s;
-}
-
-.navbar.colorChange {
-  transition: ease-in-out 0.2s;
-  background-color: rgba(0, 0, 0, 0.26);
-}

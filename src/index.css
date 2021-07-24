@@ -20,3 +20,9 @@ code {
 .general_Screen {
   width: 100vw;
 }
+
+@media screen and (min-width: 0%) {
+  #root {
+    overflow-x: hidden;
+  }
+} ;
