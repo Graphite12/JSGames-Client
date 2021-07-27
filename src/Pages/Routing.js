@@ -13,6 +13,7 @@ import ScrollToTop from "../Components/ScrollToTop";
 import SectionC from "../Components/_HomeContent/SectionC";
 import SectionD from "../Components/_HomeContent/SectionD";
 import SectionE from "../Components/_HomeContent/SectionE";
+import Games from "./Games";
 
 export default function Routing() {
   return (
@@ -22,8 +23,9 @@ export default function Routing() {
 
       <Switch>
         <Route component={Home} exact path="/" />
+        <Route component={Games} exact path="/games" />
         {/* <Route component={Profile} path="/auth/profile" /> */}
-        <Route component={NotFound} path="/NotFound" />
+        <Route component={NotFound} path="/notFound" />
         <Route component={Login} exact path="/auth/login" />
         <Route component={Register} exact path="/auth/register" />
         <Route component={SectionC} path="/c" />

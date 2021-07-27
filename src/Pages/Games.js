@@ -1,12 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useRef } from "react";
+import { Target, TargetBox, Test } from "./styles/styeldGames";
 
 export default function Games() {
-  return (
-    <div>
-      <h1>게임창</h1>
-      <div></div>
-    </div>
-  );
+  return <Test></Test>;
 }

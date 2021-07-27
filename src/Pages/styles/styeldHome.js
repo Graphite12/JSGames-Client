@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-export const StyledHome = styled.div`
+export const StyledHome = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
