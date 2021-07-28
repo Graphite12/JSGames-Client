@@ -1,77 +1,74 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  makeMove,
-  setAITurn,
-  setXWin,
-  setOWin,
-  setDraw,
-} from "../../../_actions/tic_action";
-import { AiBoard as GameBoard, findBestMove } from "./aicore";
+import { faSquare } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import ScoreCard from "./ScoreCard";
+import GreenButton from "./modules/GreenButton";
+import { Title } from "./styles/tttStyles";
 
-export default function Board() {
-  const dispatch = useDispatch();
+export default function Board({
+  exitBtn,
+  playAgain,
+  showSquares,
+  mode,
+  winner,
+  turn,
+  ai,
+  squares,
+  xScore,
+  oScore,
+  onClick,
+  WinningSquares,
+}) {
+  const renderSquare = (i) => {
+    const color =
+      WinningSquares !== null &&
+      WinningSquares.indexOf(i !== -1 ? "#39ff14" : null);
 
-  const { squares, isTurnX, isPvP, isTurnAI, isGameEnd } = useSelector(
-    (state) => state.tic_reducer
+    return (
+      <tttButton
+        color={color}
+        width={"100px"}
+        height={"100px"}
+        onClick={() => {
+          onClick(i);
+        }}
+      >
+        {!squares[i] ? "." : squares[i]}
+      </tttButton>
+    );
+  };
+
+  return (
+    <>
+      <Title>
+        {winner === "d" ? "Draw" : winner !== null && "Winner: " + winner}
+      </Title>
+      {winner === null && (
+        <ScoreCard turn={turn} xScore={xScore} oScore={oScore} />
+      )}
+      {showSquares && (
+        <div>
+          <div>
+            {renderSquare(0)}
+            {renderSquare(1)}
+            {renderSquare(2)}
+          </div>
+          <div>
+            {renderSquare(3)}
+            {renderSquare(4)}
+            {renderSquare(5)}
+          </div>
+          <div>
+            {renderSquare(6)}
+            {renderSquare(7)}
+            {renderSquare(8)}
+          </div>
+        </div>
+      )}
+      {!showSquares && (
+        <div>
+          <GreenButton onClick={playAgain}>playAgain</GreenButton>
+        </div>
+      )}
+    </>
   );
-
-  const calculateWinner = (squares) => {
-    const defaultBoard = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let i = 0; i < defaultBoard.length; i++) {
-      const [a, b, c] = defaultBoard[i];
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return [squares[a], a + "-" + c];
-      }
-    }
-    return [squares.filter((square) => square === null).length === 0, false];
-  };
-
-  const handleClick = (i, ai = false) => {
-    if (isGameEnd || squares[i] !== null || (!ai && !isPvP && isTurnAI)) {
-      return;
-    }
-
-    const squarez = squares.slice();
-    squarez[i] = isTurnX ? "x" : "o";
-
-    dispatch(makeMove(squarez));
-
-    const [winner] = calculateWinner(squarez);
-
-    if (winner) {
-      if (winner === "x") {
-        dispatch(setXWin());
-      } else if (winner === "o") {
-        dispatch(setOWin());
-      } else {
-        dispatch(setDraw());
-      }
-    }
-  };
-
-  const aiMove = () => {
-    if (!isGameEnd && !isPvP && isTurnAI) {
-      const move = squares.filter((sqr) =>
-        sqr.length === 0
-          ? Math.floor(Math.random() * 8)
-          : findBestMove(new GameBoard(squares, isTurnX ? "x" : "o"))
-      );
-    }
-  };
-  return <div></div>;
 }
