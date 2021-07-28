@@ -5,7 +5,7 @@ export const Test = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200vh;
+  height: 100vh;
 
   background-color: white;
 `;

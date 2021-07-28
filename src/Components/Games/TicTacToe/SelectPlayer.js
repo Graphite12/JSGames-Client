@@ -1,17 +1,20 @@
 import React from "react";
-import { tttButton, Title } from "./styles/tttStyles";
+import {
+  TTTButton,
+  Title,
+  TTTMain,
+  SelectPlayerBtnBox,
+} from "./styles/tttStyles";
 
 function SelectPlayer({ xPlayer, oPlayer }) {
   return (
-    <>
+    <TTTMain>
       <Title>Select Player</Title>
-      <tttButton width={"100px"} height={"100px"} onClick={xPlayer}>
-        X
-      </tttButton>
-      <tttButton width={"100px"} height={"100px"} onClick={oPlayer}>
-        O
-      </tttButton>
-    </>
+      <SelectPlayerBtnBox>
+        <button onClick={xPlayer}>X</button>
+        <button onClick={oPlayer}>O</button>
+      </SelectPlayerBtnBox>
+    </TTTMain>
   );
 }
 

@@ -3,6 +3,7 @@ function findWinner(squares) {
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
@@ -30,13 +31,9 @@ function checkWinner(board) {
   const winner = findWinner(board);
   const draw = isDraw(board);
 
-  if (winner !== null) {
-    return winner;
-  } else if (draw) {
-    return "draw";
-  } else {
-    return null;
-  }
+  if (winner !== null) return winner;
+  else if (draw) return "draw";
+  else return null;
 }
 
 let scoreX = {
@@ -96,7 +93,7 @@ function MMax(
       if (board[i] === null) {
         board[i] = hn;
         let score =
-          MMax(board, depth + 1, false, ai, hn, alpha, beta) + Random(-5, 5);
+          MMax(board, depth + 1, true, ai, hn, alpha, beta) + Random(-5, 5);
         board[i] = null;
         bestScore = Math.min(score, bestScore);
         alpha = Math.min(beta, score);

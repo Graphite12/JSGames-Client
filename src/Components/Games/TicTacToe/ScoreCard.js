@@ -1,24 +1,19 @@
 import React from "react";
 
-import { Score } from "./styles/tttStyles";
+import { TTTButton, Score, TTTMain, ScoreBoard } from "./styles/tttStyles";
 
 export default function ScoreCard({ turn, xScore, oScore }) {
   return (
-    <>
-      <tttButton width={"100px"} height={"100px"}>
-        X
-      </tttButton>
-      {turn === "X" && <Score>&#8594;</Score>}
+    <ScoreBoard>
+      {turn === "X"}
       <Score turn={turn} check="X">
         {xScore}
       </Score>
-      <tttButton width={"100px"} height={"100px"}>
-        X
-      </tttButton>
-      {turn === "O" && <Score>&#8594;</Score>}
-      <tttScore turn={turn} check="O">
+
+      {turn === "O"}
+      <Score turn={turn} check="O">
         {oScore}
-      </tttScore>
-    </>
+      </Score>
+    </ScoreBoard>
   );
 }

@@ -2,7 +2,8 @@ import { faSquare } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import ScoreCard from "./ScoreCard";
 import GreenButton from "./modules/GreenButton";
-import { Title } from "./styles/tttStyles";
+import { TTTButton, Title, Boards, Row, TTTBoard } from "./styles/tttStyles";
+import Square from "./modules/Square";
 
 export default function Board({
   exitBtn,
@@ -18,27 +19,26 @@ export default function Board({
   onClick,
   WinningSquares,
 }) {
-  const renderSquare = (i) => {
-    const color =
-      WinningSquares !== null &&
-      WinningSquares.indexOf(i !== -1 ? "#39ff14" : null);
+  // const renderSquare = (i) => {
+  //   const color =
+  //     WinningSquares !== null && WinningSquares.indexOf(i) !== -1
+  //       ? "#39ff14"
+  //       : null;
 
-    return (
-      <tttButton
-        color={color}
-        width={"100px"}
-        height={"100px"}
-        onClick={() => {
-          onClick(i);
-        }}
-      >
-        {!squares[i] ? "." : squares[i]}
-      </tttButton>
-    );
-  };
+  //   return (
+  //     <TTTButton
+  //       color={color}
+  //       onClick={() => {
+  //         onClick(i);
+  //       }}
+  //     >
+  //       {!squares[i] ? `${i}` : squares[i]}
+  //     </TTTButton>
+  //   );
+  // };
 
   return (
-    <>
+    <Boards>
       <Title>
         {winner === "d" ? "Draw" : winner !== null && "Winner: " + winner}
       </Title>
@@ -46,29 +46,39 @@ export default function Board({
         <ScoreCard turn={turn} xScore={xScore} oScore={oScore} />
       )}
       {showSquares && (
-        <div>
-          <div>
+        <TTTBoard>
+          {squares.map((sqr, i) => (
+            <Square
+              key={i}
+              value={sqr}
+              onClick={() => {
+                onClick(i);
+              }}
+            />
+          ))}
+
+          {/* <Row>
             {renderSquare(0)}
             {renderSquare(1)}
             {renderSquare(2)}
-          </div>
-          <div>
+          </Row>
+          <Row>
             {renderSquare(3)}
             {renderSquare(4)}
             {renderSquare(5)}
-          </div>
-          <div>
+          </Row>
+          <Row>
             {renderSquare(6)}
             {renderSquare(7)}
             {renderSquare(8)}
-          </div>
-        </div>
+          </Row> */}
+        </TTTBoard>
       )}
       {!showSquares && (
         <div>
-          <GreenButton onClick={playAgain}>playAgain</GreenButton>
+          <GreenButton onClick={playAgain}>다시 하기</GreenButton>
         </div>
       )}
-    </>
+    </Boards>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { checkWinner, AImove } from "./tttHelper";
+import { BoardScreen } from "./styles/tttStyles";
 import Modes from "./Mode";
 import Board from "./Board";
 import SelectPlayer from "./SelectPlayer";
@@ -17,7 +18,8 @@ export default function TicTacToe() {
 
   useEffect(() => {
     if (mode && ai === turn) {
-      console.log(AImove(square, ai, ai === "x" ? "O" : "X"));
+      console.log(AImove(square, ai, ai === "X" ? "O" : "X"));
+      handleClick(AImove(square, ai, ai === "X" ? "O" : "X"));
     }
     const winner = checkWinner(square);
     setWinner(winner ? winner[0] : winner);
@@ -93,7 +95,7 @@ export default function TicTacToe() {
   };
 
   return (
-    <div>
+    <BoardScreen>
       {mode === null ? (
         <Modes manBtn={clickManBtn} AIBtn={clickAiBtn} />
       ) : turn ? (
@@ -114,6 +116,6 @@ export default function TicTacToe() {
       ) : (
         <SelectPlayer oPlayer={oPlayerSelect} xPlayer={xPlayerSelect} />
       )}
-    </div>
+    </BoardScreen>
   );
 }
