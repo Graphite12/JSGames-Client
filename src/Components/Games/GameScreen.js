@@ -1,1 +1,1 @@
-import styled from "styled-components";
+import TicTacToe from "./TicTacToe/TicTacToe";

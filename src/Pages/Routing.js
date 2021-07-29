@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+//컴포넌트
 import Home from "./Home";
 // import Profile from "../Components/UserForm/Porfile";
 import NotFound from "./NotFound";
@@ -14,6 +15,9 @@ import SectionC from "../Components/_HomeContent/SectionC";
 import SectionD from "../Components/_HomeContent/SectionD";
 import SectionE from "../Components/_HomeContent/SectionE";
 import Games from "./Games";
+
+//게임파일들
+import tttGames from "../Components/Games/TicTacToe/TicTacToe";
 
 export default function Routing() {
   return (
@@ -31,6 +35,7 @@ export default function Routing() {
         <Route component={SectionC} path="/c" />
         <Route component={SectionD} path="/d" />
         <Route component={SectionE} path="/e" />
+        <Route component={tttGames} exact path="/games/tictactoe" />
       </Switch>
     </Router>
   );

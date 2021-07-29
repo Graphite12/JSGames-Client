@@ -83,7 +83,9 @@ export default function Navigation() {
           {navlink.map((item, idx) => {
             return (
               <RouteLi key={idx} onClick={closeMenu}>
-                <RouteLink to={item === "HOME" ? "/" : item}>{item}</RouteLink>
+                <RouteLink to={item === "HOME" ? "/" : item.toLowerCase()}>
+                  {item}
+                </RouteLink>
               </RouteLi>
             );
           })}
