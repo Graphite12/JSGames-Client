@@ -18,6 +18,7 @@ import Games from "./Games";
 
 //게임파일들
 import tttGames from "../Components/Games/TicTacToe/TicTacToe";
+import tetris from "../Components/Games/Tetris/Tetris";
 
 export default function Routing() {
   return (
@@ -35,7 +36,8 @@ export default function Routing() {
         <Route component={SectionC} path="/c" />
         <Route component={SectionD} path="/d" />
         <Route component={SectionE} path="/e" />
-        <Route component={tttGames} exact path="/games/tictactoe" />
+        <Route component={tttGames} path="/tictactoe" />
+        <Route component={tetris} path="/tetris" />
       </Switch>
     </Router>
   );

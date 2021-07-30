@@ -6,7 +6,7 @@ export default function GameCard({ title, type, toUrl }) {
   const history = useHistory();
 
   const handleClickGames = () => {
-    history.push(toUrl);
+    history.push(`${toUrl}`);
   };
   return (
     <GamesCard onClick={handleClickGames}>

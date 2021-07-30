@@ -11,8 +11,8 @@ import TicTacToe from "../Components/Games/TicTacToe/TicTacToe";
 import GameCard from "../Components/Games/GameCard";
 
 const gameItems = [
-  { title: "TicTacToe", gTypes: "arcade", toUrl: "/games/tictactoe" },
-  { title: "Tetris", gTypes: "action", toUrl: "/games/tetris" },
+  { title: "TicTacToe", gTypes: "arcade", toUrl: "/tictactoe" },
+  { title: "Tetris", gTypes: "action", toUrl: "/tetris" },
 ];
 
 export default function Games() {

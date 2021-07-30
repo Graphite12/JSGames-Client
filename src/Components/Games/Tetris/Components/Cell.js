@@ -1,5 +1,7 @@
 import react from "react";
+import { CellBox } from "./styles/StyledCell";
+import { TETROMINOS } from "../Modules/tetrominos";
 
 export default function Cell({ type }) {
-  return <div>Cell</div>;
+  return <CellBox type={type} color={TETROMINOS[type].color} />;
 }
