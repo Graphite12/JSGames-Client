@@ -4,7 +4,7 @@ import Cell from "./Cell";
 //styled
 import { Stages } from "./styles/StyledStage";
 
-export default function Stage({ stage }) {
+const Stage = ({ stage }) => {
   return (
     <Stages width={stage[0].length} height={stage.length}>
       {stage.map((row) =>
@@ -12,4 +12,5 @@ export default function Stage({ stage }) {
       )}
     </Stages>
   );
-}
+};
+export default Stage;

@@ -1,4 +1,4 @@
-import { TetrisCore } from "./Components/TetrisCore";
+import TetrisCore from "./Components/TetrisCore";
 
 export default function tetris() {
   return (

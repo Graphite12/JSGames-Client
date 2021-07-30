@@ -10,16 +10,19 @@ import { createStage, checkCollision } from "../Modules/gameHelper";
 import { useStage } from "../Modules/useStage";
 import { usePlayer } from "../Modules/usePlayer";
 import { useInterval } from "../Modules/useInternel";
+import { useGameStatus } from "../Modules/useGameStatus";
 
 //styled
 import { TetrisWrapper, TetrisBox } from "./styles/StyledTetris";
 
-export const TetrisCore = () => {
+const TetrisCore = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
-  const [stage, setStage] = useStage(player, resetPlayer);
+  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+  const [score, setScore, rows, setRows, level, setLevel] =
+    useGameStatus(rowsCleared);
 
   const movePlayer = (dir) => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
@@ -33,10 +36,18 @@ export const TetrisCore = () => {
     setStage(createStage());
     setDropTime(1000);
     resetPlayer();
+    setScore(0);
+    setRows(0);
+    setLevel(0);
     setGameOver(false);
   };
 
   const drop = () => {
+    if (rows > (level + 1) * 10) {
+      setLevel((pr) => pr + 1);
+      setDropTime(1000 / (level + 1) + 200);
+    }
+
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
@@ -51,16 +62,18 @@ export const TetrisCore = () => {
     }
   };
 
-  const keyUp = ({ keyCode }) => {
-    if (!gameOver) {
-      if (keyCode === 40) {
-        setDropTime(1000);
-      }
-    }
-  };
   const dropPlayer = () => {
     setDropTime(null);
     drop();
+  };
+
+  const keyUp = ({ keyCode }) => {
+    if (!gameOver) {
+      if (keyCode === 40) {
+        console.log("interval Off");
+        setDropTime(1000 / (level + 1));
+      }
+    }
   };
 
   const move = ({ keyCode }) => {
@@ -96,9 +109,9 @@ export const TetrisCore = () => {
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
             <div>
-              <Display text="Score" />
-              <Display text="Row" />
-              <Display text="Level" />
+              <Display text={`Score: ${score}`} />
+              <Display text={`Rows: ${rows}`} />
+              <Display text={`Level: ${level}`} />
             </div>
           )}
           <StartButton callback={startGame} />
@@ -107,3 +120,5 @@ export const TetrisCore = () => {
     </TetrisWrapper>
   );
 };
+
+export default TetrisCore;

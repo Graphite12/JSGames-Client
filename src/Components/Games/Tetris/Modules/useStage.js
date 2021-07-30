@@ -3,7 +3,7 @@ import { createStage } from "./gameHelper";
 
 export const useStage = (player, resetPlayer) => {
   const [stage, setStage] = useState(createStage());
-  const [rowsCleard, setRowsCleared] = useState(0);
+  const [rowsCleared, setRowsCleared] = useState(0);
 
   useEffect(() => {
     setRowsCleared(0);
@@ -11,7 +11,7 @@ export const useStage = (player, resetPlayer) => {
     const sweepRows = (newStage) =>
       newStage.reduce((ack, row) => {
         if (row.findIndex((cell) => cell[0] === 0) === -1) {
-          setRowsCleared((pr) => pr + 1);
+          setRowsCleared((prev) => prev + 1);
           ack.unshift(new Array(newStage[0].length).fill([0, "clear"]));
           return ack;
         }
@@ -20,13 +20,12 @@ export const useStage = (player, resetPlayer) => {
       }, []);
 
     const updateStage = (prevStage) => {
-      //충돌한 블록으 유지할경우의 코드
+      // First flush the stage
       const newStage = prevStage.map((row) =>
         row.map((cell) => (cell[1] === "clear" ? [0, "clear"] : cell))
       );
 
-      //스테이지의 블록을 그려주는 역할
-
+      // Then draw the tetromino
       player.tetromino.forEach((row, y) => {
         row.forEach((value, x) => {
           if (value !== 0) {
@@ -37,7 +36,7 @@ export const useStage = (player, resetPlayer) => {
           }
         });
       });
-
+      // Then check if we collided
       if (player.collided) {
         resetPlayer();
         return sweepRows(newStage);
@@ -46,8 +45,8 @@ export const useStage = (player, resetPlayer) => {
       return newStage;
     };
 
-    setStage((pr) => updateStage(pr));
+    setStage((prev) => updateStage(prev));
   }, [player, resetPlayer]);
 
-  return [stage, setStage];
+  return [stage, setStage, rowsCleared];
 };
