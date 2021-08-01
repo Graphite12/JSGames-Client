@@ -4,8 +4,9 @@ const GlobalStyles = createGlobalStyle`
 *{
     margin:0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
     list-style: none;
+  
 }
 
 html,body {
@@ -15,13 +16,7 @@ html,body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-    @media only screen and (max-width: 1200px){
-        font-size: 100%;
-    }
-    @media only screen and (min-width: 1980px){
-        font-size: 100%;
-    }
+
 }
 `;
 export default GlobalStyles;

@@ -7,12 +7,17 @@ import {
   GameBox,
   GameContent,
 } from "./styles/styeldGames";
-import TicTacToe from "../Components/Games/TicTacToe/TicTacToe";
+
 import GameCard from "../Components/Games/GameCard";
 
 const gameItems = [
   { title: "TicTacToe", gTypes: "arcade", toUrl: "/tictactoe" },
   { title: "Tetris", gTypes: "action", toUrl: "/tetris" },
+  { title: "MemoryCard", gTypes: "Puzzle", toUrl: "/tetris" },
+  { title: "Pacman", gTypes: "action", toUrl: "/tetris" },
+  { title: "Guitar", gTypes: "action", toUrl: "/tetris" },
+  { title: "MineSweep", gTypes: "action", toUrl: "/tetris" },
+  { title: "Snake", gTypes: "action", toUrl: "/tetris" },
 ];
 
 export default function Games() {

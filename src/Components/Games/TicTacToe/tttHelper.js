@@ -9,15 +9,14 @@ function findWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-
   for (let i = 0; i < winConditions.length; i++) {
     const [a, b, c] = winConditions[i];
-    if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
+    if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c])
       return [squares[a], winConditions[i]];
-    }
-    return null;
   }
+  return null;
 }
+
 function isDraw(square) {
   for (let i = 0; i < 9; i++) {
     if (square[i] === null) {

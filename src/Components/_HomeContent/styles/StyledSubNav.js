@@ -29,7 +29,7 @@ export const Sub_Navigation = styled.nav`
   height: 50px;
   width: 100%;
 
-  position: ${({ Sticky }) => (Sticky ? "fixed" : "sticky")};
+  position: sticky;
   top: 0;
 
   background-image: linear-gradient(
@@ -40,11 +40,6 @@ export const Sub_Navigation = styled.nav`
     #f0b400,
     #ebad00
   );
-
-  -webkit-box-shadow: rgb(0, 0, 0) 0px 10px 13px -7px,
-    inset 0px -9px 11px 0px rgba(66, 52, 0, 0);
-  box-shadow: rgb(0, 0, 0) 0px 10px 13px -7px,
-    inset 0px -9px 11px 0px rgba(66, 52, 0, 0);
 `;
 
 export const Banners = styled.div`
@@ -103,11 +98,5 @@ export const Links = styled(Link)`
   &:active {
     transform: traslateY(3rem);
     color: #e38b06;
-  }
-  @media only screen and (max-width: 1000px) {
-    display: block;
-    padding: 3rem;
-    text-align: center;
-    transition: all 0.2s ease;
   }
 `;

@@ -1,15 +1,33 @@
+import { useState } from "react";
 import {
   StyledSectonC,
   StyledSectonD,
   StyledSectonE,
+  DefaultScreen,
+  TabList,
+  Tabs,
+  TabsContent,
+  TabContainer,
 } from "./styles/StyledSectionCDE";
+
+const tabTitle = ["테트리스", "틱텍토", "팩맨", "메모리즈", "스네이크"];
+
+const tabContent = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+};
 
 export default function SectionD() {
   return (
     <StyledSectonD>
-      <h2>게임을 즐기는 방법</h2>
-      <div>대충 키보드짤</div>
-      <div>대충 마우스 짤</div>
+      <DefaultScreen>
+        <TabContainer>
+          <TabList></TabList>
+          <TabsContent>dd</TabsContent>
+        </TabContainer>
+      </DefaultScreen>
     </StyledSectonD>
   );
 }

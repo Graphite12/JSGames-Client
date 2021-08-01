@@ -22,11 +22,7 @@ import { faHome, faBook, faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 //React Feature
 import { useEffect, useState } from "react";
-import AsideTabs from "./TabComponent/AsideTab";
-import IntroPage from "./TabComponent/IntroPage";
 
-//   <AsideTabs activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
-//<IntroPage activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
 export default function SectionA() {
   const [click, setClick] = useState(0);
   const [activeTabs, setActiveTabs] = useState(1);
@@ -52,7 +48,7 @@ export default function SectionA() {
           ) : (
             <>
               <div>
-                <h1>dsajfasldkfjalsdkfjasldk;fjasdl;kfj</h1>
+                <h1>이 게임은 대박입니다</h1>
               </div>
             </>
           )}

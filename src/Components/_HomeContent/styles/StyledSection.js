@@ -5,10 +5,10 @@ import steamImg from "../../../image/background2.png";
 
 export const SectionAContainer = styled.section`
   width: 100%;
-  height: 105vh;
+  height: 80vh;
   margin: 0;
   background: url(${steamImg});
-  background-size: contain;
+  background-size: cover;
 `;
 
 // export const Angle = styled.div`

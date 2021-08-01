@@ -9,10 +9,10 @@ export const Navbar = styled.nav`
   justify-content: center;
   width: 100%;
   height: 65px;
-  z-index: 10;
+  z-index: 11;
   position: absolute;
   top: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
 export const NavbarContainer = styled(Container)`

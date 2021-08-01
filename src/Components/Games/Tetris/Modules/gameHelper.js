@@ -2,21 +2,19 @@ export const STAGE_WIDTH = 12;
 export const STAGE_HEIGHT = 20;
 
 export const createStage = () =>
-  Array.from(Array(STAGE_HEIGHT), () =>
-    new Array(STAGE_WIDTH).fill([0, "clear"])
-  );
+  Array.from(Array(STAGE_HEIGHT), () => Array(STAGE_WIDTH).fill([0, "clear"]));
 
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
   for (let y = 0; y < player.tetromino.length; y++) {
     for (let x = 0; x < player.tetromino[y].length; x++) {
+      // 실제 셀이 있는지 확인한다.
       if (player.tetromino[y][x] !== 0) {
         if (
-          //만약 우리의 움직임이 영역(Y)안에 있는지 확인한다.
-          //플레이 맨아래의 영역이상을 통과하지 않아야한다.
+          //게임 영역 Y내에 있는지 확인한다.
           !stage[y + player.pos.y + moveY] ||
-          // 3. Check that our move is inside the game areas width (x)
+          // Y 영역과 동시에 너비 X내에 존재하는지 확인
           !stage[y + player.pos.y + moveY][x + player.pos.x + moveX] ||
-          // 4. Check that the cell wer'e moving to isn't set to clear
+          // 스테이지의 셀이 "clear"로 설정되어있는지 확인해야함.
           stage[y + player.pos.y + moveY][x + player.pos.x + moveX][1] !==
             "clear"
         ) {
@@ -25,5 +23,6 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
       }
     }
   }
+  // 기본 값은 거짓
   return false;
 };

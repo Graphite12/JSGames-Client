@@ -76,6 +76,10 @@ const TetrisCore = () => {
     }
   };
 
+  useInterval(() => {
+    drop();
+  }, dropTime);
+
   const move = ({ keyCode }) => {
     if (!gameOver) {
       if (keyCode === 37) {
@@ -89,10 +93,6 @@ const TetrisCore = () => {
       }
     }
   };
-
-  useInterval(() => {
-    drop();
-  }, dropTime);
 
   console.log("re-render");
   return (

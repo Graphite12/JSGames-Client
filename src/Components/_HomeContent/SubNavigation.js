@@ -1,20 +1,16 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import {
-  Banners,
-  StyledSectonA,
-  StyledSectonB,
-  StyledSectonC,
   Sub_Navigation,
   SubNavContainer,
   LinkedUl,
   LinkedLi,
   Links,
-} from "./styles/SubNav";
+} from "./styles/StyledSubNav";
 
-export default function SubNav({ Sticky }) {
+export default function SubNavigation() {
   return (
-    <Sub_Navigation Sticky={Sticky}>
+    <Sub_Navigation>
       <SubNavContainer>
         <LinkedUl>
           <LinkedLi>
