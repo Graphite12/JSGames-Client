@@ -31,3 +31,6 @@ export const TIC_TYPE = {
   SET_AI_TURN: "SET_AI_TURN",
 };
 
+export const TABS = {
+  ACTIVE_TAB: "ACTIVE_TAB",
+};

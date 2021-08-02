@@ -8,12 +8,6 @@ import { LogPage } from "./styles/StyledSectionCDE";
 import SubNavigation from "./SubNavigation";
 
 export default function NextPage() {
-  const [clickedTabs, setClickedTabs] = useState(0);
-
-  const handleTabs = (idx) => {
-    setClickedTabs(idx);
-  };
-
   return (
     <LogPage>
       <SubNavigation />

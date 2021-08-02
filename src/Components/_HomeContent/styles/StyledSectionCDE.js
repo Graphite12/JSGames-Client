@@ -76,9 +76,10 @@ export const TabList = styled.ul`
   border: 1px solid black;
 `;
 
-export const Tabs = styled.li`
-  font-size: 3rem;
+export const TabMenu = styled.li`
+  font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const TabsContent = styled.div`
