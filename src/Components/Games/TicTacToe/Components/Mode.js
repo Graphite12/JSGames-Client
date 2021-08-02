@@ -1,7 +1,7 @@
 import { faSquare } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Title, TTTMain } from "./styles/tttStyles";
-import GreenButton from "./modules/GreenButton";
+import { Title, TTTMain } from "../styles/tttStyles";
+import GreenButton from "../modules/GreenButton";
 // import Credit from "./styles/tttStyles";
 
 export default function Modes({ manBtn, AIBtn }) {

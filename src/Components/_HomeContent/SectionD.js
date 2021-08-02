@@ -8,16 +8,18 @@ import {
   TabMenu,
   TabContainer,
 } from "./styles/StyledSectionCDE";
+import MemorysGuide from "./TabComponent/MemorysGuide";
+import SnakeGuide from "./TabComponent/SnakeGuide";
 import TetrisGuide from "./TabComponent/TeTrisGuide";
 import TictactoeGuide from "./TabComponent/TictactoeGuide";
 
-const tabTitle = ["테트리스", "틱텍토", "팩맨", "메모리즈", "스네이크"];
+const tabTitle = ["테트리스", "틱택토", "메모리즈", "스네이크"];
 
 const tabContent = {
   0: <TetrisGuide />,
   1: <TictactoeGuide />,
-  2: 3,
-  3: 4,
+  2: <MemorysGuide />,
+  3: <SnakeGuide />,
 };
 
 export default function SectionD() {
@@ -31,13 +33,17 @@ export default function SectionD() {
         <TabContainer>
           <TabList>
             {tabTitle.map((menu, idx) => (
-              <TabMenu key={idx} onClick={() => dispatch(activeTabs(idx))}>
+              <TabMenu
+                key={idx}
+                onClick={() => dispatch(activeTabs(idx))}
+                active={idx}
+              >
                 {menu}
               </TabMenu>
             ))}
           </TabList>
           {tabContent[activeTab]}
-          {console.log(tabContent[activeTab])}
+          {console.log(activeTab)}
         </TabContainer>
       </DefaultScreen>
     </StyledSectonD>

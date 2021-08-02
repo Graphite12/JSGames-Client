@@ -5,13 +5,13 @@ import styled from "styled-components";
   align-items: center;
 */
 export const ModalBackground = styled.div`
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
   top: 0px;
   left: 0px;
   background: rgba(255, 255, 255, 0.8);
-  z-index: 2;
+  z-index: 20;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@ export const Main_Container = styled.section`
   overflow: hidden;
   width: 500px;
   max-width: 100%;
-  z-index: 2;
+  z-index: 20;
   min-height: 700px;
 `;
 
@@ -41,7 +41,7 @@ export const Right_Side = styled.div`
   position: absolute;
   right: 22%;
   border-radius: 6px;
-  z-index: 1;
+  z-index: 10;
   transition: all 400ms ease-in-out;
   cursor: pointer;
   box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.281);
@@ -86,7 +86,7 @@ export const Auth_box = styled.div`
 `;
 
 export const Image_Text = styled.div`
-  z-index: 2;
+  z-index: 20;
   position: absolute;
   left: 0;
   top: 50px;
@@ -112,7 +112,7 @@ export const Image_Text = styled.div`
 
 export const Image_Btn = styled.div`
   overflow: hidden;
-  z-index: 2;
+  z-index: 20;
   position: relative;
   width: 100px;
   height: 36px;
@@ -125,7 +125,7 @@ export const Image_Btn = styled.div`
 
   &:after {
     content: "";
-    z-index: 2;
+    z-index: 20;
     position: absolute;
     left: 0;
     top: 0;

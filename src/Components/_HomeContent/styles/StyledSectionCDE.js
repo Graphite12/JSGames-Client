@@ -16,6 +16,8 @@ export const DefaultScreen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 `;
 
 //컴포넌트 C
@@ -57,29 +59,39 @@ export const StyledSectonD = styled.section`
   background: green;
   height: 70vh;
   z-index: 1;
+  position: relative;
 `;
 
 export const TabContainer = styled.div`
   display: flex;
-  width: 90%;
+  width: 97%;
   height: 85%;
-  border: 1px solid black;
-  border-radious: 2px;
+  border-radius: 20px;
+
+  background: white;
+
+  position: absolute;
+  top: 8%;
 `;
 
 export const TabList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 25%;
-  border: 1px solid black;
 `;
 
 export const TabMenu = styled.li`
-  font-size: 1rem;
+  margin: 10% 0;
+  font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  border-right: ${({ active }) => (active ? "3px solid black" : "none")};
+
+  &:hover {
+    color: whitesmoke;
+  }
 `;
 
 export const TabsContent = styled.div`

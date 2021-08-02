@@ -4,7 +4,7 @@ import {
   Title,
   TTTMain,
   SelectPlayerBtnBox,
-} from "./styles/tttStyles";
+} from "../styles/tttStyles";
 
 function SelectPlayer({ xPlayer, oPlayer }) {
   return (

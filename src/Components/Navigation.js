@@ -34,7 +34,7 @@ export default function Navigation() {
 
   const { isLoggedIn } = useSelector((state) => state.auth_Reducer);
   const { isModal } = useSelector((state) => state.modal_Reducer);
-  const navlink = ["HOME", "GAMES", "CONTACTUS"];
+  const navlink = ["ABOUT", "GAMES", "CONTACTUS"];
 
   const onLogout = () => {
     dispatch(logout());
@@ -77,15 +77,13 @@ export default function Navigation() {
   return (
     <Navbar>
       <NavbarContainer>
-        <LogoBox>GAME Storage</LogoBox>
+        <LogoBox>JSG</LogoBox>
 
         <RouteUL onClick={openMenu} click={click}>
           {navlink.map((item, idx) => {
             return (
               <RouteLi key={idx} onClick={closeMenu}>
-                <RouteLink to={item === "HOME" ? "/" : item.toLowerCase()}>
-                  {item}
-                </RouteLink>
+                <RouteLink to={item.toLowerCase()}>{item}</RouteLink>
               </RouteLi>
             );
           })}

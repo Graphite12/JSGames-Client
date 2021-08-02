@@ -1,3 +1,7 @@
 export default function TetrisGuide() {
-  return <div>병신ㅋㅋ</div>;
+  return (
+    <div>
+      <h1>테트리스 가이드</h1>
+    </div>
+  );
 }

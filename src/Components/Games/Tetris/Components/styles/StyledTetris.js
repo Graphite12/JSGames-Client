@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
-export const TetrisWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: white;
+export const TetrisWrapper = styled.section`
+  width: 90%;
+
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-itmes: center;
+  justify-content: center;
 `;
 
-export const TetrisBox = styled.div`
+export const TetrisBox = styled.article`
   display: flex;
-  align-items: flex-start;
-  padding: 40px;
-  margin: 0 auto;
-  width: 900px;
+  align-items: center;
+  justify-content: center;
 
+  width: 100%;
+  height: 100%;
   aside {
     width: 100%;
     max-width: 200px;

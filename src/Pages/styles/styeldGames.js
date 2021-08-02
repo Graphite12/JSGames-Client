@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const GameBox = styled.section`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -22,6 +23,8 @@ export const GameTabs = styled.div`
   align-items: center;
   justify-content: center;
 
+  width: 100%;
+  height: 50px;
   background-color: white;
 `;
 
@@ -31,6 +34,6 @@ export const GameContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 500px;
+  height: 80%;
   background: white;
 `;

@@ -40,7 +40,7 @@ export default function SectionA() {
           {!fliped ? (
             <>
               <header>
-                <h1>즐거움을 추구하는 게임홈페이지</h1>
+                <h1>재미를 추구하는 게임홈페이지</h1>
               </header>
               <div className="grid">ㅇㅇ</div>
               <button>시작하기</button>

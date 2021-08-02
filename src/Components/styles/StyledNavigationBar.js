@@ -10,9 +10,8 @@ export const Navbar = styled.nav`
   width: 100%;
   height: 65px;
   z-index: 11;
-  position: absolute;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5);
+
+  background: rgba(0, 0, 0, 1);
 `;
 
 export const NavbarContainer = styled(Container)`
