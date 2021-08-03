@@ -1,12 +1,12 @@
-import { GamesBackground, TetrisScreen } from "../styles/StyledGameScreen";
+import { TetrisScreen, Tetrisbg } from "../styles/StyledGameScreen";
 import TetrisCore from "./Components/TetrisCore";
 
 export default function tetris() {
   return (
-    <GamesBackground>
+    <Tetrisbg>
       <TetrisScreen>
         <TetrisCore />
       </TetrisScreen>
-    </GamesBackground>
+    </Tetrisbg>
   );
 }

@@ -1,12 +1,12 @@
-import { GamesBackground, TicTacToeScreen } from "../styles/StyledGameScreen";
+import { TicTacToebg, TicTacToeScreen } from "../styles/StyledGameScreen";
 import TicTacToeCore from "./Components/TicTacToeCore";
 
 export default function TicTacToe() {
   return (
-    <GamesBackground>
+    <TicTacToebg>
       <TicTacToeScreen>
         <TicTacToeCore />
       </TicTacToeScreen>
-    </GamesBackground>
+    </TicTacToebg>
   );
 }

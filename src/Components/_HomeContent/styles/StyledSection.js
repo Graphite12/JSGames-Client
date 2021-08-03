@@ -156,6 +156,13 @@ export const Img = styled.img`
   width: 100%;
 `;
 
+export const AboutButton = styled.button`
+  width: 150px;
+  height: 70px;
+  border-radius: 20px;
+  outline: none;
+`;
+
 //왼쪽 컨텐츠
 export const TextScreen = styled.article`
   position: absolute;

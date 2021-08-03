@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import tetris_bg from "../images/tetris.jpg";
+import ttt_bg from "../images/ttt.jpg";
+
 export const GamesBackground = styled.div`
   width: 100%;
   height: 100vh;
@@ -10,8 +13,8 @@ export const GamesBackground = styled.div`
 `;
 
 export const GamesScreen = styled.div`
-  width: 90%;
-  height: 90%;
+  width: 55%;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,3 +28,13 @@ export const TicTacToeScreen = styled(GamesScreen)``;
 export const TetrisScreen = styled(GamesScreen)``;
 
 export const PacmanScreen = styled(GamesScreen)``;
+
+export const TicTacToebg = styled(GamesBackground)`
+  background-image: url(${ttt_bg});
+`;
+
+export const Tetrisbg = styled(GamesBackground)`
+  background-image: url(${tetris_bg});
+`;
+
+export const Pacmanbg = styled(GamesBackground)``;

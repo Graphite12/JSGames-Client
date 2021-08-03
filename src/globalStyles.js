@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-  
+    object-fit: contain;
+    
 }
 
 html,body {

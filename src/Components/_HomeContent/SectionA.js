@@ -12,6 +12,7 @@ import {
   Img,
   AContent,
   TextScreen,
+  AboutButton,
 } from "./styles/StyledSection";
 import pad1 from "../../image/gamepad.png";
 import pad2 from "../../image/gamepad2.png";
@@ -43,7 +44,7 @@ export default function SectionA() {
                 <h1>재미를 추구하는 게임홈페이지</h1>
               </header>
               <div className="grid">ㅇㅇ</div>
-              <button>시작하기</button>
+              <AboutButton>자세히 알아보기</AboutButton>
             </>
           ) : (
             <>

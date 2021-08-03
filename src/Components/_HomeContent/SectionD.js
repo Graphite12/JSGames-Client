@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activeTabs } from "../../_actions/tab_action";
 import {
@@ -6,6 +6,7 @@ import {
   DefaultScreen,
   TabList,
   TabMenu,
+  TabsContents,
   TabContainer,
 } from "./styles/StyledSectionCDE";
 import MemorysGuide from "./TabComponent/MemorysGuide";
@@ -13,13 +14,20 @@ import SnakeGuide from "./TabComponent/SnakeGuide";
 import TetrisGuide from "./TabComponent/TeTrisGuide";
 import TictactoeGuide from "./TabComponent/TictactoeGuide";
 
-const tabTitle = ["테트리스", "틱택토", "메모리즈", "스네이크"];
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const tabContent = {
-  0: <TetrisGuide />,
-  1: <TictactoeGuide />,
-  2: <MemorysGuide />,
-  3: <SnakeGuide />,
+const settings = {
+  dots: true, // 슬라이드 밑에 점 보이게
+  infinite: true, // 무한으로 반복
+  speed: 500,
+  autoplay: false,
+  autoplaySpeed: 2000, // 넘어가는 속도
+  slidesToShow: 1, // 4장씩 보이게
+  slidesToScroll: 1, // 1장씩 뒤로 넘어가게
+  centerMode: true,
+  centerPadding: "0px", // 0px 하면 슬라이드 끝쪽 이미지가 안잘림
 };
 
 export default function SectionD() {
@@ -27,22 +35,68 @@ export default function SectionD() {
   const activeTab = useSelector((state) => state.tabs_Reducer.activeTab);
   console.log(useSelector((state) => state.tabs_Reducer.activeTab));
 
+  const slider = useRef(null);
+
+  const refTarget = (tg) => {
+    slider.current = tg;
+  };
+  const nextBtn = () => {
+    slider.current.slickNext();
+  };
+
+  const prevBtn = () => {
+    slider.current.slickPrev();
+  };
+
+  const tabTitle = ["테트리스", "틱택토", "메모리즈", "스네이크"];
+
+  const tabContent = {
+    0: (
+      <TetrisGuide
+        setting={settings}
+        pb={prevBtn}
+        nb={nextBtn}
+        target={refTarget}
+      />
+    ),
+    1: (
+      <TictactoeGuide
+        setting={settings}
+        pb={prevBtn}
+        nb={nextBtn}
+        target={refTarget}
+      />
+    ),
+    2: (
+      <MemorysGuide
+        setting={settings}
+        pb={prevBtn}
+        nb={nextBtn}
+        target={refTarget}
+      />
+    ),
+    3: (
+      <SnakeGuide
+        setting={settings}
+        pb={prevBtn}
+        nb={nextBtn}
+        target={refTarget}
+      />
+    ),
+  };
+
   return (
     <StyledSectonD>
       <DefaultScreen>
         <TabContainer>
           <TabList>
             {tabTitle.map((menu, idx) => (
-              <TabMenu
-                key={idx}
-                onClick={() => dispatch(activeTabs(idx))}
-                active={idx}
-              >
+              <TabMenu key={idx} onClick={() => dispatch(activeTabs(idx))}>
                 {menu}
               </TabMenu>
             ))}
           </TabList>
-          {tabContent[activeTab]}
+          <TabsContents>{tabContent[activeTab]}</TabsContents>
           {console.log(activeTab)}
         </TabContainer>
       </DefaultScreen>

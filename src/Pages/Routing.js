@@ -15,7 +15,7 @@ import SectionC from "../Components/_HomeContent/SectionC";
 import SectionD from "../Components/_HomeContent/SectionD";
 import SectionE from "../Components/_HomeContent/SectionE";
 import Games from "./Games";
-
+import About from "./About";
 //게임파일들
 import tttGames from "../Components/Games/TicTacToe/TicTacToe";
 import tetris from "../Components/Games/Tetris/Tetris";
@@ -29,6 +29,7 @@ export default function Routing() {
       <Switch>
         <Route component={Home} exact path="/" />
         <Route component={Games} exact path="/games" />
+        <Route component={About} exact path="/about" />
         {/* <Route component={Profile} path="/auth/profile" /> */}
         <Route component={NotFound} path="/notFound" />
         <Route component={Login} exact path="/auth/login" />
