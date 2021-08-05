@@ -5,20 +5,21 @@ import "slick-carousel/slick/slick-theme.css";
 
 import arcade1 from "../image/arcade1.jpg";
 import arcade2 from "../image/arcade2.jpg";
-import arcade3 from "../image/arcade3.jpg";
+import arcade3 from "../image/arcade3.png";
 
 export const LogPage = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   background: white;
   z-index: 1;
 `;
 
 export const DefaultScreen = styled.div`
-  width: 80%;
+  width: 70%;
   height: 100%;
-  background: whitesmoke;
+  background-color: whitesmoke;
 
   display: flex;
   flex-direction: column;
@@ -39,6 +40,8 @@ export const StyledSectonC = styled.section`
   width: 100%;
   height: 90vh;
   background-image: url(${arcade3});
+  background-size: cover;
+  background-position: center;
   z-index: 1;
 `;
 
@@ -66,6 +69,7 @@ export const StyledSectonD = styled.section`
   justify-content: center;
   width: 100%;
   background-image: url(${arcade1});
+  background-size: cover;
   height: 90vh;
   z-index: 1;
   position: relative;
@@ -75,10 +79,9 @@ export const TabContainer = styled.div`
   display: flex;
   width: 97%;
   height: 85%;
-  border-radius: 20px;
+
   align-items: center;
   justify-content: center;
-  background: white;
 
   position: relative;
   top: 8%;
@@ -89,12 +92,14 @@ export const TabList = styled.ul`
   flex-direction: column;
   align-items: center;
 
-  width: 13%;
-  border: 1px solid black;
+  width: 15%;
+  height: 100%;
+  border-radius: 20px;
+  background: whitesmoke;
 
   position: absolute;
-  left: 1%;
-  top: 5%;
+  left: 0;
+  top: 0%;
 `;
 
 export const TabMenu = styled.li`
@@ -114,16 +119,25 @@ export const TabsContents = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1% 2%;
   width: 83%;
-  height: 90%;
+  height: 100%;
   border: 1px solid black;
 
   position: absolute;
   right: 1%;
+  @supports (backdrop-filter: blur(50px)) or
+    (--webkit-backdrop-filter: blur(50px)) {
+    & {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      backdrop-filter: blur(20px);
+    }
+  } ;
 `;
 
-/*Guide Styiling */
-
+/*게임 가이드 캐러셀 Styiling */
 /* 공통 스타일 */
 export const GuideContainer = styled.div`
   display: flex;
@@ -138,6 +152,8 @@ export const CarouselBtnBox = styled.div`
 `;
 
 export const StyledSlider = styled(Slider)`
+  height: 90%;
+
   .slick-list {
     width: 100%;
     height: 100%;

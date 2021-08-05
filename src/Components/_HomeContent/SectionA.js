@@ -1,11 +1,9 @@
 //styled
 import {
-  PageContent,
-  TabsBox,
   SectionAContainer,
   Angle,
   CardBox,
-  Card,
+  TextContent,
   CardInner,
   CardFront,
   CardBack,
@@ -23,10 +21,22 @@ import { faHome, faBook, faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 //React Feature
 import { useEffect, useState } from "react";
+import { useSpring, animated, config } from "react-spring";
 
 export default function SectionA() {
-  const [click, setClick] = useState(0);
-  const [activeTabs, setActiveTabs] = useState(1);
+  const calc = (x, y) => [
+    -(y - window.innerHeight / 2) / 30,
+    (x - window.innerWidth / 2) / 30,
+    1.1,
+  ];
+  const trans = (x, y, s) =>
+    `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+  const [hover, setHover] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: config.default,
+  }));
+
   //cardFliping
   const [fliped, setFliped] = useState(false);
 
@@ -39,23 +49,36 @@ export default function SectionA() {
       <AContent>
         <TextScreen>
           {!fliped ? (
-            <>
+            <TextContent>
               <header>
-                <h1>재미를 추구하는 게임홈페이지</h1>
+                <h1>
+                  재미를 추구하는 게임
+                  <br />
+                  웹페이지
+                </h1>
               </header>
-              <div className="grid">ㅇㅇ</div>
+
               <AboutButton>자세히 알아보기</AboutButton>
-            </>
+            </TextContent>
           ) : (
-            <>
+            <TextContent>
               <div>
                 <h1>이 게임은 대박입니다</h1>
               </div>
-            </>
+            </TextContent>
           )}
         </TextScreen>
         {/* <Angle></Angle> */}
-        <CardBox onClick={flipCard}>
+        <CardBox
+          onClick={flipCard}
+          onMouseMove={({ clientX: x, clientY: y }) =>
+            setHover({ xys: calc(x, y) })
+          }
+          onMouseLeave={() => setHover({ xys: [0, 0, 1] })}
+          style={{
+            transform: hover.xys.interpolate(trans),
+          }}
+        >
           <CardInner>
             <CardFront cardFliped={fliped ? "180deg" : "0deg"}>
               <Img src={pad1} />

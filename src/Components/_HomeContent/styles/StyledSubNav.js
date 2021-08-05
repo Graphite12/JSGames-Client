@@ -29,17 +29,9 @@ export const Sub_Navigation = styled.nav`
   height: 50px;
   width: 100%;
 
-  position: sticky;
-  top: 0;
-
-  background-image: linear-gradient(
-    to right bottom,
-    #ffc800,
-    #fac100,
-    #f5ba00,
-    #f0b400,
-    #ebad00
-  );
+  background: ${({ color }) => (color ? "rgba(2,2,2, 1)" : "rgba(2,2,2, .5)")};
+  position: ${({ pos }) => (!pos ? "absolute" : "sticky")};
+  top: ${({ pos }) => `${pos}`};
 `;
 
 export const Banners = styled.div`

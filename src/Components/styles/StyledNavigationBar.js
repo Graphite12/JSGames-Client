@@ -5,163 +5,145 @@ import { Container } from "../../globalStyles";
 //Desktop
 export const Navbar = styled.nav`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 65px;
-  z-index: 11;
-
-  background: rgba(0, 0, 0, 1);
-`;
-
-export const NavbarContainer = styled(Container)`
-  display: flex;
-
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 40px;
-  ${Container};
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 80px;
+
+  @media (max-width: 1080px) {
+    transition: 0.2s linear;
+    background-color: rgba(3, 3, 3, 0.9);
+    position: absolute;
+  }
 `;
 
 export const LogoBox = styled.div`
-  margin-left: 1%;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
+  padding: 1rem 0;
+  color: #7b7fda;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.5rem;
+  height: 100%;
+
+  cursor: pointer;
+  margin-left: 2rem;
 `;
 
-export const MenuIcon = styled.button`
+export const Burger = styled.button`
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  background: inherit;
+  color: white;
+  font-weight: bold;
+`;
+
+export const BurgerIcon = styled.div`
   display: none;
 
-  @media screen and (max-width: 1080px) {
+  @media (max-width: 1080px) {
     display: block;
     position: absolute;
-    color: #022e57;
+    cursor: pointer;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 2rem;
-    cursor: pointer;
+    transform: translate(-100%, 50%);
   }
 `;
 
-export const RouteUL = styled.ul`
+export const MenuLinks = styled.ul`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  position: relative;
 
-  @media only screen and (max-width: 1000px) {
-    display: flex;
+  @media (max-width: 1080px) {
+    background-color: rgba(3, 3, 3, 0.9);
+
+    margin-top: 1rem;
+    box-shadow: -4px 8px 15px 1px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    top: 50px;
     flex-direction: column;
+    max-height: ${({ click }) => (click ? "700px" : "0")};
+    transition: max-height 0.3s ease-in;
     width: 100%;
     height: 100vh;
     position: absolute;
-    top: 40px;
-    right: ${({ click }) => (click ? "0" : "-100%")};
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease;
   }
 `;
 
-export const RouteLi = styled.li`
-  height: 40px;
+export const MenuLi = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  &:hover {
-    border-bottom: 2px solid #4b59f7;
-  }
-
-  @media screen and (max-width: 1080px) {
-    border-bottom: none;
-
-    width: 100%;
-
-    &:hover {
-      border: none;
-    }
+  position: relative;
+  padding: 1.5rem 0;
+  @media (max-width: 1080px) {
+    flex-direction: column;
   }
 `;
 
 export const RouteLink = styled(Link)`
   text-decoration: none;
-  font-weight: bold;
+  text-align: center;
+  color: white;
   font-size: 2rem;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  height: 100%;
-  transition: all 0.2s ease;
+  padding: 0 2rem;
+  transition: all 0.2s ease-in;
+  border-radius: 0.5rem;
+  font-weight: bold;
 
   &:hover {
-    color: #e38b06;
-    transform: traslateY(-3rem);
-  }
-  &:active {
-    transform: traslateY(3rem);
-    color: #e38b06;
-  }
-  @media only screen and (max-width: 1000px) {
-    display: block;
-    padding: 3rem;
-    text-align: center;
-    transition: all 0.2s ease;
+    color: black;
+    background: #e7e9fc;
   }
 `;
-export const SignForm = styled.article`
-  display: flex;
-  align-item: center;
-  height: 100%;
-  cursor: pointer;
-`;
+export const SignForm = styled.article``;
 
-export const ButtonContainer = styled.article`
-  width: 100%;
-  @media screen and (max-width: 1080px) {
+export const ButtonContainer = styled.div`
+  margin-right: 2rem;
+
+  @media (max-width: 1080px) {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 5% 0;
     width: 100%;
-    height: 120px;
   }
 `;
 
-export const Button = styled.button`
-  padding: 5% 15%;
-  width: 150px;
-  border-radius: 8px;
+export const AuthButton = styled.button`
   outline: none;
   border: none;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #fff;
+
+  width: 200px;
+  height: 50px;
+  border-radius: 1rem;
+  margin-left: 1rem;
   cursor: pointer;
 
-  background-color: #1888ff;
+  font-size: 2rem;
+  font-weight: bold;
+
+  transition: 0.2s linear;
 
   &:hover {
-    padding: 6px 18px;
-    transition: all 0.3s ease-out;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 4px;
-    border: 2px solid v#1888ff;
-    transition: all 0.3s ease-out;
+    transform: translateY(-3px);
+    background: black;
+    color: white;
   }
 
-  @media screen and (max-width: 1080px) {
-    width: 80%;
-    margin: 6%;
-    &:hover {
-      padding: 6px 18px;
-      transition: all 0.3s ease-out;
-      background-color: transparent;
-      color: #fff;
-      border-radius: 4px;
-      border: 2px solid v#1888ff;
-      transition: all 0.3s ease-out;
-    }
+  @media (max-width: 1080px) {
+    width: 200px;
+    height: 70px;
+    border-radius: 0;
   }
 `;
 

@@ -8,9 +8,26 @@ import {
   Links,
 } from "./styles/StyledSubNav";
 
-export default function SubNavigation() {
+export default function SubNavigation({ pos }) {
+  const [navbarColor, setNavbarColor] = useState(false);
+
+  const changeNavbarColor = () => {
+    const scrollY = window.scrollY;
+    console.log(scrollY);
+    if (scrollY >= pos) {
+      setNavbarColor(true);
+    } else {
+      setNavbarColor(false);
+    }
+  };
+
+  useEffect(() => {
+    changeNavbarColor();
+    window.addEventListener("scroll", changeNavbarColor);
+  }, []);
+
   return (
-    <Sub_Navigation>
+    <Sub_Navigation color={navbarColor} pos={pos}>
       <SubNavContainer>
         <LinkedUl>
           <LinkedLi>

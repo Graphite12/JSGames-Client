@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import {
   Navbar,
   LogoBox,
-  NavbarContainer,
+  Burger,
+  MenuLinks,
+  MenuLi,
   RouteLink,
-  MenuIcon,
+  BurgerIcon,
   SignForm,
-  RouteUL,
-  RouteLi,
   ButtonContainer,
-  Button,
+  AuthButton,
 } from "./styles/StyledNavigationBar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,21 +47,6 @@ export default function Navigation() {
   const openMenu = () => setClick(!click);
   const closeMenu = () => setClick(false);
 
-  // const changeNavbarColor = () => {
-  //   const scrollY = window.scrollY;
-  //   console.log(scrollY);
-  //   if (scrollY >= 80) {
-  //     setNavbarColor(true);
-  //   } else {
-  //     setNavbarColor(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   changeNavbarColor();
-  //   window.addEventListener("scroll", changeNavbarColor);
-  // }, []);
-
   useEffect(() => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -76,38 +61,55 @@ export default function Navigation() {
 
   return (
     <Navbar>
-      <NavbarContainer>
-        <LogoBox>JSG</LogoBox>
-
-        <RouteUL onClick={openMenu} click={click}>
-          {navlink.map((item, idx) => {
-            return (
-              <RouteLi key={idx} onClick={closeMenu}>
-                <RouteLink to={item.toLowerCase()}>{item}</RouteLink>
-              </RouteLi>
-            );
-          })}
-          {isLoggedIn ? (
-            <ButtonContainer>
-              <button>프로필</button>
-              <button onClick={onLogout}>로그아웃</button>
-            </ButtonContainer>
-          ) : (
-            <ButtonContainer>
-              <Button onClick={onOpenModal}>Join Us</Button>
-            </ButtonContainer>
-          )}
-        </RouteUL>
-
-        <MenuIcon onClick={openMenu}>
+      <LogoBox>JSG</LogoBox>
+      <MenuLinks onClick={openMenu} click={click}>
+        {navlink.map((item, idx) => {
+          return (
+            <MenuLi key={idx} onClick={closeMenu}>
+              <RouteLink to={item.toLowerCase()}>{item}</RouteLink>
+            </MenuLi>
+          );
+        })}
+        {isLoggedIn ? (
+          <ButtonContainer>
+            <AuthButton>프로필</AuthButton>
+            <AuthButton onClick={onLogout}>로그아웃</AuthButton>
+          </ButtonContainer>
+        ) : (
+          <ButtonContainer>
+            <AuthButton onClick={onOpenModal}>Join Us</AuthButton>
+          </ButtonContainer>
+        )}
+      </MenuLinks>
+      <BurgerIcon>
+        <Burger onClick={openMenu}>
           {click ? (
             <FontAwesomeIcon icon={faTimes} />
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}
-        </MenuIcon>
-        <Modal />
-      </NavbarContainer>
+        </Burger>
+      </BurgerIcon>
+
+      <Modal />
     </Navbar>
   );
 }
+
+/**더미
+ * 
+ *   // const changeNavbarColor = () => {
+  //   const scrollY = window.scrollY;
+  //   console.log(scrollY);
+  //   if (scrollY >= 80) {
+  //     setNavbarColor(true);
+  //   } else {
+  //     setNavbarColor(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   changeNavbarColor();
+  //   window.addEventListener("scroll", changeNavbarColor);
+  // }, []);
+ */

@@ -39,6 +39,17 @@ export const GameContent = styled.div`
   background: white;
 
   border-radius: 20px;
+
+  @supports (backdrop-filter: blur(20px)) or
+    (--webkit-backdrop-filter: blur(10px)) {
+    & {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+
+      backdrop-filter: blur(20px);
+      box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.7);
+    }
+  } ;
 `;
 
 export const RowsBox = styled.div`

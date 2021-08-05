@@ -8,10 +8,13 @@ import { LogPage } from "./styles/StyledSectionCDE";
 import SubNavigation from "./SubNavigation";
 
 export default function NextPage() {
+  const target = useRef(null);
+  const pos = target.current.getBoundingClientRect().top;
   return (
     <LogPage>
-      <SubNavigation />
-      <SectionC />
+      <SubNavigation pos={pos} />
+      <SectionC meme={target} />
+      {console.log(target)}
       <SectionD />
       <SectionE />
     </LogPage>

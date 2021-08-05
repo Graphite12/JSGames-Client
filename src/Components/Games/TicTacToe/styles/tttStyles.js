@@ -9,9 +9,10 @@ export const BoardScreen = styled.section`
 `;
 
 export const Boards = styled.section`
-  width: 90%;
-  height: 50%;
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,15 +30,14 @@ export const TTTBoard = styled.div`
 `;
 
 export const TTTMain = styled.section`
-  width: 90%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 10%;
-  border: 1px solid black;
+  top: 0;
 `;
 
 export const SelectPlayerBtnBox = styled.div`

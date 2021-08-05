@@ -18,7 +18,7 @@ export const GamesScreen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: relative;
   border-radius: 10px;
   background: white;
 `;
@@ -31,10 +31,12 @@ export const PacmanScreen = styled(GamesScreen)``;
 
 export const TicTacToebg = styled(GamesBackground)`
   background-image: url(${ttt_bg});
+  background-size: cover;
 `;
 
 export const Tetrisbg = styled(GamesBackground)`
   background-image: url(${tetris_bg});
+  background-size: cover;
 `;
 
 export const Pacmanbg = styled(GamesBackground)``;
