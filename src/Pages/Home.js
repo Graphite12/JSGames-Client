@@ -20,7 +20,7 @@ export default function Home() {
       <SectionA />
       <NextPage />
       <Footer />
-      {console.log(document.cookie)}
+      {/* {console.log(document.cookie)} */}
     </StyledHome>
   );
 }

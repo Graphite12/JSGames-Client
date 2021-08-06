@@ -29,7 +29,6 @@ export const GamesCard = styled.div`
 export const GamesImage = styled.div`
   height: 70%;
   width: 90%;
-  border: 1px solid green;
 
   position: absolute;
   top: 5%;

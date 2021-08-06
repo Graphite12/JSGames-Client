@@ -98,7 +98,7 @@ export default function Navigation() {
 
 /**더미
  * 
- *   // const changeNavbarColor = () => {
+  // const changeNavbarColor = () => {
   //   const scrollY = window.scrollY;
   //   console.log(scrollY);
   //   if (scrollY >= 80) {

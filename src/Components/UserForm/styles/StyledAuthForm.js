@@ -1,75 +1,70 @@
 import styled, { keyframes } from "styled-components";
 
-//same Option
-export const PanelContainer = styled.div`
+//공통 스타일
+export const AuthContainer = styled.div`
   width: 100%;
+  height: 100%;
+  padding: 1% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  h1 {
-    font-size: 24px;
-    font-family: "Open Sans", sans-serif;
-  }
 `;
 
-export const PanelContent = styled.div`
+export const AuthContent = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 80%;
 `;
 
 export const Form = styled.form`
-  margin-top: 2em;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const InputGroup = styled.label`
-  display: block;
-  width: 260px;
-  margin: 25px auto 0;
-  text-align: center;
-
-  label {
-    font-size: 20px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Input = styled.input`
-  margin-top: 6px;
-  min-width: 18em;
-  height: 37px;
-  padding: 0px 10px;
-  font-size: 16px;
-  font-family: "Open Sans", sans-serif;
-  background-color: #f3f3f3;
-  border: 0;
-  border-radius: 4px;
-  margin-bottom: 31px;
-  transition: all 250ms ease-in-out;
+  width: 90%;
+  height: 50px;
+  border: none;
+  margin: 0.5rem 0;
+  box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 0 1.2rem;
+  transition: all 0.2s ease-in;
+  font-size: 1.2rem;
 
   &:hover {
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+    transform: translateY(-3px);
   }
 `;
 
 export const SubmitBtn = styled.button`
-  font-size: 21px;
-  padding: 5px 20px;
-  border: 0;
-  background-color: #3498db;
+  width: 75%;
+  height: 40px;
+  border: none;
+  margin: 0.5rem 0;
+  box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
+  background-color: green;
+  border-radius: 8px;
   color: #fff;
-  border-radius: 3px;
-  transition: all 250ms ease-in-out;
+
+  font-weight: 600;
+  font-size: 1.2rem;
   cursor: pointer;
+  transition: all 0.2s ease-in;
 
   &:hover {
-    background-color: #2386c8;
+    transform: translateY(-1px);
   }
 
   &:focus {
@@ -77,8 +72,22 @@ export const SubmitBtn = styled.button`
   }
 `;
 
-export const Footer = styled.footer`
-  margin-top: 3em;
+export const Status = styled.div`
+  height: 10px;
+  width: 10px;
+  background: #9d9d9d;
+  border-radius: 10px;
+  margin-left: 1rem;
+
+  ${Input}:focus + & {
+    background: #ffa689;
+  }
+  ${Input}:invalid + & {
+    background: #fe2f75;
+  }
+  ${Input}:valid + & {
+    background: #70edb9;
+  }
 `;
 
 //Login Option

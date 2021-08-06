@@ -6,15 +6,14 @@ import SectionD from "./SectionD";
 import SectionE from "./SectionE";
 import { LogPage } from "./styles/StyledSectionCDE";
 import SubNavigation from "./SubNavigation";
+import useSticky from "./useSticky";
 
 export default function NextPage() {
-  const target = useRef(null);
-  const pos = target.current.getBoundingClientRect().top;
+  const { isSticky, element } = useSticky();
   return (
     <LogPage>
-      <SubNavigation pos={pos} />
-      <SectionC meme={target} />
-      {console.log(target)}
+      <SubNavigation sticky={isSticky} />
+      <SectionC element={element} />
       <SectionD />
       <SectionE />
     </LogPage>

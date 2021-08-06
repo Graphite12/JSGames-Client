@@ -3,19 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loggedIn } from "../../_actions/auth_action";
 import {
-  AuthWrapper,
   Form,
-  InputGroup,
-  Input,
+  AuthContainer,
+  AuthContent,
   SubmitBtn,
-  PanelContainer,
-  PanelContent,
 } from "./styles/StyledAuthForm";
-import "./styles/StyledAuthForm.css";
+import Inputs from "./Inputs";
 
 require("dotenv").config();
 
 function Login(props) {
+  const { panelA } = props;
   const dispatch = useDispatch();
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -27,8 +25,8 @@ function Login(props) {
   const formInputValue = (key) => (e) => {
     if (key === "EMAIL") setEmail(e.target.value);
     if (key === "PASSWORD") setPassword(e.target.value);
-    console.log(e.target.value);
   };
+
   const onLogin = async (e) => {
     e.preventDefault();
 
@@ -45,12 +43,33 @@ function Login(props) {
   };
 
   return (
-    <PanelContainer>
-      <h1>로그인</h1>
-      <PanelContent>
+    <AuthContainer>
+      <AuthContent>
         <Form onSubmit={onLogin}>
-          <InputGroup>
-            <label htmlFor="email">E-Mail</label>
+          <h1>로그인</h1>
+          <Inputs
+            type="email"
+            value={email}
+            onChange={formInputValue("EMAIL")}
+            placeholder="E-mail"
+          />
+
+          <Inputs
+            type={showPwd ? "text" : "password"}
+            value={password}
+            onChange={formInputValue("PASSWORD")}
+            placeholder="Password"
+          />
+          <SubmitBtn>비밀번호를 잊으셨나요?</SubmitBtn>
+          <SubmitBtn>로그인</SubmitBtn>
+        </Form>
+      </AuthContent>
+    </AuthContainer>
+  );
+}
+
+/**
+  {/* <InputGroup>
             <Input
               type="text"
               name="email"
@@ -58,9 +77,7 @@ function Login(props) {
               onChange={formInputValue("EMAIL")}
               placeholder="E-mail"
             />
-          </InputGroup>
-          <InputGroup>
-            <label htmlFor="password">Password</label>
+
             <Input
               type={showPwd ? "text" : "password"}
               name="password"
@@ -70,10 +87,8 @@ function Login(props) {
             />
           </InputGroup>
           <SubmitBtn> 로그인 </SubmitBtn>
-        </Form>
-      </PanelContent>
-    </PanelContainer>
-  );
-}
+          <button>Forgot your Passowrd?</button>
+ 
+ */
 
 export default Login;

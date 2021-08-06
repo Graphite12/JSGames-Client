@@ -11,7 +11,7 @@ export const LogPage = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  position: relative;
   background: white;
   z-index: 1;
 `;

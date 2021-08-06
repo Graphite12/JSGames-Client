@@ -43,8 +43,8 @@ export const GameContent = styled.div`
   @supports (backdrop-filter: blur(20px)) or
     (--webkit-backdrop-filter: blur(10px)) {
     & {
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
 
       backdrop-filter: blur(20px);
       box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.7);

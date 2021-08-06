@@ -9,7 +9,6 @@ export function loggedIn(data) {
   return (dispatch) => {
     axios.post(`${API_AUTH}/login`, data).then((res) => {
       console.log(res);
-
       dispatch({
         type: TYPES.LOGIN_SUCCESS,
         // payload: res.data.userData,

@@ -33,7 +33,7 @@ const settings = {
 export default function SectionD() {
   const dispatch = useDispatch();
   const activeTab = useSelector((state) => state.tabs_Reducer.activeTab);
-  console.log(useSelector((state) => state.tabs_Reducer.activeTab));
+  // console.log(useSelector((state) => state.tabs_Reducer.activeTab));
 
   const slider = useRef(null);
 

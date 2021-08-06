@@ -29,8 +29,7 @@ export default function Routing() {
       <Switch>
         <Route component={Home} exact path="/" />
         <Route component={Games} exact path="/games" />
-        <Route component={About} exact path="/about" />
-        {/* <Route component={Profile} path="/auth/profile" /> */}
+        {/* <Route component={About} exact path="/about" /> */}
         <Route component={NotFound} path="/notFound" />
         <Route component={Login} exact path="/auth/login" />
         <Route component={Register} exact path="/auth/register" />

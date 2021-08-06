@@ -106,7 +106,7 @@ export const CardBox = styled(animated.div)`
   -moz-box-shadow: 0 4px 6px -6px #222;
   box-shadow: 0 7px 5px -6px #111;
 
-  @supports (backdrop-filter: blur(20px)) or
+  @supports (backdrop-filter: blur(30px)) or
     (--webkit-backdrop-filter: blur(30px)) {
     &:hover {
       background-color: rgba(255, 255, 255, 0.2);
@@ -189,17 +189,6 @@ export const TextScreen = styled.div`
   border-radius: 15px;
 
   padding: 1.2%;
-
-  @supports (backdrop-filter: blur(20px)) or
-    (--webkit-backdrop-filter: blur(10px)) {
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-
-      backdrop-filter: blur(20px);
-      box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.7);
-    }
-  } ;
 `;
 export const TextContent = styled.div`
   width: 100%;

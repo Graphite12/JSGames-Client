@@ -5,10 +5,10 @@ import {
   ShowGameCard,
 } from "./styles/StyledSectionCDE";
 
-export default function SectionC({ meme }) {
+export default function SectionC({ element }) {
   return (
-    <StyledSectonC ref={meme}>
-      <DefaultScreen>
+    <StyledSectonC>
+      <DefaultScreen ref={element}>
         <h2>React로 구현된 게임들을 만나보세요.</h2>
         <ShowCase></ShowCase>
       </DefaultScreen>

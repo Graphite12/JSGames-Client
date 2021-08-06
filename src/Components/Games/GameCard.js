@@ -14,8 +14,7 @@ export default function GameCard({ title, type, toUrl, img }) {
         <img width="100%" height="100%" src={img} />
       </GamesImage>
       <GameTitles>
-        <div>{type}</div>
-        <div>{title}</div>
+        <h1>{title}</h1>
       </GameTitles>
     </GamesCard>
   );

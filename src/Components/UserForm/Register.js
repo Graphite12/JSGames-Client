@@ -9,18 +9,17 @@ import {
 import { register } from "../../_actions/auth_action";
 import Footer from "../Footer";
 import {
-  AuthWrapper,
   Form,
-  InputGroup,
-  Input,
   SubmitBtn,
-  PanelContent,
-  PanelContainer,
+  AuthContent,
+  AuthContainer,
 } from "./styles/StyledAuthForm";
-import "./styles/StyledAuthForm.css";
+import Inputs from "./Inputs";
+
 require("dotenv").config();
 
 export default function Register(props) {
+  const { panelB } = props;
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -69,61 +68,77 @@ export default function Register(props) {
   };
 
   return (
-    <PanelContainer>
-      <h1>회원가입</h1>
-      <PanelContent>
+    <AuthContainer>
+      <AuthContent>
         <Form onSubmit={onSubmit}>
-          {!submited ? (
-            ""
-          ) : (
-            <>
-              <InputGroup>
-                <label htmlFor="username">Username</label>
-                <Input
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={formInputValue("USERNAME")}
-                  placeholder="Username"
-                />
-              </InputGroup>
-              <InputGroup>
-                <label htmlFor="email">E-Mail</label>
-                <Input
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={formInputValue("EMAIL")}
-                  placeholder="E-Mail"
-                />
-              </InputGroup>
-              <InputGroup>
-                <label htmlFo="password">Password</label>
-                <Input
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={formInputValue("PASSWORD")}
-                  placeholder="Password"
-                />
-              </InputGroup>
-              <InputGroup>
-                <label htmlFo="confirmPassword">confirmPassword</label>
-                <Input
-                  type="password"
-                  name="confirmPassword"
-                  value={confirmPassword}
-                  onChange={formInputValue("CONPWD")}
-                  placeholder="Confirm Password"
-                />
-              </InputGroup>
-            </>
-          )}
+          <h1>회원가입</h1>
+          <Inputs
+            type="text"
+            value={username}
+            onChange={formInputValue("USERNAME")}
+            placeholder="Username"
+          />
+
+          <Inputs
+            type="email"
+            value={email}
+            onChange={formInputValue("EMAIL")}
+            placeholder="E-Mail"
+          />
+
+          <Inputs
+            type="password"
+            value={password}
+            onChange={formInputValue("PASSWORD")}
+            placeholder="Password"
+          />
+
+          <Inputs
+            type="password"
+            value={confirmPassword}
+            onChange={formInputValue("CONPWD")}
+            placeholder="Confirm Password"
+          />
+          <SubmitBtn>회원가입</SubmitBtn>
         </Form>
-      </PanelContent>
-      <Footer>
-        <SubmitBtn> 회원가입 </SubmitBtn>
-      </Footer>
-    </PanelContainer>
+      </AuthContent>
+    </AuthContainer>
   );
 }
+
+/**
+ * 
+    <InputGroup>
+            <Input
+              type="text"
+              name="username"
+              value={username}
+              onChange={formInputValue("USERNAME")}
+              placeholder="Username"
+            />
+         
+            <Input
+              type="text"
+              name="email"
+              value={email}
+              onChange={formInputValue("EMAIL")}
+              placeholder="E-Mail"
+            />
+          
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              onChange={formInputValue("PASSWORD")}
+              placeholder="Password"
+            />
+     
+            <Input
+              type="password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={formInputValue("CONPWD")}
+              placeholder="Confirm Password"
+            />
+          </InputGroup>
+ */
