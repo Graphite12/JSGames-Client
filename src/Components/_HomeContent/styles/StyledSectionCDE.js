@@ -163,7 +163,7 @@ export const StyledSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    /* cursor: pointer; */
+    cursor: pointer;
   }
 
   .slick-dots {
@@ -172,7 +172,6 @@ export const StyledSlider = styled(Slider)`
   }
 
   .slick-track {
-    width: 100%;
   }
 `;
 /*틱택토 스타일링 */

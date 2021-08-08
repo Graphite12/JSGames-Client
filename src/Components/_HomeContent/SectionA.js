@@ -22,8 +22,12 @@ import { faHome, faBook, faSitemap } from "@fortawesome/free-solid-svg-icons";
 //React Feature
 import { useEffect, useState } from "react";
 import { useSpring, animated, config } from "react-spring";
+import { useDispatch, useSelector } from "react-redux";
+
+import { flipIcon } from "../../_actions/modalAndFlips_action";
 
 export default function SectionA() {
+  const dispatch = useDispatch();
   const calc = (x, y) => [
     -(y - window.innerHeight / 2) / 30,
     (x - window.innerWidth / 2) / 30,
@@ -38,17 +42,17 @@ export default function SectionA() {
   }));
 
   //cardFliping
-  const [fliped, setFliped] = useState(false);
 
-  const flipCard = () => {
-    setFliped(!fliped);
+  const { isIconFlips } = useSelector((state) => state.modalAndFlips_Reducer);
+  const fliped = () => {
+    dispatch(flipIcon());
   };
 
   return (
     <SectionAContainer>
       <AContent>
         <TextScreen>
-          {!fliped ? (
+          {!isIconFlips ? (
             <TextContent>
               <header>
                 <h1>
@@ -63,14 +67,14 @@ export default function SectionA() {
           ) : (
             <TextContent>
               <div>
-                <h1>이 게임은 대박입니다</h1>
+                <h1>재밌는 게임을 즐겨보세요</h1>
               </div>
             </TextContent>
           )}
         </TextScreen>
         {/* <Angle></Angle> */}
         <CardBox
-          onClick={flipCard}
+          onClick={fliped}
           onMouseMove={({ clientX: x, clientY: y }) =>
             setHover({ xys: calc(x, y) })
           }
@@ -80,10 +84,10 @@ export default function SectionA() {
           }}
         >
           <CardInner>
-            <CardFront cardFliped={fliped ? "180deg" : "0deg"}>
+            <CardFront cardFliped={isIconFlips ? "180deg" : "0deg"}>
               <Img src={pad1} />
             </CardFront>
-            <CardBack cardFliped={fliped ? "0deg" : "-180deg"}>
+            <CardBack cardFliped={isIconFlips ? "0deg" : "-180deg"}>
               <Img src={pad2} />
             </CardBack>
           </CardInner>

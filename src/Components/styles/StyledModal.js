@@ -42,7 +42,6 @@ export const Auth_box = styled.div`
   z-index: 20;
   width: 100%;
   height: 100%;
-  padding: 17px 10px;
 `;
 
 export const closeBtn = styled.button`

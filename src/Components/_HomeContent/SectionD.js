@@ -14,10 +14,6 @@ import SnakeGuide from "./TabComponent/SnakeGuide";
 import TetrisGuide from "./TabComponent/TeTrisGuide";
 import TictactoeGuide from "./TabComponent/TictactoeGuide";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const settings = {
   dots: true, // 슬라이드 밑에 점 보이게
   infinite: true, // 무한으로 반복
@@ -51,38 +47,10 @@ export default function SectionD() {
   const tabTitle = ["테트리스", "틱택토", "메모리즈", "스네이크"];
 
   const tabContent = {
-    0: (
-      <TetrisGuide
-        setting={settings}
-        pb={prevBtn}
-        nb={nextBtn}
-        target={refTarget}
-      />
-    ),
-    1: (
-      <TictactoeGuide
-        setting={settings}
-        pb={prevBtn}
-        nb={nextBtn}
-        target={refTarget}
-      />
-    ),
-    2: (
-      <MemorysGuide
-        setting={settings}
-        pb={prevBtn}
-        nb={nextBtn}
-        target={refTarget}
-      />
-    ),
-    3: (
-      <SnakeGuide
-        setting={settings}
-        pb={prevBtn}
-        nb={nextBtn}
-        target={refTarget}
-      />
-    ),
+    0: <TetrisGuide setting={settings} target={refTarget} />,
+    1: <TictactoeGuide setting={settings} target={refTarget} />,
+    2: <MemorysGuide setting={settings} target={refTarget} />,
+    3: <SnakeGuide setting={settings} target={refTarget} />,
   };
 
   return (
@@ -96,7 +64,12 @@ export default function SectionD() {
               </TabMenu>
             ))}
           </TabList>
-          <TabsContents>{tabContent[activeTab]}</TabsContents>
+          <TabsContents>
+            {tabContent[activeTab]}
+            <button onClick={nextBtn}>다음</button>
+            <button onClick={prevBtn}>이전</button>
+          </TabsContents>
+
           {console.log(activeTab)}
         </TabContainer>
       </DefaultScreen>

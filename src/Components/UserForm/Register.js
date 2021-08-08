@@ -13,13 +13,16 @@ import {
   SubmitBtn,
   AuthContent,
   AuthContainer,
+  RegisterFlipBtn,
+  RegisterFlipContent,
+  RegisterBackBtn,
+  backBtnBox,
 } from "./styles/StyledAuthForm";
 import Inputs from "./Inputs";
 
 require("dotenv").config();
-
-export default function Register(props) {
-  const { panelB } = props;
+const Register = (props) => {
+  const { flipsAnime, flips, flipsRedux } = props;
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -37,7 +40,7 @@ export default function Register(props) {
     console.log(e.target.value);
   };
 
-  const onSubmit = async (e) => {
+  const onRegister = async (e) => {
     e.preventDefault();
 
     let data = {
@@ -69,42 +72,52 @@ export default function Register(props) {
 
   return (
     <AuthContainer>
-      <AuthContent>
-        <Form onSubmit={onSubmit}>
-          <h1>회원가입</h1>
-          <Inputs
-            type="text"
-            value={username}
-            onChange={formInputValue("USERNAME")}
-            placeholder="Username"
-          />
+      {flips ? (
+        <AuthContent>
+          <backBtnBox>
+            <RegisterBackBtn onClick={flipsRedux}>{`<=`}</RegisterBackBtn>
+          </backBtnBox>
+          <Form onSubmit={onRegister}>
+            <h1>회원가입</h1>
+            <Inputs
+              type="text"
+              value={username}
+              onChange={formInputValue("USERNAME")}
+              placeholder="Username"
+            />
 
-          <Inputs
-            type="email"
-            value={email}
-            onChange={formInputValue("EMAIL")}
-            placeholder="E-Mail"
-          />
+            <Inputs
+              type="email"
+              value={email}
+              onChange={formInputValue("EMAIL")}
+              placeholder="E-Mail"
+            />
 
-          <Inputs
-            type="password"
-            value={password}
-            onChange={formInputValue("PASSWORD")}
-            placeholder="Password"
-          />
+            <Inputs
+              type="password"
+              value={password}
+              onChange={formInputValue("PASSWORD")}
+              placeholder="Password"
+            />
 
-          <Inputs
-            type="password"
-            value={confirmPassword}
-            onChange={formInputValue("CONPWD")}
-            placeholder="Confirm Password"
-          />
-          <SubmitBtn>회원가입</SubmitBtn>
-        </Form>
-      </AuthContent>
+            <Inputs
+              type="password"
+              value={confirmPassword}
+              onChange={formInputValue("CONPWD")}
+              placeholder="Confirm Password"
+            />
+            <SubmitBtn>회원가입</SubmitBtn>
+          </Form>
+        </AuthContent>
+      ) : (
+        <RegisterFlipContent>
+          <h2>아직 회원이 아니세요? 바로 가입하세요</h2>
+          <RegisterFlipBtn onClick={flipsRedux}>회원가입</RegisterFlipBtn>
+        </RegisterFlipContent>
+      )}
     </AuthContainer>
   );
-}
+};
 
 /**
  * 
@@ -142,3 +155,4 @@ export default function Register(props) {
             />
           </InputGroup>
  */
+export default Register;

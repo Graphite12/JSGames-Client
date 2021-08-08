@@ -16,10 +16,6 @@ export default function TetrisGuide({ setting, pb, nb, target }) {
         <div>4</div>
         <div>5</div>
       </StyledSlider>
-      <CarouselBtnBox>
-        <button onClick={pb}>이전</button>
-        <button onClick={nb}>다음</button>
-      </CarouselBtnBox>
     </TetrisGuideContainer>
   );
 }

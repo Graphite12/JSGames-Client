@@ -1,13 +1,15 @@
 import { InputGroup, Input, Status } from "./styles/StyledAuthForm";
 
-const Inputs = ({ type, placeholder }) => {
+const Inputs = ({ types, placeholder, value, onChange }) => {
   return (
     <InputGroup>
       <Input
-        placeholder={placeholder && placeholder}
-        type={type ? type : "text"}
+        placeholder={placeholder}
+        type={types ? types : "text"}
+        value={value}
+        onChange={onChange}
         required
-        autocomplete="off"
+        autocomplete="on"
       />
       <Status />
     </InputGroup>

@@ -20,7 +20,7 @@ import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../_actions/auth_action";
 
 //redux Action
-import { showModal } from "../_actions/modal_action";
+import { showModal } from "../_actions/modalAndFlips_action";
 
 //component
 import Modal from "./Modal";
@@ -33,7 +33,7 @@ export default function Navigation() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const { isLoggedIn } = useSelector((state) => state.auth_Reducer);
-  const { isModal } = useSelector((state) => state.modal_Reducer);
+  const { isModal } = useSelector((state) => state.modalAndFlips_Reducer);
   const navlink = ["ABOUT", "GAMES", "CONTACTUS"];
 
   const onLogout = () => {
@@ -72,8 +72,7 @@ export default function Navigation() {
         })}
         {isLoggedIn ? (
           <ButtonContainer>
-            <AuthButton>프로필</AuthButton>
-            <AuthButton onClick={onLogout}>로그아웃</AuthButton>
+            <AuthButton onClick={onOpenModal}>환영합니다.</AuthButton>
           </ButtonContainer>
         ) : (
           <ButtonContainer>

@@ -7,19 +7,19 @@ import {
   AuthContainer,
   AuthContent,
   SubmitBtn,
+  LoginFlipBtn,
+  LoginFlipContent,
 } from "./styles/StyledAuthForm";
 import Inputs from "./Inputs";
 
 require("dotenv").config();
 
-function Login(props) {
-  const { panelA } = props;
+const Login = (props) => {
+  const { flipsAnime, flipsAnime2, flips, flipsRedux } = props;
   const dispatch = useDispatch();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [submited, setSubmited] = useState(false);
-  const [showPwd, setShowPwd] = useState(false);
   const [alert, setAlert] = useState("");
 
   const formInputValue = (key) => (e) => {
@@ -39,34 +39,43 @@ function Login(props) {
       password: password,
     };
     dispatch(loggedIn(data));
-    history.push("/");
   };
 
   return (
     <AuthContainer>
-      <AuthContent>
-        <Form onSubmit={onLogin}>
-          <h1>로그인</h1>
-          <Inputs
-            type="email"
-            value={email}
-            onChange={formInputValue("EMAIL")}
-            placeholder="E-mail"
-          />
+      {flips ? (
+        <AuthContent style={flipsAnime}>
+          <LoginFlipBtn onClick={flipsRedux}>뒤로가기</LoginFlipBtn>
+          <Form onSubmit={onLogin}>
+            <h1>로그인</h1>
+            <Inputs
+              types="email"
+              name="email"
+              value={email}
+              onChange={formInputValue("EMAIL")}
+              placeholder="E-mail"
+            />
 
-          <Inputs
-            type={showPwd ? "text" : "password"}
-            value={password}
-            onChange={formInputValue("PASSWORD")}
-            placeholder="Password"
-          />
-          <SubmitBtn>비밀번호를 잊으셨나요?</SubmitBtn>
-          <SubmitBtn>로그인</SubmitBtn>
-        </Form>
-      </AuthContent>
+            <Inputs
+              types="password"
+              name="password"
+              value={password}
+              onChange={formInputValue("PASSWORD")}
+              placeholder="Password"
+            />
+
+            <SubmitBtn>로그인</SubmitBtn>
+          </Form>
+        </AuthContent>
+      ) : (
+        <LoginFlipContent>
+          <div>이미 가입한 회원이신가요?</div>
+          <LoginFlipBtn onClick={flipsRedux}>로그인 하러가기</LoginFlipBtn>
+        </LoginFlipContent>
+      )}
     </AuthContainer>
   );
-}
+};
 
 /**
   {/* <InputGroup>

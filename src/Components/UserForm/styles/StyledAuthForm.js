@@ -1,22 +1,27 @@
 import styled, { keyframes } from "styled-components";
-
+import { useSpring, animated, config } from "react-spring";
 //공통 스타일
 export const AuthContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 1% 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const AuthContent = styled.div`
+  padding: 2% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 70%;
-  height: 80%;
+`;
+
+export const AuthContent = styled(animated.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 95%;
+  transform-style: preserve-3d;
+  position: relative;
+
+  border: 1px solid black;
 `;
 
 export const Form = styled.form`
@@ -33,7 +38,7 @@ export const InputGroup = styled.label`
 `;
 
 export const Input = styled.input`
-  width: 90%;
+  width: 100%;
   height: 50px;
   border: none;
   margin: 0.5rem 0;
@@ -49,10 +54,10 @@ export const Input = styled.input`
 `;
 
 export const SubmitBtn = styled.button`
-  width: 75%;
+  width: 40%;
   height: 40px;
   border: none;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
   background-color: green;
   border-radius: 8px;
@@ -65,10 +70,6 @@ export const SubmitBtn = styled.button`
 
   &:hover {
     transform: translateY(-1px);
-  }
-
-  &:focus {
-    outline: none;
   }
 `;
 
@@ -90,11 +91,74 @@ export const Status = styled.div`
   }
 `;
 
+//뒤로가기버튼
+export const backBtnBox = styled.div`
+  width: 70px;
+  height: 70px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
 //Login Option
-export const LoginContainer = styled.div``;
+
+export const LoginFlipContent = styled(AuthContent)``;
+
+export const LoginFlipBtn = styled(SubmitBtn)`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: inherit;
+  border: 3px green solid;
+  color: black;
+  &:hover {
+    background: blue;
+    color: white;
+    transform: translateY(-3px);
+  }
+`;
+
+export const LoginBackBtn = styled.button`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: inherit;
+  border: 3px green solid;
+  color: black;
+  &:hover {
+    background: blue;
+    color: white;
+    transform: translateY(-3px);
+  }
+`;
 
 //Register Option
-export const RegisterContainer = styled.div``;
+
+export const RegisterFlipBtn = styled(SubmitBtn)`
+  background: inherit;
+  border: 3px green solid;
+  color: black;
+  &:hover {
+    background: blue;
+    color: white;
+    transform: translateY(-3px);
+  }
+`;
+
+export const RegisterBackBtn = styled.button`
+  border-radius: 50%;
+  background: inherit;
+  border: 3px green solid;
+  color: black;
+  &:hover {
+    background: blue;
+    color: white;
+    transform: translateY(-3px);
+  }
+`;
+
+export const RegisterFlipContent = styled(AuthContent)``;
 
 //panel Option
 

@@ -5,7 +5,7 @@ import {
 } from "../styles/StyledSectionCDE";
 import { useRef } from "react";
 
-export default function TictactoeGuide({ setting, pb, nb, target }) {
+export default function TictactoeGuide({ setting, target }) {
   return (
     <TTTGuideContainer>
       <h1>틱택토 가이드</h1>
@@ -14,10 +14,6 @@ export default function TictactoeGuide({ setting, pb, nb, target }) {
         <div>2fasdfasdfadsfasdf</div>
         <div>3sadfdsafasdfds</div>
       </StyledSlider>
-      <CarouselBtnBox>
-        <button onClick={pb}>이전</button>
-        <button onClick={nb}>다음</button>
-      </CarouselBtnBox>
     </TTTGuideContainer>
   );
 }

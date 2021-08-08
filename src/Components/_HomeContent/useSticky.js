@@ -5,6 +5,7 @@ const useSticky = () => {
   const element = useRef();
 
   const handleScroll = () => {
+    //useRef가 ㅋ
     if (!element.current) return;
 
     window.scrollY >= element.current.getBoundingClientRect().bottom

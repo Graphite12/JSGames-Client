@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TYPES } from "./types";
+import { TYPES, MAF } from "./types";
 const API_AUTH = "https://localhost:5000/auth";
 const API_USER = "https://localhost:5000";
 //필수!!
@@ -19,7 +19,7 @@ export function loggedIn(data) {
       });
 
       dispatch({
-        type: TYPES.HIDE_MODAL,
+        type: MAF.HIDE_MODAL,
       });
     });
   };
@@ -28,7 +28,6 @@ export function loggedIn(data) {
 export function register(data) {
   return (dispatch) => {
     axios.post(`${API_AUTH}/register`, data).then((res) => {
-      console.log(res);
       dispatch({
         type: TYPES.REGISTE_SUCCESS,
         payload: res.data,
