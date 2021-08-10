@@ -30,6 +30,11 @@ JSGames
 [MySQL]<br />
 [Sequelize]<br />
 
+### 배포[AWS]
+[EC2]<br />
+[S3]<br />
+[CloudFront]<br />
+
 # Flow Chart
 
 # Project Detail
