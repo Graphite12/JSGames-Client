@@ -16,7 +16,7 @@ import {
   RegisterFlipBtn,
   RegisterFlipContent,
   RegisterBackBtn,
-  backBtnBox,
+  BackBtnBox,
 } from "./styles/StyledAuthForm";
 import Inputs from "./Inputs";
 
@@ -74,9 +74,9 @@ const Register = (props) => {
     <AuthContainer>
       {flips ? (
         <AuthContent>
-          <backBtnBox>
+          <BackBtnBox>
             <RegisterBackBtn onClick={flipsRedux}>{`<=`}</RegisterBackBtn>
-          </backBtnBox>
+          </BackBtnBox>
           <Form onSubmit={onRegister}>
             <h1>회원가입</h1>
             <Inputs

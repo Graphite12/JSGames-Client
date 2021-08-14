@@ -5,10 +5,14 @@ import {
   ShowGameCard,
 } from "./styles/StyledSectionCDE";
 
-export default function SectionC({ element }) {
+import { useSubNav } from "./CustomHooks/useSubNav";
+
+export default function SectionC() {
+  const refC = useSubNav("Target");
+
   return (
-    <StyledSectonC>
-      <DefaultScreen ref={element}>
+    <StyledSectonC ref={refC} id="homeContainer">
+      <DefaultScreen>
         <h2>React로 구현된 게임들을 만나보세요.</h2>
         <ShowCase></ShowCase>
       </DefaultScreen>

@@ -1,6 +1,6 @@
 # 프로젝트 명
 
-G-Storage
+JSGames
 
 # 프로젝트 컨셉
 
@@ -10,7 +10,23 @@ G-Storage
 
 ### Frontend
 
+[React]<br />
+[React-Hook]<br />
+[React-Redux]<br />
+[Styled-Components]<br />
+[JavaScript]<br />
+[HTML5]<br />
+[CSS3]<br />
+[React-Spring]<br />
+[React-Slick]<br />
+
 ### Backend
+
+[NodeJS]<br />
+[Express]<br />
+[jsonwebtoken]<br />
+[MySQL]<br />
+[Sequelize]<br />
 
 # Flow Chart
 

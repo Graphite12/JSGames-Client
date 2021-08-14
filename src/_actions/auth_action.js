@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TYPES, MAF } from "./types";
-const API_AUTH = "https://localhost:5000/auth";
-const API_USER = "https://localhost:5000";
+const API_AUTH = "https://jsgames.link/auth";
+const API_USER = "https://jsgames.link";
 //필수!!
 axios.defaults.withCredentials = true;
 
@@ -29,7 +29,7 @@ export function register(data) {
   return (dispatch) => {
     axios.post(`${API_AUTH}/register`, data).then((res) => {
       dispatch({
-        type: TYPES.REGISTE_SUCCESS,
+        type: TYPES.REGISTER_SUCCESS,
         payload: res.data,
       });
     });

@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
       return { ...state, isLoggedIn: true, userInfo: payload };
 
     case TYPES.LOGIN_SUCCESS:
-    case TYPES.REGISTE_SUCCESS:
+    case TYPES.REGISTER_SUCCESS:
       return { ...state, isLoggedIn: true };
 
     case TYPES.LOGOUT:

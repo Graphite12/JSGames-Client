@@ -5,10 +5,10 @@ const useSticky = () => {
   const element = useRef();
 
   const handleScroll = () => {
-    //useRef가 ㅋ
+    //useRef가
     if (!element.current) return;
 
-    window.scrollY >= element.current.getBoundingClientRect().bottom
+    window.scrollY >= element.current.getBoundingClientRect().bottom - 1520
       ? setIsSticky(true)
       : setIsSticky(false);
   };

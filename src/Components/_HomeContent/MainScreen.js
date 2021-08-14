@@ -4,18 +4,30 @@ import { useEffect, useState, useRef } from "react";
 import SectionC from "./SectionC";
 import SectionD from "./SectionD";
 import SectionE from "./SectionE";
+import SuvNavProvider from "./CustomHooks/SubNavContext";
 import { LogPage } from "./styles/StyledSectionCDE";
 import SubNavigation from "./SubNavigation";
-import useSticky from "./useSticky";
+import useSticky from "./CustomHooks/useSticky";
 
-export default function NextPage() {
+export default function MainScreen() {
   const { isSticky, element } = useSticky();
+
+  const linkList = [
+    { navLinkId: "Target", scrollToId: "homeContainer" },
+    { navLinkId: "HowToPlay", scrollToId: "HowToPlayContainer" },
+    { navLinkId: "Other", scrollToId: "OtherContainer" },
+  ];
+
   return (
     <LogPage>
-      <SubNavigation sticky={isSticky} />
-      <SectionC element={element} />
-      <SectionD />
-      <SectionE />
+      <SuvNavProvider>
+        <SubNavigation sticky={isSticky} linkList={linkList} />
+        <article ref={element}>
+          <SectionC />
+          <SectionD />
+          <SectionE />
+        </article>
+      </SuvNavProvider>
     </LogPage>
   );
 }

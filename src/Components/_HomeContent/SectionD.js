@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activeTabs } from "../../_actions/tab_action";
+import { useSubNav } from "./CustomHooks/useSubNav";
 import {
   StyledSectonD,
   DefaultScreen,
@@ -13,6 +14,8 @@ import MemorysGuide from "./TabComponent/MemorysGuide";
 import SnakeGuide from "./TabComponent/SnakeGuide";
 import TetrisGuide from "./TabComponent/TeTrisGuide";
 import TictactoeGuide from "./TabComponent/TictactoeGuide";
+
+//Spring(animation) Option
 
 const settings = {
   dots: true, // 슬라이드 밑에 점 보이게
@@ -32,6 +35,7 @@ export default function SectionD() {
   // console.log(useSelector((state) => state.tabs_Reducer.activeTab));
 
   const slider = useRef(null);
+  const refD = useSubNav("");
 
   const refTarget = (tg) => {
     slider.current = tg;
@@ -54,7 +58,7 @@ export default function SectionD() {
   };
 
   return (
-    <StyledSectonD>
+    <StyledSectonD ref={refD} id="HowToPlayContainer">
       <DefaultScreen>
         <TabContainer>
           <TabList>
@@ -69,8 +73,6 @@ export default function SectionD() {
             <button onClick={nextBtn}>다음</button>
             <button onClick={prevBtn}>이전</button>
           </TabsContents>
-
-          {console.log(activeTab)}
         </TabContainer>
       </DefaultScreen>
     </StyledSectonD>

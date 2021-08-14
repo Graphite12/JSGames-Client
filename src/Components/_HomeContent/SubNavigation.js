@@ -1,5 +1,3 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
 import {
   Sub_Navigation,
   SubNavContainer,
@@ -8,24 +6,35 @@ import {
   Links,
 } from "./styles/StyledSubNav";
 
-const SubNavigation = ({ sticky }) => {
+import React, { useContext } from "react";
+import { SubNavContext } from "./CustomHooks/SubNavContext";
+
+const SubNavigation = ({ sticky, linkList }) => {
   return (
     <Sub_Navigation sticky={sticky}>
       <SubNavContainer>
-        <LinkedUl>
-          <LinkedLi>
-            <Links to="/c">개요</Links>
-          </LinkedLi>
-          <LinkedLi>
-            <Links to="/d">즐기는 방법</Links>
-          </LinkedLi>
-          <LinkedLi>
-            <Links to="/e">게임</Links>
-          </LinkedLi>
-        </LinkedUl>
+        <div>
+          {linkList.map(({ navLinkId, scrollToId }, idx) => (
+            <NavLinks key={idx} navLinkId={navLinkId} scrollToId={scrollToId} />
+          ))}
+        </div>
       </SubNavContainer>
     </Sub_Navigation>
   );
 };
 
+const NavLinks = ({ navLinkId, scrollToId }) => {
+  const { activeNavLinkId, setActiveNavLinkId } = useContext(SubNavContext);
+
+  const handleClick = () => {
+    setActiveNavLinkId(navLinkId);
+    document.getElementById(scrollToId).scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div id={navLinkId} linkEffect={activeNavLinkId} onClick={handleClick}>
+      {navLinkId}
+    </div>
+  );
+};
 export default SubNavigation;

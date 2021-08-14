@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 //style
 import {
   Main_Container,
@@ -38,6 +38,8 @@ export default function Modal() {
     dispatch(hideModal());
   };
 
+  //플립옵션
+
   const changeLoginFlip = () => {
     dispatch(flipLoginCard());
   };
@@ -45,6 +47,18 @@ export default function Modal() {
   const changeRegisterFlip = () => {
     dispatch(flipRegisterCard());
   };
+
+  //모달 옵션
+  const ModalkeyPress = (e) => {
+    if (e.keyCode === 27 && isModal) {
+      return onHideModal();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", ModalkeyPress);
+    return () => document.removeEventListener("keydown", ModalkeyPress);
+  }, [ModalkeyPress]);
 
   if (!isModal) {
     return null;

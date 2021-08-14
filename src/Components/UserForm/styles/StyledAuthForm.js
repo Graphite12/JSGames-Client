@@ -92,7 +92,7 @@ export const Status = styled.div`
 `;
 
 //뒤로가기버튼
-export const backBtnBox = styled.div`
+export const BackBtnBox = styled.div`
   width: 70px;
   height: 70px;
   display: block;
@@ -106,9 +106,6 @@ export const backBtnBox = styled.div`
 export const LoginFlipContent = styled(AuthContent)``;
 
 export const LoginFlipBtn = styled(SubmitBtn)`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
   background: inherit;
   border: 3px green solid;
   color: black;

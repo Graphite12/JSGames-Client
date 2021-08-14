@@ -33,9 +33,6 @@ export default function Routing() {
         <Route component={NotFound} path="/notFound" />
         <Route component={Login} exact path="/auth/login" />
         <Route component={Register} exact path="/auth/register" />
-        <Route component={SectionC} path="/c" />
-        <Route component={SectionD} path="/d" />
-        <Route component={SectionE} path="/e" />
         <Route component={tttGames} path="/tictactoe" />
         <Route component={tetris} path="/tetris" />
       </Switch>
