@@ -16,7 +16,6 @@ export default function Home() {
       <SectionA />
       <MainScreen />
       <Footer />
-      {/* {console.log(document.cookie)} */}
     </StyledHome>
   );
 }

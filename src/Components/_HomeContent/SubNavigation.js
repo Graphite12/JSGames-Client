@@ -13,11 +13,11 @@ const SubNavigation = ({ sticky, linkList }) => {
   return (
     <Sub_Navigation sticky={sticky}>
       <SubNavContainer>
-        <div>
+        <LinkedUl>
           {linkList.map(({ navLinkId, scrollToId }, idx) => (
             <NavLinks key={idx} navLinkId={navLinkId} scrollToId={scrollToId} />
           ))}
-        </div>
+        </LinkedUl>
       </SubNavContainer>
     </Sub_Navigation>
   );
@@ -32,9 +32,16 @@ const NavLinks = ({ navLinkId, scrollToId }) => {
   };
 
   return (
-    <div id={navLinkId} linkEffect={activeNavLinkId} onClick={handleClick}>
-      {navLinkId}
-    </div>
+    <LinkedLi>
+      <Links
+        to={`#${navLinkId}`}
+        id={navLinkId}
+        effect={activeNavLinkId}
+        onClick={handleClick}
+      >
+        {navLinkId}
+      </Links>
+    </LinkedLi>
   );
 };
 export default SubNavigation;

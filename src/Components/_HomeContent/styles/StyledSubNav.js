@@ -7,10 +7,10 @@ export const Sub_Navigation = styled.nav`
   z-index: 10;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 50px;
   width: 100%;
 
-  background: ${({ sticky }) => (sticky ? "rgba(2,2,2, .5)" : "white")};
+  background: ${({ sticky }) => (sticky ? "rgba(2,2,2, .5)" : "none")};
   position: ${({ sticky }) => (sticky ? "fixed" : "absolute")};
   top: 0;
 `;
@@ -21,38 +21,38 @@ export const SubNavContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 50px;
   ${Container};
 `;
 
-// export const LinkedUl = styled.ul`
-//   display: flex;
-//   align-items: center;
-//   text-align: center;
-// `;
+export const LinkedUl = styled.ul`
+  display: flex;
+  align-items: center;
+  text-align: center;
+`;
 
-// export const LinkedLi = styled.li`
-//   height: 50px;
-// `;
+export const LinkedLi = styled.li`
+  height: 50px;
+`;
 
-// export const Links = styled(Link)`
-//   text-decoration: none;
-//   font-weight: bold;
-//   font-size: 2rem;
-//   color: #fff;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 1rem 2rem;
-//   height: 100%;
-//   transition: all 0.2s ease;
+export const Links = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 100%;
+  transition: all 0.2s ease;
 
-//   &:hover {
-//     color: #e38b06;
-//     transform: traslateY(-3rem);
-//   }
-//   &:active {
-//     transform: traslateY(3rem);
-//     color: #e38b06;
-//   }
-// `;
+  &:hover {
+    color: #e38b06;
+    transform: traslateY(-3rem);
+  }
+  &:active {
+    transform: traslateY(3rem);
+    color: #e38b06;
+  }
+`;

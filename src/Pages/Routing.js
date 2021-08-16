@@ -28,13 +28,13 @@ export default function Routing() {
 
       <Switch>
         <Route component={Home} exact path="/" />
-        <Route component={Games} exact path="/games" />
-        {/* <Route component={About} exact path="/about" /> */}
-        <Route component={NotFound} path="/notFound" />
+        <Route component={Games} path="/games" />
+        <Route component={About} path="/about" />
         <Route component={Login} exact path="/auth/login" />
         <Route component={Register} exact path="/auth/register" />
         <Route component={tttGames} path="/tictactoe" />
-        <Route component={tetris} path="/tetris" />
+        <Route component={tetris} path="/tetris" />\
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

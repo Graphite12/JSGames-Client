@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.44710b78.chunk.js",
-    "main.js.map": "/static/js/main.44710b78.chunk.js.map",
+    "main.js": "/static/js/main.26f55de3.chunk.js",
+    "main.js.map": "/static/js/main.26f55de3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2d94d3f6.js",
     "runtime-main.js.map": "/static/js/runtime-main.2d94d3f6.js.map",
     "static/css/2.19627560.chunk.css": "/static/css/2.19627560.chunk.css",
-    "static/js/2.097f736a.chunk.js": "/static/js/2.097f736a.chunk.js",
-    "static/js/2.097f736a.chunk.js.map": "/static/js/2.097f736a.chunk.js.map",
+    "static/js/2.1b4252d9.chunk.js": "/static/js/2.1b4252d9.chunk.js",
+    "static/js/2.1b4252d9.chunk.js.map": "/static/js/2.1b4252d9.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.19627560.chunk.css.map": "/static/css/2.19627560.chunk.css.map",
-    "static/js/2.097f736a.chunk.js.LICENSE.txt": "/static/js/2.097f736a.chunk.js.LICENSE.txt",
+    "static/js/2.1b4252d9.chunk.js.LICENSE.txt": "/static/js/2.1b4252d9.chunk.js.LICENSE.txt",
     "static/media/arcade1.3e90b0f1.jpg": "/static/media/arcade1.3e90b0f1.jpg",
     "static/media/arcade2.6bb9135f.jpg": "/static/media/arcade2.6bb9135f.jpg",
     "static/media/arcade3.4febebb2.png": "/static/media/arcade3.4febebb2.png",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.2d94d3f6.js",
     "static/css/2.19627560.chunk.css",
-    "static/js/2.097f736a.chunk.js",
-    "static/js/main.44710b78.chunk.js"
+    "static/js/2.1b4252d9.chunk.js",
+    "static/js/main.26f55de3.chunk.js"
   ]
 }

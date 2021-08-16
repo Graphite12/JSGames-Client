@@ -1,5 +1,3 @@
-import { useEffect, useState, useRef } from "react";
-
 //component
 import SectionC from "./SectionC";
 import SectionD from "./SectionD";
@@ -8,6 +6,7 @@ import SuvNavProvider from "./CustomHooks/SubNavContext";
 import { LogPage } from "./styles/StyledSectionCDE";
 import SubNavigation from "./SubNavigation";
 import useSticky from "./CustomHooks/useSticky";
+import React from "react";
 
 export default function MainScreen() {
   const { isSticky, element } = useSticky();
