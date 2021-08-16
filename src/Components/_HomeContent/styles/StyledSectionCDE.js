@@ -5,8 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import arcade1 from "../image/arcade1.jpg";
 import arcade2 from "../image/arcade2.jpg";
-import arcade3 from "../image/arcade3.png";
-
+import arcade3 from "../image/arcade3.jpg";
+import ppb from "../image/purpleblue.jpg";
+import db from "../image/darkblue.jpg";
 export const LogPage = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,17 +18,23 @@ export const LogPage = styled.div`
 `;
 
 export const DefaultScreen = styled.div`
-  width: 70%;
-  height: 100%;
-  background-color: whitesmoke;
+  background-color: white;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  z-index: 8;
+  z-index: 5;
+`;
 
-  position: relative;
+export const DefaultImage = styled.div`
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 5;
 `;
 
 //컴포넌트 C
@@ -38,27 +45,39 @@ export const StyledSectonC = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90vh;
-  background-image: url(${arcade3});
-  background-size: cover;
-  background-position: center;
+  height: 70vh;
+  background: rgb(221, 221, 221);
+  // background-image: url(${db});
+  // background-size: cover;
+
   z-index: 1;
+  position: relative;
 `;
 
-export const ShowCase = styled.article`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  border: 1px solid black;
-  width: 95%;
+export const SectionCScreen = styled(DefaultScreen)`
+  height: 80%;
+  width: 40%;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  background: inherit;
+
+  header {
+    margin-top: 10%;
+    padding: 1% 7%;
+  }
+  header > h1 {
+    font-size: 4rem;
+  }
 `;
 
-export const ShowGameCard = styled.div`
-  width: 250px;
-  height: 350px;
-  border: 1px solid black;
-  background: brown;
-`;
+// export const ShowCase = styled.article`
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   grid-template-rows: repeat(2, 1fr);
+//   border: 1px solid black;
+//   width: 95%;
+// `;
 
 //컴포넌트 D
 
@@ -68,11 +87,17 @@ export const StyledSectonD = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-image: url(${arcade1});
-  background-size: cover;
   height: 90vh;
+  background: rgb(171, 171, 171, 0.5);
+  // background-image: url(${db});
+  // background-size: cover;
   z-index: 1;
   position: relative;
+`;
+
+export const SectionDScreen = styled(DefaultScreen)`
+  height: 100%;
+  width: 80%;
 `;
 
 export const TabContainer = styled.div`
@@ -187,7 +212,14 @@ export const StyledSectonE = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: orange;
+  background: rgb(171, 171, 171, 0.7);
   height: 100vh;
   z-index: 1;
+  position: relative;
+  // background-image: url(${db});
+  // background-size: cover;
+`;
+
+export const SectionEScreen = styled(DefaultScreen)`
+  height: 100%;
 `;

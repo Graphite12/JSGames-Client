@@ -4,7 +4,7 @@ import React from "react";
 
 import SectionA from "../Components/_HomeContent/SectionA";
 
-import Footer from "../Components/Footer";
+import Footer from "./Footer";
 import NotFound from "./NotFound";
 //styled
 import { StyledHome } from "./styles/styeldHome";

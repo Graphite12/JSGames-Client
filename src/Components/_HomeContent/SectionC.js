@@ -1,8 +1,7 @@
 import {
   StyledSectonC,
   DefaultScreen,
-  ShowCase,
-  ShowGameCard,
+  SectionCScreen,
 } from "./styles/StyledSectionCDE";
 
 import { useSubNav } from "./CustomHooks/useSubNav";
@@ -12,10 +11,14 @@ export default function SectionC() {
 
   return (
     <StyledSectonC ref={refC} id="homeContainer">
-      <DefaultScreen>
-        <h2>React로 구현된 게임들을 만나보세요.</h2>
-        <ShowCase></ShowCase>
-      </DefaultScreen>
+      <SectionCScreen>
+        <header>
+          <h1>
+            React로 구현된 <br />
+            게임들을 만나보세요.
+          </h1>
+        </header>
+      </SectionCScreen>
     </StyledSectonC>
   );
 }

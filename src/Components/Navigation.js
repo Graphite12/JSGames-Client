@@ -15,7 +15,7 @@ import {
   AuthButton,
 } from "./styles/StyledNavigationBar";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon as FIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../_actions/auth_action";
 
@@ -61,7 +61,7 @@ export default function Navigation() {
 
   return (
     <Navbar>
-      <LogoBox>JSG</LogoBox>
+      <LogoBox onClick={() => history.push("/")}>JSG</LogoBox>
       <MenuLinks onClick={openMenu} click={click}>
         {navlink.map((item, idx) => {
           return (
@@ -82,11 +82,7 @@ export default function Navigation() {
       </MenuLinks>
       <BurgerIcon>
         <Burger onClick={openMenu}>
-          {click ? (
-            <FontAwesomeIcon icon={faTimes} />
-          ) : (
-            <FontAwesomeIcon icon={faBars} />
-          )}
+          {click ? <FIcon icon={faTimes} /> : <FIcon icon={faBars} />}
         </Burger>
       </BurgerIcon>
 

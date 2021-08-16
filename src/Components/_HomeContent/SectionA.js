@@ -1,14 +1,15 @@
 //styled
 import {
   SectionAContainer,
-  Angle,
+  SectionAHeader,
+  SectionAContent,
+  BounceHeader,
   CardBox,
   TextContent,
   CardInner,
   CardFront,
   CardBack,
   Img,
-  AContent,
   TextScreen,
   AboutButton,
 } from "./styles/StyledSection";
@@ -25,8 +26,10 @@ import { useSpring, animated, config } from "react-spring";
 import { useDispatch, useSelector } from "react-redux";
 
 import { flipIcon } from "../../_actions/modalAndFlips_action";
+import { useHistory } from "react-router-dom";
 
 export default function SectionA() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const calc = (x, y) => [
     -(y - window.innerHeight / 2) / 30,
@@ -50,19 +53,32 @@ export default function SectionA() {
 
   return (
     <SectionAContainer>
-      <AContent>
+      <SectionAHeader>
+        <BounceHeader>
+          <span className="spring J">J</span>
+          <span className="spring S1">S</span>
+          <span className="spring G">G</span>
+          <span className="spring A">A</span>
+          <span className="spring M">M</span>
+          <span className="spring E">E</span>
+          <span className="spring S2">S</span>
+        </BounceHeader>
+      </SectionAHeader>
+
+      {/* <Angle></Angle> */}
+      <SectionAContent>
         <TextScreen>
           {!isIconFlips ? (
             <TextContent>
               <header>
                 <h1>
-                  재미를 추구하는 게임
-                  <br />
+                  재미를 추구하는 <br />
                   웹페이지
                 </h1>
               </header>
-
-              <AboutButton>자세히 알아보기</AboutButton>
+              <div className="about-btn">
+                <AboutButton>자세히 알아보기</AboutButton>
+              </div>
             </TextContent>
           ) : (
             <TextContent>
@@ -72,7 +88,6 @@ export default function SectionA() {
             </TextContent>
           )}
         </TextScreen>
-        {/* <Angle></Angle> */}
         <CardBox
           onClick={fliped}
           onMouseMove={({ clientX: x, clientY: y }) =>
@@ -92,7 +107,7 @@ export default function SectionA() {
             </CardBack>
           </CardInner>
         </CardBox>
-      </AContent>
+      </SectionAContent>
     </SectionAContainer>
   );
 }

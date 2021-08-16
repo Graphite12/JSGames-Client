@@ -7,10 +7,10 @@ export const Sub_Navigation = styled.nav`
   z-index: 10;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 70px;
   width: 100%;
 
-  background: ${({ sticky }) => (sticky ? "rgba(2,2,2, .5)" : "none")};
+  background: ${({ sticky }) => (sticky ? "rgba(2,2,2, .3)" : "#3c3c3c")};
   position: ${({ sticky }) => (sticky ? "fixed" : "absolute")};
   top: 0;
 `;
@@ -21,7 +21,7 @@ export const SubNavContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 70px;
   ${Container};
 `;
 
@@ -32,7 +32,7 @@ export const LinkedUl = styled.ul`
 `;
 
 export const LinkedLi = styled.li`
-  height: 50px;
+  height: 70px;
 `;
 
 export const Links = styled(Link)`

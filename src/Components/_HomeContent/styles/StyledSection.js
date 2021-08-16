@@ -1,6 +1,7 @@
 import styled, { keyframes, css } from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import steamImg from "../../../image/bg.jpg";
+import arcade1 from "../image/arcade1.jpg";
 // import { HashLink as Link } from "react-router-dom";
 //Section A
 
@@ -8,9 +9,11 @@ export const SectionAContainer = styled.section`
   width: 100%;
   height: 100vh;
   margin: 0;
-  background: url(${steamImg});
+  background: url(${arcade1});
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 // export const Angle = styled.div`
@@ -59,26 +62,61 @@ export const SectionAContainer = styled.section`
 //   } ;
 // `;
 
-export const AContent = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  flex-wrap: wrap;
-
+export const SectionAHeader = styled.header`
   width: 100%;
-  height: 100%;
-  z-index: 1;
+  height: 40%;
+  background: rgb(138, 138, 138);
+  position: relative;
+
+  top: 12%;
+
+  display: flex;
+  justify-content: center;
 `;
 
-export const Bounce = keyframes`
-100% {
-  top: -20px;
+//header
+export const BounceHeader = styled.div`
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 30%;
 
-}
+  .spring {
+    font-size: 7rem;
+    font-weight: bold;
+    margin: 0 2%;
+  }
+
+  .J {
+    color: whitesmoke;
+  }
+  .S1 {
+    color: whitesmoke;
+  }
+  .G {
+    color: whitesmoke;
+  }
+  .A {
+    color: orange;
+  }
+  .M {
+    color: orange;
+  }
+  .E {
+    color: orange;
+  }
+  .S2 {
+    color: orange;
+  }
 `;
 
+export const SectionAContent = styled.article`
+  width: 100%;
+  hieght: 40%;
+  position: relative;
+
+  top: 15%;
+`;
 /**
  *
  * Flip 스타일 컴포넌트
@@ -91,8 +129,8 @@ export const CardBox = styled(animated.div)`
   align-items: center;
   width: 15%;
   height: 25%;
-  right: 2%;
-  top: 67%;
+  right: 5%;
+  top: 15%;
 
   z-index: 2;
 
@@ -160,7 +198,42 @@ export const Img = styled.img`
   height: 100%;
 `;
 
+//왼쪽 텍스트 컨텐츠
+export const TextScreen = styled.div`
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s linear;
+  position: absolute;
+
+  right: 10%;
+
+  width: 50%;
+  height: 100%;
+
+  border-radius: 15px;
+`;
+export const TextContent = styled.div`
+  width: 100%;
+  height: 100%;
+
+  header {
+    transition: 0.55s ease-in-out;
+  }
+  h1 {
+    color: whitesmoke;
+    font-size: 5em;
+    font-weight: 1000;
+  }
+  .about-btn {
+    position: absolute;
+
+    right: 30%;
+  }
+`;
+
 export const AboutButton = styled.button`
+  margin-top: 10%;
+
   width: 200px;
   height: 50px;
   border-radius: 20px;
@@ -172,35 +245,4 @@ export const AboutButton = styled.button`
   font-weight: bold;
 
   cursor: pointer;
-`;
-
-//왼쪽 텍스트 컨텐츠
-export const TextScreen = styled.div`
-  position: absolute;
-  left: 1%;
-  top: 15%;
-  display: flex;
-  flex-direction: column;
-  transition: 0.2s linear;
-
-  width: 37%;
-  height: 70%;
-
-  border-radius: 15px;
-
-  padding: 1.2%;
-`;
-export const TextContent = styled.div`
-  width: 100%;
-  height: 100%;
-
-  header {
-    transition: 0.55s ease-in-out;
-    width: 100%;
-  }
-  h1 {
-    color: white;
-    font-size: 5.5em;
-    font-weight: 1000;
-  }
 `;

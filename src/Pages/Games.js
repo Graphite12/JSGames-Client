@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import { useRef } from "react";
+
 import {
   GameTabs,
   GameTitle,

@@ -7,7 +7,7 @@ import {
   isValidPassword,
 } from "../../util/Validation";
 import { register } from "../../_actions/auth_action";
-import Footer from "../Footer";
+
 import {
   Form,
   SubmitBtn,

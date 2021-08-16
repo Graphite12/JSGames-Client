@@ -23,15 +23,15 @@ export const Navbar = styled.nav`
 `;
 
 export const LogoBox = styled.div`
-  padding: 1rem 0;
   color: #7b7fda;
   text-decoration: none;
-  font-weight: 800;
-  font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 2.5rem;
   height: 100%;
 
   cursor: pointer;
   margin-left: 2rem;
+  margin-top: 1rem;
 `;
 
 export const Burger = styled.button`

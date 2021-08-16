@@ -4,7 +4,7 @@ import { activeTabs } from "../../_actions/tab_action";
 import { useSubNav } from "./CustomHooks/useSubNav";
 import {
   StyledSectonD,
-  DefaultScreen,
+  SectionDScreen,
   TabList,
   TabMenu,
   TabsContents,
@@ -59,7 +59,7 @@ export default function SectionD() {
 
   return (
     <StyledSectonD ref={refD} id="HowToPlayContainer">
-      <DefaultScreen>
+      <SectionDScreen>
         <TabContainer>
           <TabList>
             {tabTitle.map((menu, idx) => (
@@ -74,7 +74,7 @@ export default function SectionD() {
             <button onClick={prevBtn}>이전</button>
           </TabsContents>
         </TabContainer>
-      </DefaultScreen>
+      </SectionDScreen>
     </StyledSectonD>
   );
 }
