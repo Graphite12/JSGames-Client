@@ -20,6 +20,7 @@ html,body {
 
 }
 `;
+
 export default GlobalStyles;
 
 export const Container = styled.div`

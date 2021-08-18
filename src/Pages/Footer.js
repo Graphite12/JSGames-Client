@@ -16,8 +16,12 @@ export default function Footer() {
   return (
     <StyledFooter>
       <FooterLinkBox>
-        <h1>JavaScript Games</h1>
-        <span>Email:email</span>
+        <header>
+          <h1>JavaScript Games</h1>
+        </header>
+        <div className="info">
+          <span className="info-email">{`Email: elitebook855@gmail.com`}</span>
+        </div>
         <span></span>
       </FooterLinkBox>
       <FooterSocialBox>

@@ -1,9 +1,10 @@
 import {
   StyledSectonC,
   DefaultScreen,
+  SectionCImage,
   SectionCScreen,
 } from "./styles/StyledSectionCDE";
-
+import webImg from "./image/webIcon.jpg";
 import { useSubNav } from "./CustomHooks/useSubNav";
 
 export default function SectionC() {
@@ -19,6 +20,9 @@ export default function SectionC() {
           </h1>
         </header>
       </SectionCScreen>
+      <SectionCImage>
+        <img src={webImg} />
+      </SectionCImage>
     </StyledSectonC>
   );
 }

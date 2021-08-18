@@ -9,17 +9,14 @@ export const StyledFooter = styled.footer`
   height: 30vh;
 
   position: relative;
-  // background-color: rgb(13, 33, 52);
-  background-image: url(${footerBg});
-  background-size: cover;
+  background-color: #3c3c3c;
 `;
 
 const FooterBox = styled.div`
   display: flex;
   flex-direction: column;
 
-  align-items: center;
-  height: 90%;
+  height: 80%;
   position: absolute;
 `;
 
@@ -27,14 +24,36 @@ export const FooterLinkBox = styled(FooterBox)`
   left: 10%;
   width: 55%;
   padding: 1%;
-  border: 1px solid black;
+
   border-radius: 3px;
 
-  h1 {
+  header {
     position: absolute;
     left: 2%;
-    font-size: 2rem;
-    font-weight: bold;
+    top: 0%;
+
+    h1 {
+      font: bold 80px arial, sans-serif;
+      background-color: #000000;
+      color: transparent;
+      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+    }
+  }
+
+  .info {
+    position: absolute;
+    top: 55%;
+
+    font: bold 20px arial, sans-serif;
+    background-color: #000000;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
   }
 `;
 
@@ -56,8 +75,8 @@ export const FooterSocialBox = styled(FooterBox)`
     border-radius: 20px;
     background-color: inherit;
     .icon {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
 
       border-radius: 50%;
 

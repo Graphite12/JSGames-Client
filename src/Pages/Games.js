@@ -17,19 +17,19 @@ const gameItems = [
   {
     title: "TicTacToe",
     gTypes: "arcade",
-    toUrl: "/tictactoe",
+    toUrl: "/games/tictactoe",
     img: `${tictactoes}`,
   },
   {
     title: "Tetris",
     gTypes: "arcade",
-    toUrl: "/tetris",
+    toUrl: "/games/tetris",
     img: `${tetris}`,
   },
-  { title: "Memory", gTypes: "Puzzle", toUrl: "/tetris" },
-  { title: "Pacman", gTypes: "arcade", toUrl: "/tetris" },
-  { title: "MineSweep", gTypes: "Puzzle", toUrl: "/tetris" },
-  { title: "Snake", gTypes: "action", toUrl: "/tetris" },
+  { title: "Memory", gTypes: "Puzzle", toUrl: "/games/tetris" },
+  { title: "Pacman", gTypes: "arcade", toUrl: "/games/tetris" },
+  { title: "MineSweep", gTypes: "Puzzle", toUrl: "/games/tetris" },
+  { title: "Snake", gTypes: "action", toUrl: "/games/tetris" },
 ];
 
 export default function Games() {

@@ -79,10 +79,10 @@ export const BounceHeader = styled.div`
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 30%;
+  top: 20%;
 
   .spring {
-    font-size: 7rem;
+    font-size: 10rem;
     font-weight: bold;
     margin: 0 2%;
   }
