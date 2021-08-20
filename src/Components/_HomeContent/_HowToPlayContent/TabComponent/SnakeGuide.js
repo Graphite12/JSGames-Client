@@ -1,3 +1,6 @@
+import { CarouselBtnBox } from "../../styles/StyledSectionCDE";
+import { StyledSlider, TTTGuideContainer } from "./styles/StyledGuide";
+
 export default function SnakeGuide() {
   return (
     <div>

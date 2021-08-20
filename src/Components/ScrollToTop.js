@@ -1,12 +1,37 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ScrollToTopBox, ToUpBtn } from "./styles/StyledScrollToTop";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
 
-  return null;
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  return (
+    <ScrollToTopBox isVisible={isVisible}>
+      {isVisible && (
+        <ToUpBtn onClick={handleToTop}>
+          <h3>UP</h3>
+        </ToUpBtn>
+      )}
+    </ScrollToTopBox>
+  );
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { TYPES, MAF } from "./types";
-const API_AUTH = "https://jsgames.link/auth";
+const API_AUTH = "https://service.jsgames.link/auth";
 const API_USER = "https://jsgames.link";
 //필수!!
 axios.defaults.withCredentials = true;

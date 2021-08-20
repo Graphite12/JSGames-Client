@@ -1,8 +1,10 @@
+import { CarouselBtnBox } from "../../styles/StyledSectionCDE";
 import {
   StyledSlider,
+  TTTGuideContainer,
   TetrisGuideContainer,
-  CarouselBtnBox,
-} from "../styles/StyledSectionCDE";
+} from "./styles/StyledGuide";
+
 import { useRef } from "react";
 
 export default function TetrisGuide({ setting, pb, nb, target }) {

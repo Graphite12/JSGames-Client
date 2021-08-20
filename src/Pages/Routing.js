@@ -11,9 +11,7 @@ import Login from "../Components/UserForm/Login";
 import Register from "../Components/UserForm/Register";
 import Navigation from "../Components/Navigation";
 import ScrollToTop from "../Components/ScrollToTop";
-import SectionC from "../Components/_HomeContent/SectionC";
-import SectionD from "../Components/_HomeContent/SectionD";
-import SectionE from "../Components/_HomeContent/SectionE";
+
 import Games from "./Games";
 import About from "./About";
 //게임파일들

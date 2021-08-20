@@ -12,9 +12,9 @@ import {
   Img,
   TextScreen,
   AboutButton,
-} from "./styles/StyledSection";
-import pad1 from "../../image/gamepad.png";
-import pad2 from "../../image/gamepad2.png";
+} from "../styles/StyledSection";
+import pad1 from "../../../image/gamepad.png";
+import pad2 from "../../../image/gamepad2.png";
 
 //fontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,10 +25,10 @@ import { useEffect, useState } from "react";
 import { useSpring, animated, config } from "react-spring";
 import { useDispatch, useSelector } from "react-redux";
 
-import { flipIcon } from "../../_actions/modalAndFlips_action";
+import { flipIcon } from "../../../_actions/modalAndFlips_action";
 import { useHistory } from "react-router-dom";
 
-export default function SectionA() {
+export default function Main() {
   const history = useHistory();
   const dispatch = useDispatch();
   const calc = (x, y) => [
@@ -68,27 +68,26 @@ export default function SectionA() {
       {/* <Angle></Angle> */}
       <SectionAContent>
         <TextScreen>
-          {!isIconFlips ? (
-            <TextContent>
-              <header>
-                <h1>
-                  재미를 추구하는 <br />
-                  웹페이지
-                </h1>
-              </header>
-              <div className="about-btn">
-                <AboutButton>자세히 알아보기</AboutButton>
-              </div>
-            </TextContent>
-          ) : (
+          <TextContent>
+            <header>
+              <h1>
+                재미를 추구하는 <br />
+                웹페이지
+              </h1>
+            </header>
+            <div className="about-btn">
+              <AboutButton>자세히 알아보기</AboutButton>
+            </div>
+          </TextContent>
+          {/* ) : (
             <TextContent>
               <div>
                 <h1>재밌는 게임을 즐겨보세요</h1>
               </div>
             </TextContent>
-          )}
+          )}  */}
         </TextScreen>
-        <CardBox
+        {/* <CardBox
           onClick={fliped}
           onMouseMove={({ clientX: x, clientY: y }) =>
             setHover({ xys: calc(x, y) })
@@ -106,7 +105,7 @@ export default function SectionA() {
               <Img src={pad2} />
             </CardBack>
           </CardInner>
-        </CardBox>
+        </CardBox> */}
       </SectionAContent>
     </SectionAContainer>
   );

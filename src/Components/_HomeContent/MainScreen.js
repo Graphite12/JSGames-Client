@@ -1,6 +1,6 @@
 //component
 import SectionC from "./SectionC";
-import SectionD from "./SectionD";
+import HowToPlay from "./_HowToPlayContent/HowToPlay";
 import SectionE from "./SectionE";
 import SuvNavProvider from "./CustomHooks/SubNavContext";
 import { LogPage } from "./styles/StyledSectionCDE";
@@ -12,7 +12,7 @@ export default function MainScreen() {
   const { isSticky, element } = useSticky();
 
   const linkList = [
-    { navLinkId: "Target", scrollToId: "homeContainer" },
+    { navLinkId: "Intro", scrollToId: "homeContainer" },
     { navLinkId: "HowToPlay", scrollToId: "HowToPlayContainer" },
     { navLinkId: "Other", scrollToId: "OtherContainer" },
   ];
@@ -23,7 +23,7 @@ export default function MainScreen() {
         <SubNavigation sticky={isSticky} linkList={linkList} />
         <article ref={element}>
           <SectionC />
-          <SectionD />
+          <HowToPlay />
           <SectionE />
         </article>
       </SuvNavProvider>

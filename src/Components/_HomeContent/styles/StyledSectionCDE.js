@@ -145,8 +145,8 @@ export const TabSideBar = styled.ul`
 
   background: inherit;
   padding: 0 1%;
-  max-width: 400px;
-  min-width: 100px;
+  // max-width: 400px;
+  // min-width: 100px;
   position: relative;
   transition: ${({ isSidebar }) =>
     isSidebar ? " 0.2s linear all;" : "0.2s linear all;"};
@@ -216,53 +216,12 @@ export const TabsContents = styled.div`
   .btn-box {
     z-index: 9;
     position: absolute;
-    top: 20%;
+    bottom: 5%;
   }
 `;
 
 /*게임 가이드 캐러셀 Styiling */
 /* 공통 스타일 */
-export const GuideContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;
-
-export const CarouselBtnBox = styled.div`
-  display: flex;
-`;
-
-export const StyledSlider = styled(Slider)`
-  height: 100%;
-  width: 100%;
-  z-index: 7;
-  .slick-list {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    overflow-x: hidden;
-    background: green;
-  }
-
-  .slick-slide div {
-    cursor: pointer;
-  }
-
-  .slick-dots {
-    bottom: 20px;
-    margin-top: 200px;
-  }
-
-  .slick-track {
-  }
-`;
-
-/*틱택토 스타일링 */
-export const TTTGuideContainer = styled(GuideContainer)``;
-
-/*테트리스 스타일링 */
-export const TetrisGuideContainer = styled(GuideContainer)``;
 
 //컴포넌트 E
 export const StyledSectonE = styled.section`

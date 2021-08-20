@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { activeTabs } from "../../_actions/tab_action";
-import { useSubNav } from "./CustomHooks/useSubNav";
+import { activeTabs } from "../../../_actions/tab_action";
+import { useSubNav } from "../CustomHooks/useSubNav";
 import {
   StyledSectonD,
   SectionDScreen,
@@ -14,7 +14,7 @@ import {
   TabItems,
   TabIcon,
   TabText,
-} from "./styles/StyledSectionCDE";
+} from "../styles/StyledSectionCDE";
 import MemorysGuide from "./TabComponent/MemorysGuide";
 import SnakeGuide from "./TabComponent/SnakeGuide";
 import TetrisGuide from "./TabComponent/TeTrisGuide";
@@ -30,10 +30,10 @@ import {
 
 //icon
 
-import tet from "./image/tetris.png";
-import ttt from "./image/tictactoe.png";
-import mem from "./image/memory.png";
-import pac from "./image/pacman.png";
+import tet from "../image/tetris.png";
+import ttt from "../image/tictactoe.png";
+import mem from "../image/memory.png";
+import pac from "../image/pacman.png";
 //Spring(animation) Option
 
 const settings = {
@@ -49,7 +49,7 @@ const settings = {
   centerPadding: "0px", // 0px 하면 슬라이드 끝쪽 이미지가 안잘림
 };
 
-export default function SectionD() {
+export default function HowToPlay() {
   const dispatch = useDispatch();
   const activeTab = useSelector((state) => state.tabs_Reducer.activeTab);
   // console.log(useSelector((state) => state.tabs_Reducer.activeTab));
@@ -72,8 +72,8 @@ export default function SectionD() {
 
   useEffect(() => {
     const updateWindowWidth = () => {
-      if (window.innerWidth < 1280) setSidebar(false);
-      else setSidebar(true);
+      if (window.innerWidth < 1300) setSidebar(true);
+      else setSidebar(false);
     };
 
     window.addEventListener("resize", updateWindowWidth);
