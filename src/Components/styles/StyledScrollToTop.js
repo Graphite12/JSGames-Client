@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ScrollToTopBox = styled.div`
   width: 70px;
-  height: 70px;
+  height: 0px;
   position: fixed;
   top: 50%;
   right: 2%;
