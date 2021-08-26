@@ -18,6 +18,7 @@ import {
 //component
 import Login from "./UserForm/Login";
 import Register from "./UserForm/Register";
+import Profile from "./UserForm/Profile";
 import { useSpring } from "react-spring";
 
 export default function Modal() {
@@ -70,7 +71,7 @@ export default function Modal() {
       <Main_Container>
         {isLoggedIn ? (
           <div>
-            <div>sadfadsfasd</div>
+            <Profile />
           </div>
         ) : (
           <Auth_box>

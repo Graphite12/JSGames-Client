@@ -30,3 +30,8 @@ export const MAF = {
 export const TABS = {
   ACTIVE_TAB: "ACTIVE_TAB",
 };
+
+export const TYPE2 = {
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+  MAILER_STATUS: "MAILER_STATUS",
+};

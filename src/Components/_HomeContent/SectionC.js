@@ -3,7 +3,7 @@ import {
   DefaultScreen,
   SectionCImage,
   SectionCScreen,
-} from "./styles/StyledSectionCDE";
+} from "./styles/StyledNumScreen";
 import webImg from "./image/webIcon.jpg";
 import { useSubNav } from "./CustomHooks/useSubNav";
 

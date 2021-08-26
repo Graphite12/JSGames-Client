@@ -76,7 +76,7 @@ export default function Main() {
               </h1>
             </header>
             <div className="about-btn">
-              <AboutButton>자세히 알아보기</AboutButton>
+              <AboutButton>Started</AboutButton>
             </div>
           </TextContent>
           {/* ) : (

@@ -1,20 +1,23 @@
 //component
-import SectionC from "./SectionC";
-import HowToPlay from "./_HowToPlayContent/HowToPlay";
-import SectionE from "./SectionE";
-import SuvNavProvider from "./CustomHooks/SubNavContext";
-import { LogPage } from "./styles/StyledSectionCDE";
+
+import { LogPage } from "./styles/StyledNumScreen";
+
+import React from "react";
+
 import SubNavigation from "./SubNavigation";
 import useSticky from "./CustomHooks/useSticky";
-import React from "react";
+import SectionC from "./SectionC";
+import HowToPlay from "./SecondScreen/SecondScreen";
+import SectionE from "./ThirdScreen/SectionE";
+import SuvNavProvider from "./CustomHooks/SubNavContext";
 
 export default function MainScreen() {
   const { isSticky, element } = useSticky();
 
   const linkList = [
-    { navLinkId: "Intro", scrollToId: "homeContainer" },
-    { navLinkId: "HowToPlay", scrollToId: "HowToPlayContainer" },
-    { navLinkId: "Other", scrollToId: "OtherContainer" },
+    { navLinkId: "Main", scrollToId: "homeContainer" },
+    { navLinkId: "Game", scrollToId: "HowToPlayContainer" },
+    { navLinkId: "Contact Us", scrollToId: "OtherContainer" },
   ];
 
   return (

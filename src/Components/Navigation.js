@@ -34,7 +34,7 @@ export default function Navigation() {
 
   const { isLoggedIn } = useSelector((state) => state.auth_Reducer);
   const { isModal } = useSelector((state) => state.modalAndFlips_Reducer);
-  const navlink = ["ABOUT", "GAMES", "CONTACTUS"];
+  const navlink = ["ABOUT", "GAMES"];
 
   const onLogouts = () => {
     dispatch(logout());

@@ -1,11 +1,11 @@
-import { CarouselBtnBox } from "../../styles/StyledSectionCDE";
+import { CarouselBtnBox } from "../styles/StyledNumScreen";
 import {
   StyledSlider,
   TTTGuideContainer,
   AGuideContainer,
 } from "./styles/StyledGuide";
 
-export default function MemorysGuide({ setting, pb, nb, target }) {
+export default function Other2({ setting, pb, nb, target }) {
   return (
     <AGuideContainer>
       <StyledSlider ref={target} {...setting}>

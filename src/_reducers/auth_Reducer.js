@@ -2,9 +2,7 @@ import { TYPES } from "../_actions/types";
 
 const initialState = {
   userInfo: null,
-
   isLoggedIn: null,
-
   modalType: "",
 };
 

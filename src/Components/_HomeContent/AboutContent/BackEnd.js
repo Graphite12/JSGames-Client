@@ -1,4 +1,4 @@
-import { CarouselBtnBox } from "../../styles/StyledSectionCDE";
+import { CarouselBtnBox } from "../styles/StyledNumScreen";
 import {
   StyledSlider,
   TTTGuideContainer,
@@ -7,14 +7,11 @@ import {
 
 import { useRef } from "react";
 
-export default function TetrisGuide({ setting, pb, nb, target }) {
+export default function BackEnd({ setting, pb, nb, target }) {
   return (
     <TetrisGuideContainer>
       <StyledSlider ref={target} {...setting}>
-        <h1>테트리스 가이드</h1>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+        <h1>백엔드는 이런식으로 구현했습니다.</h1>
       </StyledSlider>
     </TetrisGuideContainer>
   );

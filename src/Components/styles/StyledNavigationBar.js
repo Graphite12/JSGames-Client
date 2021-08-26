@@ -18,7 +18,7 @@ export const Navbar = styled.nav`
   @media (max-width: 1080px) {
     transition: 0.2s linear;
     background-color: rgba(3, 3, 3, 0.9);
-    position: absolute;
+    position: fixed;
   }
 `;
 
@@ -61,6 +61,7 @@ export const MenuLinks = styled.ul`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-right: 10%;
 
   @media (max-width: 1080px) {
     background-color: rgba(3, 3, 3, 0.9);
@@ -73,8 +74,8 @@ export const MenuLinks = styled.ul`
     max-height: ${({ click }) => (click ? "700px" : "0")};
     transition: max-height 0.3s ease-in;
     width: 100%;
-    height: 100vh;
-    position: absolute;
+    height: 100%;
+    position: fixed;
   }
 `;
 
