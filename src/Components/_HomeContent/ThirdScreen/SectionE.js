@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import {
   StyledSectonC,
   StyledSectonD,
@@ -19,37 +20,54 @@ import { sendMail } from "../../../_actions/mailer_action";
 
 export default function SectionE() {
   const refE = useSubNav("Other");
-  const dispatch = useDispatch();
-  const history = useHistory();
 
   const [mailerState, setMailerState] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
-  const emailInputValue = (key) => (e) => {
-    if (key === "name") setMailerState(e.target.value);
-    if (key === "email") setMailerState(e.target.value);
-    if (key === "msg") setMailerState(e.target.value);
+  const emailInputValue = (e) => {
+    setMailerState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+    console.log(mailerState);
   };
 
-  console.log(mailerState);
   const submitEmail = async (e) => {
     e.preventDefault();
-
-    dispatch(sendMail(mailerState));
-    // setMailerState({
-    //   email: "",
-    //   name: "",
-    //   message: "",
-    // });
+    // console.log(mailerState);
+    axios
+      .post(`https://localhost:5000/contact`, mailerState, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(async (res) => {
+        const resData = await res;
+        console.log(resData);
+        if (resData.status === "success") {
+          alert("Message Sent");
+        } else if (resData.status === "fail") {
+          alert("Message failed to send");
+        }
+        setMailerState({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
     <StyledSectonE ref={refE} id="OtherContainer">
       <SectionEScreen>
         <Left_Box>
+          <p>Contact Us</p>
           <Monitor>
             <div className="laptop_screen"></div>
             <div className="task_bar"></div>
@@ -57,24 +75,37 @@ export default function SectionE() {
           <Body></Body>
         </Left_Box>
         <Right_Box>
-          <p>Contact Us</p>
+          <p>HAVE SOME QUESTIONS?</p>
           <Form onSubmit={submitEmail}>
             <input
               type="text"
               name="name"
-              onChange={emailInputValue("name")}
+              value={mailerState.name}
+              onChange={emailInputValue}
+              placeholder="yourName"
               required
             />
             <input
               type="email"
-              namer="email"
-              onChange={emailInputValue("email")}
+              name="email"
+              value={mailerState.email}
+              onChange={emailInputValue}
+              placeholder="youremail@gmail.com"
               required
+            />
+            <input
+              type="text"
+              placeholder="subject"
+              name="subject"
+              value={mailerState.subject}
+              placeholder="subject ex) 제목 작성"
+              onChange={emailInputValue}
             />
             <textarea
               name="message"
-              onChange={emailInputValue("msg")}
-              placeholder="message"
+              value={mailerState.message}
+              onChange={emailInputValue}
+              placeholder="전달할 메세지를 작성"
             />
             <button>Send Email</button>
           </Form>

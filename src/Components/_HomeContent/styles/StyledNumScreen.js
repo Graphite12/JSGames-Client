@@ -174,20 +174,14 @@ export const Left_Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const Right_Box = styled.div`
-  position: absolute;
-  width: 30%;
-  height: 70%;
-  border: 1px solid white;
-  right: 10%;
 
   p {
     text-align: center;
     font-size: 5rem;
     font-weight: bolder;
     color: whitesmoke;
+
+    margin-bottom: 5%;
   }
 `;
 
@@ -227,9 +221,54 @@ export const Body = styled.div`
   border-radius: 0px 0px 8px 8px;
 `;
 
+export const Right_Box = styled.div`
+  position: absolute;
+  width: 40%;
+  height: 70%;
+  border: 1px solid white;
+  right: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: whitesmoke;
+  }
+`;
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   width: 80%;
+
+  input {
+    width: 100%;
+    height: 45px;
+    margin-top: 2%;
+    padding: 1.5% 2%;
+
+    font-size: 1.2rem;
+  }
+
+  textarea {
+    width: 100%;
+    height: 200px;
+    margin-top: 5%;
+    padding: 1%;
+    font-size: 1.1rem;
+  }
+
+  button {
+    margin-top: 5%;
+
+    width: 300px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 `;
